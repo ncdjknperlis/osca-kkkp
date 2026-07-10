@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktiviti - OSCA Klinik Kesihatan Kuala Perlis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#ffb800',
+                            600: '#d97706',
+                            800: '#92400e',
+                        },
+                        brandDark: '#0f172a',
+                        brandLight: '#ffffff',
+                        bgSecondary: '#f8fafc'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-brandLight text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER INJECTOR CONTAINER -->
+    <div id="header-container"></div>
+
+    <main class="flex-grow py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase font-bold tracking-widest text-brandYellow-600">Perkembangan Komuniti</span>
+                <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-2">Sorotan Aktiviti & Advokasi</h2>
+                <p class="text-slate-500 mt-2 text-sm">Garis masa program kelompok pemulihan, advokasi, dan latihan kesedaran awam (Susunan Terbaharu Dahulu) [15-17].</p>
+            </div>
+
+            <!-- Switcher -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-slate-100 p-1.5 rounded-xl inline-flex border border-slate-200">
+                    <button onclick="toggleActivity('psikososial')" id="btn-psikososial" class="px-6 py-2.5 text-sm font-bold rounded-lg bg-white text-slate-900 shadow-sm transition">Aktiviti Psikososial</button>
+                    <button onclick="toggleActivity('advokasi')" id="btn-advokasi" class="px-6 py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-900 transition">Aktiviti Advokasi</button>
+                </div>
+            </div>
+
+            <!-- 1. TIMELINE PSIKOSOSIAL (KRONOLOGI TERBALIK - LATEST FIRST) -->
+            <div id="section-psikososial" class="relative border-l-2 border-slate-200 ml-4 md:ml-40 space-y-12 py-4">
+                
+                <!-- 30 Jan 2026 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">30 Jan 2026</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2026</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">30 Januari 2026</span>
+                        <h4 class="text-base font-black text-brandDark">Program Semaian Anak Benih Di Laman Oasis OSCA KKKPs [15, 19]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Aktiviti terapi alternatif berasaskan hortikultur (pertanian ringan) untuk ketenangan jiwa pesakit di perkarangan klinik.</p>
+                    </div>
+                </div>
+
+                <!-- 19 Jan 2026 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">19 Jan 2026</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2026</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">19 Januari 2026</span>
+                        <h4 class="text-base font-black text-brandDark">Saringan Klien AADK Daerah Perlis Selatan [20]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Saringan kesihatan, saringan mental, pengesanan awal kesediaan tingkah laku (URICA), dan penyusunan bantuan saringan intervensi awal.</p>
+                    </div>
+                </div>
+
+                <!-- 15 Okt 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">15 Okt 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">15 Oktober 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Program Perkongsian Psikologi (Sokongan & Asertif) [21]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sesi latihan membina kemahiran asertif dan sokongan emosi berstruktur berkelompok bagi pengukuhan jati diri rakan pemulihan.</p>
+                    </div>
+                </div>
+
+                <!-- 4 Sept 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">4 Sept 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">4 September 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Program Santai Methadone Bersama Waris [16, 22]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sesi ramah mesra waris serta perkongsian kepentingan pemantauan berpanjangan dan peranan sokongan penuh dalam pemulihan.</p>
+                    </div>
+                </div>
+
+                <!-- 14 Ogos 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">14 Ogos 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">14 Ogos 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Program Penilaian 'Interest Checklist' & Permainan Kognitif [16, 23]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Penilaian minat vokasional dan bimbingan kefahaman kognitif interaktif bersama ahli terapis pemulihan.</p>
+                    </div>
+                </div>
+
+                <!-- 30 Julai 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">30 Julai 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">30 Julai 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Program Kesedaran & Pemerkasaan Kesihatan Wanita [15, 23]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Mengangkat kesejahteraan wanita dalam fasa pemulihan bagi persediaan asimilasi semula dalam masyarakat.</p>
+                        <div class="mt-2 flex space-x-2 text-[10px] font-bold text-slate-500">
+                            <span>Tempat: Pusat Khidmat AADK [15]</span>
+                            <span>•</span>
+                            <span>Penglibatan: AADK [16]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 19 Jun 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">19 Jun 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">19 Jun 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Program Pengurusan Kewangan & Pengurusan Diri [15, 24]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Latihan asas membina kemandirian kewangan (literasi wang) serta bimbingan penjagaan personaliti diri (grooming).</p>
+                    </div>
+                </div>
+
+                <!-- Mulai Mei 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">Mulai Mei 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">Mulai Mei 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Kelas Al-Quran & Iqra' Mingguan [15]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sesi pengisian kerohanian berkelompok murni yang dikendalikan setiap minggu bagi asimilasi spiritual yang kukuh.</p>
+                        <div class="mt-2 text-[10px] font-bold text-slate-500">
+                            Penglibatan: Guru Quran [15]
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 25 April 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">25 Apr 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">25 April 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Program Tautan Kasih : Sambutan Raya OSCA [15]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Meraikan kemenangan bersama keluarga dan waris bagi memperkuat fungsi sokongan sosial pesakit.</p>
+                    </div>
+                </div>
+
+                <!-- 21 Mac 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">21 Mac 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">21 Mac 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Program Sinari Ramadhan 2025 [15, 25]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Mengisi bulan mulia dengan program pendedahan rohani, zikir, dan amalan murni kelompok bagi kekuatan rohani pesakit.</p>
+                    </div>
+                </div>
+
+                <!-- 12 Feb 2025 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">12 Feb 2025</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2025</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">12 Februari 2025</span>
+                        <h4 class="text-base font-black text-brandDark">Kaunseling Berkelompok Bersama Farmasi [15, 26]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sesi penerangan bimbingan cara perubatan, kepatuhan terapi ubat, serta pemantauan sokongan fizikal secara kelompok.</p>
+                    </div>
+                </div>
+
+                <!-- 30 Ogos 2024 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">30 Ogos 2024</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2024</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">30 Ogos 2024</span>
+                        <h4 class="text-base font-black text-brandDark">Program Kemerdekaan : Bebaskah Aku? [15, 27]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Mengisi bulan kemerdekaan dengan sesi ceramah pembinaan jati diri serta membina jiwa yang merdeka daripada cengkaman ketagihan.</p>
+                        <div class="mt-2 flex space-x-2 text-[10px] font-bold text-slate-500">
+                            <span>Tempat: Bilik Mesyuarat KK Kuala Perlis [27]</span>
+                            <span>•</span>
+                            <span>Kehadiran: 10 Orang [27]</span>
+                            <span>•</span>
+                            <span>Penglibatan: AADK [15]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 20 Ogos 2024 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">20 Ogos 2024</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2024</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">20 Ogos 2024</span>
+                        <h4 class="text-base font-black text-brandDark">Program Sihat Milik Semua: Hiking Gunung Medan [15, 28]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Aktiviti rekreasi fizikal luaran bagi melatih ketahanan mental, kecergasan tubuh, serta membina ikatan terapeutik erat di luar klinik.</p>
+                        <div class="mt-2 flex space-x-2 text-[10px] font-bold text-slate-500">
+                            <span>Tempat: Gunung Medan Utan Aji, Perlis [28]</span>
+                            <span>•</span>
+                            <span>Penglibatan: Panel Penasihat [15]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 26 April 2024 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">26 Apr 2024</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2024</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">26 April 2024</span>
+                        <h4 class="text-base font-black text-brandDark">Jamuan Raya OSCA [15, 28]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Sambutan kekeluargaan bersama klien dan waris bagi membina persefahaman dalam suasana gembira dan santai.</p>
+                        <div class="mt-2 flex space-x-2 text-[10px] font-bold text-slate-500">
+                            <span>Tempat: Bilik Penyelia PPP U36 [28]</span>
+                            <span>•</span>
+                            <span>Kehadiran: 25 Orang [28]</span>
+                            <span>•</span>
+                            <span>Penglibatan: NGO Cahaya Harapan [15]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 22 Mac 2024 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute -left-44 top-1 text-right w-36">
+                        <span class="text-xs font-black text-brandDark">22 Mac 2024</span>
+                        <span class="block text-[10px] text-brandYellow-600 font-bold uppercase tracking-wide">Tahun 2024</span>
+                    </div>
+                    <div class="absolute -left-[7px] md:-left-[9px] top-1.5 w-4 h-4 bg-brandYellow-500 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 max-w-3xl hover:border-brandYellow-500 hover:shadow-md transition">
+                        <span class="md:hidden text-xs font-bold text-brandYellow-600 block mb-1">22 Mac 2024</span>
+                        <h4 class="text-base font-black text-brandDark">Program Sinari Ramadhan 2024 [15, 17]</h4>
+                        <p class="text-xs text-slate-500 mt-1">Pengisian awal rohaniah, membina kekuatan dalaman, serta pengukuhan moral bersempena kehadiran bulan suci.</p>
+                        <div class="mt-2 flex space-x-2 text-[10px] font-bold text-slate-500">
+                            <span>Tempat: Bilik Mesyuarat KKKPs [17]</span>
+                            <span>•</span>
+                            <span>Penglibatan: NGO Cahaya Harapan [15]</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 2. ADVOKASI GRID CARDS (KRONOLOGI TERBALIK - LATEST FIRST) -->
+            <div id="section-advokasi" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+                
+                <!-- 25 Okt 2025 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">25 Okt 2025</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">UiTM</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Program Mindfit & Hari Kesihatan Mental [16, 29]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Pameran pendedahan kesedaran pencegahan ketagihan serta saringan minda sihat interaktif bersama mahasiswa UiTM Perlis.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penganjur: PKD Kangar & UiTM Perlis [16, 29]
+                    </div>
+                </div>
+
+                <!-- 19 Julai 2025 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">19 Julai 2025</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">Wanita</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Wanita Sihat Pemangkin Negara [16, 30]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Slot penerangan khusus advokasi saringan kesihatan mental serta pencegahan bahaya dadah dalam kalangan komuniti wanita setempat.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Sektor: Pasukan OSCA [16, 30]
+                    </div>
+                </div>
+
+                <!-- 25 Mei 2025 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">25 Mei 2025</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">Radio FM</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Medik Radio Perlis FM [16, 17]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Perkongsian radio tajuk *"Merungkai Belenggu Ketagihan"* bagi memperjelaskan fungsi perkhidmatan pemulihan klinikal kepada khalayak awam.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penceramah: Dr. Norhafiza (Pakar Kesihatan) [16, 17]
+                    </div>
+                </div>
+
+                <!-- 21 Mei 2025 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">21 Mei 2025</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">FB Live</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">FB Live: Perkhidmatan OSCA [16, 17]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Kupasan penawaran saringan, konsultasi rawatan bimbingan, serta kemudahan rawatan methadone di Klinik Kesihatan Kuala Perlis.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penceramah: Dr. Nurshazwani [16, 17]
+                    </div>
+                </div>
+
+                <!-- 17 Feb 2025 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">17 Feb 2025</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">IKBN</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Advokasi Minda Sihat & Pencegahan di IKBN [17]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Sesi taklimat khas kesedaran awal, saringan minda sihat, dan pencegahan ketagihan bahan bagi pelatih belia.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penglibatan: Pasukan OSCA & KBM [17]
+                    </div>
+                </div>
+
+                <!-- 15 Nov 2024 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">15 Nov 2024</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">FB Live</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">FB Live: Ketagihan Gajet Minda [16]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Intervensi dan perkongsian digital secara langsung mengenai risiko dan kaedah mengawal ketagihan saringan gajet dalam keluarga.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penyelia: Pegawai Psikologi Kaunseling [16, 17]
+                    </div>
+                </div>
+
+                <!-- Okt 2024 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">Okt 2024</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">Komuniti</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Kem Kesihatan KD Titi Tok Bandar [16]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Kaunter pameran, khidmat saringan kesihatan mental, serta khidmat bimbingan cara perubatan percuma buat komuniti setempat.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penglibatan: Pasukan OSCA & KBM [16]
+                    </div>
+                </div>
+
+                <!-- Ogos 2024 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">Ogos 2024</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">IKBN</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Advokasi Minda Sihat & Pencegahan di IKBN [16]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Sesi penerangan dan advokasi rintis bagi melatih minda sihat dan mencegah risiko ketagihan di peringkat institusi pendidikan.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penglibatan: Pasukan OSCA & KBM [16]
+                    </div>
+                </div>
+
+                <!-- 12 Julai 2024 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">12 Julai 2024</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">Sekolah</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Program Remaja Cakna SMK Kuala Perlis [16]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Program pendidikan, pencegahan bahaya dadah/vape, serta asertif tegas diri menolak pengaruh negatif rakan sebaya.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penglibatan: Pasukan OSCA & KBM [16]
+                    </div>
+                </div>
+
+                <!-- Feb 2024 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">Feb 2024</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">IKBN</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Siri Advokasi Pencegahan Ketagihan Belia [16]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Taklimat pendedahan bahaya penyalahgunaan substans psikotropik serta pengenalan perkhidmatan rawatan sehenti KKM.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Penglibatan: Pasukan OSCA & KBM [16]
+                    </div>
+                </div>
+
+                <!-- Ogos 2023 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brandYellow-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-extrabold text-slate-900">Ogos 2023</span>
+                            <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">IKBN</span>
+                        </div>
+                        <h4 class="text-base font-black text-brandDark mt-3">Advokasi Pelaksanaan Program OSCA di IKBN [18]</h4>
+                        <p class="text-xs text-slate-500 mt-2">Kempen pendedahan awal program rintis pengurusan pemulihan klinikal bagi mengekang isu penyalahgunaan bahan dalam komuniti belia.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 text-[10px] font-bold text-brandYellow-600 uppercase tracking-wide">
+                        Sektor: Unit Rawatan OSCA KK Kuala Perlis [18]
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER INJECTOR CONTAINER -->
+    <div id="footer-container"></div>
+
+    <script src="navigation.js"></script>
+
+    <script>
+        function toggleActivity(type) {
+            const secPsikososial = document.getElementById('section-psikososial');
+            const secAdvokasi = document.getElementById('section-advokasi');
+            const btnPsikososial = document.getElementById('btn-psikososial');
+            const btnAdvokasi = document.getElementById('btn-advokasi');
+
+            if (type === 'psikososial') {
+                secPsikososial.classList.remove('hidden');
+                secAdvokasi.classList.add('hidden');
+                btnPsikososial.className = "px-6 py-2.5 text-sm font-bold rounded-lg bg-white text-slate-900 shadow-sm transition";
+                btnAdvokasi.className = "px-6 py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-900 transition";
+            } else {
+                secPsikososial.classList.add('hidden');
+                secAdvokasi.classList.remove('hidden');
+                btnPsikososial.className = "px-6 py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-900 transition";
+                btnAdvokasi.className = "px-6 py-2.5 text-sm font-bold rounded-lg bg-white text-slate-900 shadow-sm transition";
+            }
+        }
+    </script>
+</body>
+</html>

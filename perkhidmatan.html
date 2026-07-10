@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perkhidmatan - OSCA Klinik Kesihatan Kuala Perlis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#ffb800',
+                            600: '#d97706',
+                            800: '#92400e',
+                        },
+                        brandDark: '#0f172a',
+                        brandLight: '#ffffff',
+                        bgSecondary: '#f8fafc'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<!-- Perhatikan bahagian ini sahaja yang bertukar di fail anda, yang lain kekal sama -->
+<body class="bg-brandLight text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER INJECTOR CONTAINER -->
+    <div id="header-container"></div>
+
+    <main class="flex-grow py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase font-bold tracking-widest text-brandYellow-600">Pakej Perkhidmatan</span>
+                <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-2">Saringan & Pelan Intervensi OSCA</h2>
+                <p class="text-slate-500 mt-2 text-sm">Menyediakan pemulihan khusus berpandukan penilaian bertaraf klinikal di bawah Draf GP OSCA 2025 [4, 6].</p>
+            </div>
+
+            <!-- Switcher untuk Substans vs Bukan Substans -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-slate-100 p-1.5 rounded-xl inline-flex border border-slate-200">
+                    <button onclick="toggleService('substans')" id="btn-substans" class="px-6 py-2.5 text-sm font-bold rounded-lg bg-white text-slate-900 shadow-sm transition">Ketagihan Substans</button>
+                    <button onclick="toggleService('bukan-substans')" id="btn-bukan-substans" class="px-6 py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-900 transition">Ketagihan Bukan Substans</button>
+                </div>
+            </div>
+
+            <!-- SECTION: KETAGIHAN SUBSTANS -->
+            <div id="section-substans" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Saringan -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-slate-150 space-y-6 hover:border-brandYellow-500 transition duration-300">
+                    <div class="inline-block px-3 py-1 bg-brandYellow-500 text-brandDark rounded-full text-[10px] font-black uppercase tracking-wider">Langkah 1</div>
+                    <h3 class="text-xl font-extrabold text-brandDark border-b border-slate-100 pb-3">Saringan Diagnostik [4]</h3>
+                    <ul class="space-y-4 text-xs text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>URICA:</strong> Menentukan tahap kesediaan perubahan tingkah laku (*state of behavioral changes*).</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>ASSIST & OTI:</strong> Menilai jenis dan keseriusan penggunaan bahan serta status kesihatan/perundangan.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>WHOOLEY / GAD 7 / PHQ / MINI Psychosis:</strong> Saringan menyeluruh kesihatan mental dan kemurungan.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Saringan NCD & Infective Screening:</strong> Pengesanan penyakit berjangkit serta pemeriksaan status fizikal.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Intervensi Biologikal -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-slate-150 space-y-6 hover:border-brandYellow-500 transition duration-300">
+                    <div class="inline-block px-3 py-1 bg-brandYellow-500 text-brandDark rounded-full text-[10px] font-black uppercase tracking-wider">Langkah 2</div>
+                    <h3 class="text-xl font-extrabold text-brandDark border-b border-slate-100 pb-3">Intervensi Biologikal [4]</h3>
+                    <ul class="space-y-4 text-xs text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Detoxification:</strong> Pengurusan detoksifikasi serta pembasmian gejala tarikan dadah secara selamat.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Medication Assisted Therapy (MAT):</strong> Terapi ubat-ubatan pengganti seperti rawatan Methadone.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Rawatan Penyakit Berjangkit:</strong> Penghubung terus kepada rawatan HAART (HIV), DAA (Hepatitis C), jangkitan TB, dan STD.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Intervensi Psikososial -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-slate-150 space-y-6 hover:border-brandYellow-500 transition duration-300">
+                    <div class="inline-block px-3 py-1 bg-brandYellow-500 text-brandDark rounded-full text-[10px] font-black uppercase tracking-wider">Langkah 3</div>
+                    <h3 class="text-xl font-extrabold text-brandDark border-b border-slate-100 pb-3">Intervensi Psikososial [4, 5]</h3>
+                    <ul class="space-y-4 text-xs text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Rawatan Keadaan Psikiatrik Dual:</strong> Preskripsi ubat sokongan seperti *antipsychotic, antidepressant,* dan *anxiolytic*.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Rawatan Pesakit Luar Am:</strong> Sesi kaunseling bersemuka, terapi berkelompok, dan intervensi keluarga.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION: KETAGIHAN BUKAN SUBSTANS (HIDDEN BY DEFAULT) -->
+            <div id="section-bukan-substans" class="grid grid-cols-1 lg:grid-cols-3 gap-8 hidden">
+                <!-- Saringan -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-slate-150 space-y-6 hover:border-brandYellow-500 transition duration-300">
+                    <div class="inline-block px-3 py-1 bg-brandYellow-500 text-brandDark rounded-full text-[10px] font-black uppercase tracking-wider">Langkah 1</div>
+                    <h3 class="text-xl font-extrabold text-brandDark border-b border-slate-100 pb-3">Saringan Tingkah Laku [6]</h3>
+                    <ul class="space-y-4 text-xs text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Saringan Sedia Berubah:</strong> Penilaian URICA bagi mengukur kesediaan pesakit merubah ketagihan tingkah laku.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Kesejahteraan Keseluruhan:</strong> Saringan ASSIST, saringan kesihatan fizikal NCD, dan ujian kualiti hidup WHOQOL.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Ujian Minda:</strong> Mengenalpasti status kemurungan dan kecelaruan emosi (GAD 7, PHQ, MINI Psychosis).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sokongan Biologikal -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-slate-150 space-y-6 hover:border-brandYellow-500 transition duration-300">
+                    <div class="inline-block px-3 py-1 bg-brandYellow-500 text-brandDark rounded-full text-[10px] font-black uppercase tracking-wider">Langkah 2</div>
+                    <h3 class="text-xl font-extrabold text-brandDark border-b border-slate-100 pb-3">Sokongan Biologikal [6, 7]</h3>
+                    <ul class="space-y-4 text-xs text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Ubat-Ubatan Khusus:</strong> Terapi komorbiditi psikiatrik dual menggunakan ubat penenang/antidepresan mengikut tahap kestabilan mental klien.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Saringan Jangkitan:</strong> Pemeriksaan fizikal am dan saringan jangkitan kuman (HIV, Hep C, TB, STD).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sokongan Tingkah Laku -->
+                <div class="bg-white p-8 rounded-2xl border-2 border-slate-150 space-y-6 hover:border-brandYellow-500 transition duration-300">
+                    <div class="inline-block px-3 py-1 bg-brandYellow-500 text-brandDark rounded-full text-[10px] font-black uppercase tracking-wider">Langkah 3</div>
+                    <h3 class="text-xl font-extrabold text-brandDark border-b border-slate-100 pb-3">Sokongan Tingkah Laku [6]</h3>
+                    <ul class="space-y-4 text-xs text-slate-600">
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Modul Intervensi Berstruktur:</strong> Penggunaan sesi 8 tema pembinaan sahsiah bagi mengekang ketagihan tingkah laku.</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <span class="text-brandYellow-600 font-bold">•</span>
+                            <span><strong>Rujukan Fasa Awal (GP OSCA 2025):</strong> Penekanan intensif pada saringan kesediaan dan motivasi dalam tempoh 2 bulan pertama [8].</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 8 TEMA PSIKOSOSIAL -->
+            <div class="mt-24 bg-bgSecondary border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm">
+                <h3 class="text-2xl font-black text-brandDark mb-8 text-center">8 Tema Pembinaan Semula Tingkah Laku [5, 7, 9-12]</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 1</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Penilaian Kendiri [5]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Saringan kesediaan (Stage of Change), Decision Matrix, Diari Rindu, dan Pelan Elak Jatuh Semula.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 2</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Memahami diri/Motivasi [5]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Memahami konsep ketagihan, aktiviti mencetus motivasi pemulihan, dan membina Graf Kehidupan.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 3</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Pencegahan Relaps [9]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Mempelajari dan mengenalpasti tanda amaran awal relaps serta merangka strategi pencegahan konkrit.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 4</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Menghadapi Tekanan [9]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Mengamalkan Kaedah 10B KKM, teknik relaksasi minda, serta pengurusan stres harian.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 5</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Kemahiran Asertif [9]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Menguasai asertif diri 'Berani Mengatakan Tidak' dan membina keyakinan 'Aku OK, Aku adalah aku'.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 6</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Minda Positif [9]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Restrukturisasi pemikiran ABC, memupuk kesedaran minda Titik Hitam, serta penegasan 'Fikirkan Boleh'.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 7</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Bimbingan Kerjaya [10]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Persediaan ke alam pekerjaan (vokasional), penilaian kognitif, penjagaan diri (grooming), dan urus kewangan.</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl hover:border-brandYellow-500 transition">
+                        <span class="text-xs font-extrabold text-brandYellow-600 block mb-1">Tema 8</span>
+                        <h4 class="font-extrabold text-brandDark text-sm mb-2">Kerohanian & Spiritual [10]</h4>
+                        <p class="text-slate-500 text-[11px] leading-relaxed">Sesi pembinaan rohani murni berterusan untuk kestabilan emosi dan kekuatan jati diri klien.</p>
+                    </div>
+                </div>
+                <div class="mt-8 bg-brandYellow-50 border border-brandYellow-200 rounded-xl p-4 text-center">
+                    <p class="text-xs text-brandYellow-800 font-medium">
+                        *Nota Pemulihan: Intervensi diberikan mengikut keperluan klien di mana Tema 1 & 2 wajib disampaikan dalam tempoh 2 bulan pertama pemulihan [8, 10].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER INJECTOR CONTAINER -->
+    <div id="footer-container"></div>
+
+    <script src="navigation.js"></script>
+
+    <script>
+        function toggleService(type) {
+            const secSubstans = document.getElementById('section-substans');
+            const secBukanSubstans = document.getElementById('section-bukan-substans');
+            const btnSubstans = document.getElementById('btn-substans');
+            const btnBukanSubstans = document.getElementById('btn-bukan-substans');
+
+            if (type === 'substans') {
+                secSubstans.classList.remove('hidden');
+                secBukanSubstans.classList.add('hidden');
+                btnSubstans.className = "px-6 py-2.5 text-sm font-bold rounded-lg bg-white text-slate-900 shadow-sm transition";
+                btnBukanSubstans.className = "px-6 py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-900 transition";
+            } else {
+                secSubstans.classList.add('hidden');
+                secBukanSubstans.classList.remove('hidden');
+                btnSubstans.className = "px-6 py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-900 transition";
+                btnBukanSubstans.className = "px-6 py-2.5 text-sm font-bold rounded-lg bg-white text-slate-900 shadow-sm transition";
+            }
+        }
+    </script>
+</body>
+</html>

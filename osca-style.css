@@ -1,0 +1,25 @@
+/* 🌿 OSCA COGNITIVE FLUID STYLING THEME */
+:root {
+    --osca-emerald: #059669;
+    --osca-slate-dark: #0f172a;
+    --osca-light-bg: #f8fafc;
+}
+
+.osca-bg-utama { background-color: var(--osca-light-bg); }
+.osca-border { border-color: #f1f5f9; }
+.osca-teks-tajuk { color: #0f172a; }
+.osca-teks-biasa { color: #334155; }
+.osca-teks-sub { color: #64748b; }
+
+/* 🎬 ENJIN ANIMASI TRANSISI HALUS */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+html {
+    scroll-behavior: smooth;
+}
