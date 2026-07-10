@@ -10,10 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="flex justify-between items-center h-20">
                 <!-- Brand Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="border-l-4 border-brandYellow-500 pl-3">
-                        <span class="text-2xl font-black tracking-wider text-brandDark block leading-none">OSCA</span>
-                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mt-1">KK. KUALA. PERLIS</span>
-                    </div>
+                    <img src="images/logo/logo-jata-negara.png" style="max-width: 28px;" class="w-full h-auto object-contain mx-auto md:max-w-[42px]">
+                    <img src="images/logo/logo-osca-kkkp.webp" style="max-width: 80px;" class="md:max-w-[130px]">
                 </div>
 
                 <!-- Desktop Navigation Links -->
