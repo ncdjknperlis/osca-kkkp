@@ -23,13 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="rujukan.html" id="nav-rujukan" class="py-2 px-1 hover:text-brandDark transition">Bahan Rujukan</a>
                     <a href="saringan.html" id="nav-saringan" class="py-2 px-1 hover:text-brandDark transition">Saringan Digital</a>
                 </nav>
-
-                <!-- KKM Badge -->
-                <div class="hidden md:block">
-                    <span class="text-xs font-bold px-3 py-1.5 bg-brandYellow-50 text-brandYellow-800 border border-brandYellow-100 rounded-full">
-                        KKM Malaysia • JKN Perlis
-                    </span>
-                </div>
             </div>
         </div>
     </header>

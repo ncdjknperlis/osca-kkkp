@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembaca Flipbook Garis Panduan KKM</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#ffb800',
+                            600: '#d97706',
+                            800: '#92400e',
+                        },
+                        brandDark: '#0f172a'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Muat PDF.js secara global -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            user-select: none;
+        }
+        /* Kesan Bayangan Lipatan Tengah */
+        .page-fold {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0) 100%);
+            z-index: 10;
+            pointer-events: none;
+        }
+        .page-shadow-left {
+            box-shadow: -10px 0 20px -5px rgba(0,0,0,0.3);
+        }
+        .page-shadow-right {
+            box-shadow: 10px 0 20px -5px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="text-white flex flex-col h-screen overflow-hidden">
+
+    <!-- TOP TOOLBAR -->
+    <header class="bg-slate-900 border-b border-slate-800 px-4 py-3 flex justify-between items-center z-20">
+        <div class="flex items-center space-x-3">
+            <a href="rujukan.html" class="text-slate-400 hover:text-white transition text-xs font-bold flex items-center space-x-1">
+                <span>← Kembali</span>
+            </a>
+            <span class="text-xs text-slate-500 font-bold">|</span>
+            <span id="doc-title" class="text-xs md:text-sm font-extrabold text-white truncate max-w-xs md:max-w-md">Memuatkan dokumen...</span>
+        </div>
+
+        <!-- Kawalan Zoom & Navigasi -->
+        <div class="flex items-center space-x-2 md:space-x-4">
+            <div class="flex items-center bg-slate-800 rounded-lg p-1">
+                <button id="btn-zoom-out" class="px-2.5 py-1 text-slate-400 hover:text-white hover:bg-slate-700 rounded-md transition text-xs font-extrabold">-</button>
+                <span id="zoom-text" class="px-2 text-xs font-bold text-slate-300">100%</span>
+                <button id="btn-zoom-in" class="px-2.5 py-1 text-slate-400 hover:text-white hover:bg-slate-700 rounded-md transition text-xs font-extrabold">+</button>
+            </div>
+
+            <div class="flex items-center bg-slate-800 rounded-lg p-1">
+                <button id="btn-prev" class="px-3 py-1.5 text-xs font-extrabold text-slate-400 hover:text-white hover:bg-slate-700 rounded-md transition">Sebelum</button>
+                <span class="px-2 text-xs font-bold text-slate-300">M/S <span id="page-num">1</span> / <span id="page-count">0</span></span>
+                <button id="btn-next" class="px-3 py-1.5 text-xs font-extrabold text-slate-400 hover:text-white hover:bg-slate-700 rounded-md transition">Seterusnya</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN VIEW AREA -->
+    <div class="flex-grow flex relative overflow-hidden">
+        
+        <!-- SIDEBAR: SENARAI GARIS PANDUAN PANTAS -->
+        <aside class="hidden lg:flex flex-col w-64 bg-slate-900/90 border-r border-slate-800 p-4 space-y-4 z-10 overflow-y-auto">
+            <h4 class="text-[10px] font-black tracking-widest text-brandYellow-500 uppercase">Garis Panduan Lain</h4>
+            <div class="space-y-1" id="sidebar-links">
+                <!-- Dijana Dinamik -->
+            </div>
+        </aside>
+
+        <!-- BOOK WRAPPER CONTAINER -->
+        <div class="flex-grow flex items-center justify-center p-4 md:p-8 bg-slate-950 relative">
+            
+            <!-- LOADING OVERLAY -->
+            <div id="loading-spinner" class="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center space-y-3 z-30 transition-opacity duration-300">
+                <div class="w-10 h-10 border-4 border-brandYellow-500 border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-xs text-slate-400 font-bold tracking-wider">Memproses helaian PDF secara digital...</p>
+            </div>
+
+            <!-- CHROME/CORS WARNING OVERLAY -->
+            <div id="cors-warning" class="absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-6 text-center space-y-4 z-30 hidden">
+                <span class="text-4xl">⚠️</span>
+                <h3 class="text-lg font-black text-white">Sekatan Keselamatan Browser (Ralat CORS)</h3>
+                <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+                    Sistem mengesan pelayar web anda (Chrome/Edge/Safari) menyekat pemuatan fail PDF tempatan atas faktor keselamatan.
+                </p>
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl text-left max-w-md space-y-2 text-xs">
+                    <p class="font-extrabold text-brandYellow-500">Pilihan Penyelesaian Mudah:</p>
+                    <p><strong>1. Guna Mozilla Firefox:</strong> Firefox membenarkan fail PDF tempatan dibuka terus secara offline tanpa sebarang ralat.</p>
+                    <p><strong>2. Guna Local Server:</strong> Jalankan laman web ini menggunakan sambungan pelayan tempatan (seperti VS Code Live Server).</p>
+                </div>
+            </div>
+
+            <!-- BOOK CANVAS BOX -->
+            <div class="relative flex items-center justify-center w-full h-full max-w-6xl max-h-[80vh]">
+                
+                <!-- KANVAS KIRI (Muka Surat Genap) -->
+                <div id="page-left-container" class="relative bg-white rounded-l-lg overflow-hidden page-shadow-left hidden" style="width: 50%; height: 100%;">
+                    <canvas id="canvas-left" class="w-full h-full object-contain"></canvas>
+                </div>
+
+                <!-- KANVAS KANAN (Muka Surat Ganjil - Sentiasa Ada / Berpusat Jika Halaman 1) -->
+                <div id="page-right-container" class="relative bg-white rounded-r-lg overflow-hidden page-shadow-right" style="width: 50%; height: 100%;">
+                    <canvas id="canvas-right" class="w-full h-full object-contain"></canvas>
+                </div>
+
+                <!-- LIPATAN TENGAH (Z-10, Sembunyi Jika M/S 1) -->
+                <div id="book-spine" class="page-fold left-1/2 -translate-x-1/2 hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIO ELEMENT UNTUK KESAN BUNYI SELAK HELAIAN -->
+    <audio id="sound-flip" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav" preload="auto"></audio>
+
+    <script>
+        // Set path pekerja PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        // SENARAI SEMUA FAIL PDF & TAJUK (DENGAN REKA BENTUK SUBFOLDER docs/)
+        const guidelines = [
+            { title: "Draf GP OSCA (2025)", file: "docs/draf-gp-osca-2025.pdf" },
+            { title: "SOP Rawatan Methadone (2016)", file: "docs/sop-methadone-2016.pdf" },
+            { title: "GP Pendispensan Methadone (2017)", file: "docs/gp-pendispensan-methadone-2017.pdf" },
+            { title: "GP Kaunseling Methadone", file: "docs/gp-kaunseling-methadone.pdf" },
+            { title: "GP Saringan Alkohol (2013)", file: "docs/gp-alkohol-komuniti-2013.pdf" },
+            { title: "Modul Latihan ATS (2013)", file: "docs/modul-latihan-ats-2013.pdf" },
+            { title: "MOH Behavioural Addiction (2024)", file: "docs/behavioural-addiction-guidelines-2024.pdf" }
+        ];
+
+        // LOGIK PENGAMBILAN PARAMETER FAIL
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentFile = urlParams.get('file');
+
+        // Jika tiada fail dinyatakan, guna dokumen pertama sebagai lalai
+        if (!currentFile) {
+            currentFile = "docs/draf-gp-osca-2025.pdf";
+        }
+
+        // Cari maklumat tajuk dokumen semasa
+        const activeDoc = guidelines.find(g => g.file === currentFile) || { title: "Pembaca PDF" };
+        document.getElementById('doc-title').textContent = activeDoc.title;
+
+        // BINA PAUTAN SIDEBAR SECARA DINAMIK
+        const sidebar = document.getElementById('sidebar-links');
+        guidelines.forEach(g => {
+            const isActive = g.file === currentFile;
+            sidebar.innerHTML += `
+                <a href="flipbook.html?file=${g.file}" class="block text-left py-2 px-3 rounded-lg text-xs font-semibold tracking-wide transition ${isActive ? 'bg-brandYellow-500 text-brandDark font-black' : 'text-slate-400 hover:bg-slate-800 hover:text-white'}">
+                    ${g.title}
+                </a>`;
+        });
+
+        // PEMBOLEH UBAH FLIPBOOK STATE
+        let pdfDoc = null,
+            pageNum = 1,
+            zoomScale = 1.25,
+            isRendering = false;
+
+        const canvasLeft = document.getElementById('canvas-left');
+        const ctxLeft = canvasLeft.getContext('2d');
+        const canvasRight = document.getElementById('canvas-right');
+        const ctxRight = canvasRight.getContext('2d');
+
+        const leftContainer = document.getElementById('page-left-container');
+        const rightContainer = document.getElementById('page-right-container');
+        const bookSpine = document.getElementById('book-spine');
+
+        // KESAN BUNYI HELAIAN SELAKAN
+        function playFlipSound() {
+            const sound = document.getElementById('sound-flip');
+            if (sound) {
+                sound.currentTime = 0;
+                sound.play().catch(e => console.log("Audio play blocked"));
+            }
+        }
+
+        // FUNGSI UTAMA RENDER PAGE
+        async function renderBook() {
+            isRendering = true;
+            document.getElementById('loading-spinner').classList.remove('opacity-0');
+            document.getElementById('loading-spinner').classList.add('opacity-100');
+
+            document.getElementById('page-num').textContent = pageNum;
+
+            try {
+                // LOGIK KULIT DEPAN (Page 1) - Paparan Satu Halaman Berpusat
+                if (pageNum === 1) {
+                    leftContainer.classList.add('hidden');
+                    leftContainer.style.width = '0%';
+                    
+                    rightContainer.style.width = '100%';
+                    rightContainer.className = "relative bg-white rounded-lg overflow-hidden page-shadow-right shadow-2xl";
+                    bookSpine.classList.add('hidden');
+
+                    // Render Halaman Pertama di Kanvas Kanan
+                    const page = await pdfDoc.getPage(1);
+                    const viewport = page.getViewport({ scale: zoomScale });
+                    canvasRight.height = viewport.height;
+                    canvasRight.width = viewport.width;
+
+                    const renderContext = { canvasContext: ctxRight, viewport: viewport };
+                    await page.render(renderContext).promise;
+
+                } else {
+                    // LOGIK HALAMAN GENAP & GANJIL (Page 2 & Seterusnya) - Paparan Dua Halaman Selari
+                    leftContainer.classList.remove('hidden');
+                    leftContainer.style.width = '50%';
+                    leftContainer.className = "relative bg-white rounded-l-lg overflow-hidden page-shadow-left";
+                    
+                    rightContainer.style.width = '50%';
+                    rightContainer.className = "relative bg-white rounded-r-lg overflow-hidden page-shadow-right";
+                    bookSpine.classList.remove('hidden');
+
+                    // 1. Render Muka Surat Kiri (Genap - Contoh: Page 2)
+                    const pageL = await pdfDoc.getPage(pageNum);
+                    const viewportL = pageL.getViewport({ scale: zoomScale });
+                    canvasLeft.height = viewportL.height;
+                    canvasLeft.width = viewportL.width;
+                    await pageL.render({ canvasContext: ctxLeft, viewport: viewportL }).promise;
+
+                    // 2. Render Muka Surat Kanan (Ganjil - Contoh: Page 3) - Jika Belum Habis Dokumen
+                    if (pageNum + 1 <= pdfDoc.numPages) {
+                        rightContainer.classList.remove('invisible');
+                        const pageR = await pdfDoc.getPage(pageNum + 1);
+                        const viewportR = pageR.getViewport({ scale: zoomScale });
+                        canvasRight.height = viewportR.height;
+                        canvasRight.width = viewportR.width;
+                        await pageR.render({ canvasContext: ctxRight, viewport: viewportR }).promise;
+                    } else {
+                        // Jika muka surat ganjil kosong (penghujung buku)
+                        rightContainer.classList.add('invisible');
+                    }
+                }
+            } catch (err) {
+                console.error("Rendering error:", err);
+            } finally {
+                isRendering = false;
+                document.getElementById('loading-spinner').classList.replace('opacity-100', 'opacity-0');
+            }
+        }
+
+        // LOAD DOKUMEN PDF
+        pdfjsLib.getDocument(currentFile).promise.then(pdf => {
+            pdfDoc = pdf;
+            document.getElementById('page-count').textContent = pdf.numPages;
+            renderBook();
+        }).catch(err => {
+            console.error("PDF Load Error: ", err);
+            document.getElementById('loading-spinner').classList.add('hidden');
+            // Papar Ralat CORS jika dibuka offline secara tidak sah di Chrome
+            if (window.location.protocol === 'file:') {
+                document.getElementById('cors-warning').classList.remove('hidden');
+            }
+        });
+
+        // BUTTON NAVIGATION EVENTS
+        document.getElementById('btn-prev').addEventListener('click', () => {
+            if (isRendering || pageNum <= 1) return;
+            playFlipSound();
+            if (pageNum === 2) {
+                pageNum = 1;
+            } else {
+                pageNum -= 2;
+            }
+            renderBook();
+        });
+
+        document.getElementById('btn-next').addEventListener('click', () => {
+            if (isRendering || !pdfDoc) return;
+            if (pageNum === 1) {
+                pageNum = 2;
+                playFlipSound();
+                renderBook();
+            } else if (pageNum + 2 <= pdfDoc.numPages) {
+                pageNum += 2;
+                playFlipSound();
+                renderBook();
+            }
+        });
+
+        // BUTTON ZOOM EVENTS
+        document.getElementById('btn-zoom-in').addEventListener('click', () => {
+            if (zoomScale >= 2.0) return;
+            zoomScale += 0.25;
+            document.getElementById('zoom-text').textContent = `${Math.round(zoomScale * 100)}%`;
+            renderBook();
+        });
+
+        document.getElementById('btn-zoom-out').addEventListener('click', () => {
+            if (zoomScale <= 0.75) return;
+            zoomScale -= 0.25;
+            document.getElementById('zoom-text').textContent = `${Math.round(zoomScale * 100)}%`;
+            renderBook();
+        });
+
+        // KEYBOARD SHORTCUTS NAVIGATION
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                document.getElementById('btn-prev').click();
+            } else if (e.key === 'ArrowRight') {
+                document.getElementById('btn-next').click();
+            }
+        });
+    </script>
+</body>
+</html>

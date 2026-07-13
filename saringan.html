@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saringan Digital - OSCA Klinik Kesihatan Kuala Perlis</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,7 +27,12 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
 </head>
 <body class="bg-brandLight text-slate-800 flex flex-col min-h-screen">
 
@@ -42,54 +48,37 @@
                 <div class="text-center max-w-3xl mx-auto">
                     <span class="text-xs uppercase font-extrabold tracking-widest text-brandYellow-600 bg-brandYellow-50 px-3 py-1 rounded-md">Penilaian Kendiri Interaktif</span>
                     <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-3">Portal Saringan Digital OSCA</h2>
-                    <p class="text-slate-500 mt-2 text-sm">Pilih jenis saringan di bawah untuk menilai status kesihatan mental, risiko penggunaan bahan, atau tahap kesediaan berubah anda secara sulit dan segera.</p>
+                    <p class="text-slate-500 mt-2 text-sm">Sila pilih jenis saringan di bawah untuk menilai status kesihatan mental, risiko penggunaan bahan, atau tahap kesediaan berubah anda secara sulit dan segera.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     
-                    <!-- Card 1: GAD-7 -->
+                    <!-- Card 1: Mental Health Flow -->
                     <div class="bg-white p-6 md:p-8 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex justify-between items-start">
-                                <span class="text-[10px] font-black bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full uppercase tracking-wider">Kesihatan Mental</span>
-                                <span class="text-xs font-bold text-slate-400">7 Soalan</span>
+                                <span class="text-[10px] font-black bg-purple-50 text-purple-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Kesihatan Mental</span>
+                                <span class="text-xs font-bold text-slate-400">Dinamik (4 - 20 Soalan)</span>
                             </div>
-                            <h3 class="text-xl font-black text-brandDark font-extrabold">1. Saringan Kebimbangan (GAD-7)</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">Alat klinikal standard untuk mengukur tahap kebimbangan, kegelisahan, kerisauan melampau, dan gangguan emosi anda [1, 2].</p>
+                            <h3 class="text-xl font-black text-brandDark font-extrabold">1. Saringan Minda Sihat (Whooley, GAD-2, GAD-7, PHQ-9)</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Saringan berperingkat rasmi KKM. Bermula dengan Whooley & GAD-2. Penilaian mendalam PHQ-9 & GAD-7 akan dipaparkan secara dinamik sekiranya keputusan saringan awal dikesan positif.</p>
                         </div>
                         <div class="pt-6 mt-6 border-t border-slate-100">
-                            <button onclick="showScreeningForm('gad7')" class="w-full bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition text-center uppercase tracking-wider">
-                                Mula Saringan GAD-7 →
+                            <button onclick="showScreeningForm('mental')" class="w-full bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                                Mula Saringan Minda Sihat →
                             </button>
                         </div>
                     </div>
 
-                    <!-- Card 2: URICA -->
-                    <div class="bg-white p-6 md:p-8 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-start">
-                                <span class="text-[10px] font-black bg-brandYellow-50 text-brandYellow-800 px-2.5 py-1 rounded-full uppercase tracking-wider">Tahap Kesediaan</span>
-                                <span class="text-xs font-bold text-slate-400">8 Soalan</span>
-                            </div>
-                            <h3 class="text-xl font-black text-brandDark font-extrabold">2. Saringan Kesediaan Perubahan (URICA)</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">Mengenal pasti fasa kesediaan tingkah laku (*stage of change*) anda sama ada fasa Pra-renungan, Renungan, Tindakan, atau Penyelenggaraan [1-3].</p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-slate-100">
-                            <button onclick="showScreeningForm('urica')" class="w-full bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition text-center uppercase tracking-wider">
-                                Mula Saringan URICA →
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: ASSIST -->
+                    <!-- Card 2: ASSIST v3.1 -->
                     <div class="bg-white p-6 md:p-8 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex justify-between items-start">
                                 <span class="text-[10px] font-black bg-red-50 text-red-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Penyalahgunaan Bahan</span>
-                                <span class="text-xs font-bold text-slate-400">5 Soalan</span>
+                                <span class="text-xs font-bold text-slate-400">Standard KKM v3.1</span>
                             </div>
-                            <h3 class="text-xl font-black text-brandDark font-extrabold">3. Saringan Risiko Bahan (ASSIST)</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">Alat saringan standard WHO untuk mengukur tahap keterukan risko tabiat merokok/vape, alkohol, mahupun ubat-ubatan substans psikotropik [1, 2].</p>
+                            <h3 class="text-xl font-black text-brandDark font-extrabold">2. Saringan Risiko Bahan (ASSIST v3.1)</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">Ujian keterlibatan arak, merokok, vape dan dadah mengikut borang rasmi KKM terbaru. Dilengkapi logik pintar yang hanya bertanyakan soalan khusus untuk bahan yang pernah anda guna sahaja.</p>
                         </div>
                         <div class="pt-6 mt-6 border-t border-slate-100">
                             <button onclick="showScreeningForm('assist')" class="w-full bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition text-center uppercase tracking-wider">
@@ -98,19 +87,19 @@
                         </div>
                     </div>
 
-                    <!-- Card 4: WHOOLEY -->
+                    <!-- Card 3: URICA -->
                     <div class="bg-white p-6 md:p-8 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex justify-between items-start">
-                                <span class="text-[10px] font-black bg-purple-50 text-purple-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Kemurungan / Depresi</span>
-                                <span class="text-xs font-bold text-slate-400">2 Soalan</span>
+                                <span class="text-[10px] font-black bg-brandYellow-50 text-brandYellow-800 px-2.5 py-1 rounded-full uppercase tracking-wider">Tahap Kesediaan</span>
+                                <span class="text-xs font-bold text-slate-400">32 Soalan Penuh</span>
                             </div>
-                            <h3 class="text-xl font-black text-brandDark font-extrabold">4. Saringan Kemurungan Ringkas (WHOOLEY)</h3>
-                            <p class="text-xs text-slate-500 leading-relaxed">Saringan klinikal pantas 2-item KKM untuk mengesan awal kehadiran simptom kemurungan atau perasaan putus harapan [1, 2].</p>
+                            <h3 class="text-xl font-black text-brandDark font-extrabold">3. Saringan Kesediaan Perubahan (URICA)</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">University of Rhode Island Change Assessment lengkap 32 soalan. Mengira Skor Kesediaan (*Readiness Score*) anda secara automatik untuk menentukan fasa Pra-renungan, Renungan, Tindakan, atau Penyelenggaraan.</p>
                         </div>
                         <div class="pt-6 mt-6 border-t border-slate-100">
-                            <button onclick="showScreeningForm('whooley')" class="w-full bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition text-center uppercase tracking-wider">
-                                Mula Saringan WHOOLEY →
+                            <button onclick="showScreeningForm('urica')" class="w-full bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                                Mula Saringan URICA →
                             </button>
                         </div>
                     </div>
@@ -118,112 +107,272 @@
                 </div>
             </div>
 
-            <!-- B. BORANG DYNAMIC: GAD-7 -->
-            <div id="form-gad7" class="max-w-4xl mx-auto hidden space-y-6">
+            <!-- B. BORANG DYNAMIC: SARINGAN KESIHAN MENTAL (FLOW BERPERINGKAT) -->
+            <div id="form-mental" class="max-w-4xl mx-auto hidden space-y-6">
                 <button onclick="backToDashboard()" class="text-xs font-bold text-slate-500 hover:text-brandDark flex items-center space-x-1 transition">
                     <span>← Kembali ke Portal Utama</span>
                 </button>
-                <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-10 shadow-xl">
-                    <h3 class="text-2xl font-black text-brandDark border-b border-slate-100 pb-4">Ujian Saringan Kebimbangan (GAD-7)</h3>
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-bold my-4">Dalam tempoh 2 minggu yang lalu, berapa kerapkah anda diganggu oleh masalah berikut?</p>
-                    
-                    <form id="gad7-form-interactive" class="space-y-6">
-                        <div class="space-y-6" id="gad7-questions-container"></div>
-                        <button type="submit" class="w-full bg-brandYellow-500 hover:bg-brandYellow-600 text-brandDark font-black text-sm py-4 rounded-xl shadow-lg transition">
-                            Hantar & Kira Keputusan GAD-7
-                        </button>
+                <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-10 shadow-xl space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-black text-brandDark">Saringan Minda Sihat (Berperingkat)</h3>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-bold mt-2">Fasa 1: Saringan Awal (Whooley & GAD-2)</p>
+                    </div>
+
+                    <form id="mental-screening-form" class="space-y-8">
+                        
+                        <!-- SEKSYEN WHOOLEY (2 SOALAN) -->
+                        <div class="space-y-6 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <h4 class="text-sm font-black text-brandYellow-800 uppercase tracking-wider">Bahagian A: Saringan Depresi Ringkas (Whooley)</h4>
+                            <p class="text-[11px] text-slate-500 font-medium">Berdasarkan keadaan anda sepanjang bulan yang lalu:</p>
+                            
+                            <!-- Whooley Q1 -->
+                            <div class="space-y-3">
+                                <h5 class="text-xs font-extrabold text-slate-400">Soalan 1</h5>
+                                <p class="text-sm font-bold text-brandDark">Pernahkah anda merasa terganggu oleh perasaan sedih, murung, atau putus harapan?</p>
+                                <div class="grid grid-cols-2 gap-3 mt-2">
+                                    <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="whooley_q1" value="1" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-xs font-bold text-slate-700">Ya</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="whooley_q1" value="0" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-xs font-bold text-slate-700">Tidak</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Whooley Q2 -->
+                            <div class="space-y-3">
+                                <h5 class="text-xs font-extrabold text-slate-400">Soalan 2</h5>
+                                <p class="text-sm font-bold text-brandDark">Pernahkah anda merasa terganggu oleh kurang minat atau keseronokan dalam melakukan perkara biasa?</p>
+                                <div class="grid grid-cols-2 gap-3 mt-2">
+                                    <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="whooley_q2" value="1" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-xs font-bold text-slate-700">Ya</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="whooley_q2" value="0" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-xs font-bold text-slate-700">Tidak</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEKSYEN GAD-2 (2 SOALAN) -->
+                        <div class="space-y-6 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                            <h4 class="text-sm font-black text-brandYellow-800 uppercase tracking-wider">Bahagian B: Saringan Kebimbangan Ringkas (GAD-2)</h4>
+                            <p class="text-[11px] text-slate-500 font-medium">Berapa kerapkah anda diganggu oleh masalah berikut dalam tempoh 2 minggu yang lalu?</p>
+                            
+                            <!-- GAD-2 Q1 -->
+                            <div class="space-y-3">
+                                <h5 class="text-xs font-extrabold text-slate-400">Soalan 3</h5>
+                                <p class="text-sm font-bold text-brandDark">Merasa gugup, cemas atau tegang?</p>
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mt-2">
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q1" value="0" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Sama sekali tidak (0)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q1" value="1" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Beberapa hari (1)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q1" value="2" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Lebih separuh hari (2)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q1" value="3" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Hampir setiap hari (3)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- GAD-2 Q2 -->
+                            <div class="space-y-3">
+                                <h5 class="text-xs font-extrabold text-slate-400">Soalan 4</h5>
+                                <p class="text-sm font-bold text-brandDark">Tidak mampu menghentikan atau mengawal kebimbangan?</p>
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mt-2">
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q2" value="0" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Sama sekali tidak (0)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q2" value="1" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Beberapa hari (1)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q2" value="2" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Lebih separuh hari (2)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-white transition-all">
+                                        <input type="radio" name="gad2_q2" value="3" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-[11px] font-semibold text-slate-700">Hampir setiap hari (3)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BUTTON ANALISIS AWAL -->
+                        <div id="btn-initial-analysis-container" class="flex justify-center">
+                            <button type="button" onclick="evaluateInitialMentalHealth()" class="w-full md:w-auto bg-brandDark hover:bg-slate-800 text-white font-black text-xs py-4 px-8 rounded-xl shadow-md transition-all uppercase tracking-wider">
+                                Analisis Saringan Awal →
+                            </button>
+                        </div>
+
+                        <!-- ================= DYNAMIC SECTION: PHQ-9 (DIPAPARKAN JIKA WHOOLEY POSITIF) ================= -->
+                        <div id="phq9-section" class="space-y-6 hidden border-t-2 border-dashed border-slate-200 pt-8">
+                            <div class="bg-amber-50 border border-brandYellow-200 p-4 rounded-xl">
+                                <span class="text-xs font-black text-brandYellow-800 uppercase block">Notifikasi Klinikal</span>
+                                <p class="text-xs text-brandYellow-800 mt-1">Saringan awal Whooley anda menunjukkan <strong>indikasi depresi ringkas</strong>. Sila lengkapkan saringan <strong>PHQ-9</strong> di bawah untuk kami mengukur tahap keterukan depresi anda secara klinikal.</p>
+                            </div>
+                            
+                            <h4 class="text-base font-black text-brandDark border-b pb-2">Bahagian C: Saringan Depresi Menyeluruh (PHQ-9)</h4>
+                            <p class="text-xs text-slate-400 font-bold uppercase">Sepanjang 2 minggu yang lalu, berapa kerapkah anda terganggu oleh masalah berikut?</p>
+                            
+                            <div id="phq9-questions-container" class="space-y-6"></div>
+                        </div>
+
+                        <!-- ================= DYNAMIC SECTION: GAD-7 (DIPAPARKAN JIKA GAD-2 >= 3) ================= -->
+                        <div id="gad7-section" class="space-y-6 hidden border-t-2 border-dashed border-slate-200 pt-8">
+                            <div class="bg-amber-50 border border-brandYellow-200 p-4 rounded-xl">
+                                <span class="text-xs font-black text-brandYellow-800 uppercase block">Notifikasi Klinikal</span>
+                                <p class="text-xs text-brandYellow-800 mt-1">Sorotan skor GAD-2 anda adalah <span id="initial-gad2-score-alert" class="font-extrabold">3</span> (iaitu &ge; 3, menunjukkan <strong>indikasi kebimbangan tinggi</strong>). Sila lengkapkan baki saringan <strong>GAD-7</strong> di bawah untuk mengukur tahap kebimbangan anda secara tepat.</p>
+                            </div>
+                            
+                            <h4 class="text-base font-black text-brandDark border-b pb-2">Bahagian D: Saringan Kebimbangan Menyeluruh (Baki GAD-7)</h4>
+                            <p class="text-xs text-slate-400 font-bold uppercase">Berapa kerapkah anda diganggu oleh masalah berikut dalam tempoh 2 minggu yang lalu?</p>
+                            
+                            <div id="gad7-questions-container" class="space-y-6"></div>
+                        </div>
+
+                        <!-- BUTTON SUBMIT AKHIR -->
+                        <div id="btn-final-submit-container" class="hidden pt-6 flex justify-center">
+                            <button type="submit" class="w-full md:w-auto bg-brandYellow-500 hover:bg-brandYellow-600 text-brandDark font-black text-sm py-4 px-12 rounded-xl shadow-lg transition-all uppercase tracking-wider">
+                                Hantar & Kira Keputusan Penuh
+                            </button>
+                        </div>
+
                     </form>
                 </div>
             </div>
 
-            <!-- C. BORANG DYNAMIC: URICA -->
+            <!-- C. BORANG DYNAMIC: URICA (32 SOALAN PENUH) -->
             <div id="form-urica" class="max-w-4xl mx-auto hidden space-y-6">
                 <button onclick="backToDashboard()" class="text-xs font-bold text-slate-500 hover:text-brandDark flex items-center space-x-1 transition">
                     <span>← Kembali ke Portal Utama</span>
                 </button>
                 <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-10 shadow-xl">
-                    <h3 class="text-2xl font-black text-brandDark border-b border-slate-100 pb-4">Ujian Kesediaan Perubahan (URICA)</h3>
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-bold my-4">Nyatakan tahap persetujuan anda bagi setiap kenyataan berikut mengikut keadaan diri semasa:</p>
+                    <div class="border-b border-slate-100 pb-4 mb-6">
+                        <h3 class="text-2xl font-black text-brandDark">Ujian Kesediaan Perubahan (URICA)</h3>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-bold mt-2">Sila nyatakan tahap persetujuan anda mengikut keadaan diri semasa anda:</p>
+                    </div>
                     
                     <form id="urica-form-interactive" class="space-y-6">
-                        <div class="space-y-6" id="urica-questions-container"></div>
-                        <button type="submit" class="w-full bg-brandYellow-500 hover:bg-brandYellow-600 text-brandDark font-black text-sm py-4 rounded-xl shadow-lg transition">
-                            Hantar & Kira Keputusan URICA
+                        <div class="space-y-6" id="urica-questions-placeholder"></div>
+                        <button type="submit" class="w-full bg-brandYellow-500 hover:bg-brandYellow-600 text-brandDark font-black text-sm py-4 rounded-xl shadow-lg transition-all">
+                            Hantar & Kira Keputusan URICA Penuh
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- D. BORANG DYNAMIC: ASSIST -->
+            <!-- D. BORANG DYNAMIC: ASSIST v3.1 (KKM INTERAKTIF) -->
             <div id="form-assist" class="max-w-4xl mx-auto hidden space-y-6">
                 <button onclick="backToDashboard()" class="text-xs font-bold text-slate-500 hover:text-brandDark flex items-center space-x-1 transition">
                     <span>← Kembali ke Portal Utama</span>
                 </button>
-                <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-10 shadow-xl">
-                    <h3 class="text-2xl font-black text-brandDark border-b border-slate-100 pb-4">Saringan Keseriusan Penggunaan Bahan (ASSIST)</h3>
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-bold my-4">Saringan ini bertumpu kepada tabiat penggunaan tembakau, vape, alkohol, atau substans psikotropik:</p>
-                    
-                    <form id="assist-form-interactive" class="space-y-6">
-                        <div class="space-y-6" id="assist-questions-container"></div>
-                        <button type="submit" class="w-full bg-brandYellow-500 hover:bg-brandYellow-600 text-brandDark font-black text-sm py-4 rounded-xl shadow-lg transition">
-                            Hantar & Kira Keputusan ASSIST
-                        </button>
-                    </form>
+                <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-10 shadow-xl space-y-8">
+                    <div class="border-b border-slate-100 pb-4">
+                        <h3 class="text-2xl font-black text-brandDark">Saringan Keseriusan Penggunaan Bahan (ASSIST v3.1)</h3>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-bold mt-2">Ujian Saringan Keterlibatan Alkohol, Merokok & Dadah Rasmi KKM</p>
+                    </div>
+
+                    <!-- FASA 1: SOALAN 1 (SARINGAN HAYAT) -->
+                    <div id="assist-fasa1" class="space-y-6">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="text-sm font-black text-brandDark">SOALAN 1: Penggunaan Seumur Hidup</h4>
+                            <p class="text-xs text-slate-500 mt-1">Sila tandakan "Ya" bagi mana-mana bahan berikut yang <strong>pernah anda gunakan seumur hidup anda</strong> selain daripada tujuan perubatan:</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="assist-s1-placeholder"></div>
+                        
+                        <div class="pt-4 flex justify-center">
+                            <button type="button" onclick="nextAssistFasa()" class="w-full md:w-auto bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3.5 px-8 rounded-xl transition uppercase tracking-wider">
+                                Seterusnya (Soalan Kekerapan) →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- FASA 2: SOALAN 2 HINGGA 8 (DIPAPARKAN JIKA ADA YA DALAM S1) -->
+                    <div id="assist-fasa2" class="space-y-8 hidden">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-black text-brandDark">Kekerapan & Risiko Penggunaan</h4>
+                                <p class="text-xs text-slate-500 mt-1">Sila lengkapkan maklumat kekerapan di bawah mengikut bahan yang anda gunakan.</p>
+                            </div>
+                            <button type="button" onclick="backToAssistFasa1()" class="text-xs font-bold text-brandYellow-600 hover:text-brandDark transition">
+                                &larr; Edit Soalan 1
+                            </button>
+                        </div>
+
+                        <form id="assist-form-interactive-final" class="space-y-8">
+                            <div id="assist-dynamic-questions" class="space-y-8"></div>
+                            
+                            <!-- SOALAN 8: SUNTIKAN -->
+                            <div class="space-y-4 p-6 bg-red-50/50 border border-red-150 rounded-2xl">
+                                <h4 class="text-sm font-black text-slate-900">SOALAN 8: Penggunaan Suntikan</h4>
+                                <p class="text-xs text-slate-600">Pernahkah anda mengambil dadah dengan cara suntikan selain daripada tujuan perubatan?</p>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                    <label class="flex items-center space-x-3 p-3 bg-white border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
+                                        <input type="radio" name="assist_q8" value="no" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-xs font-semibold text-slate-700">Tidak Pernah</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 p-3 bg-white border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
+                                        <input type="radio" name="assist_q8" value="3m" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-xs font-semibold text-slate-700">Ya, dalam 3 bulan kebelakangan ini</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 p-3 bg-white border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
+                                        <input type="radio" name="assist_q8" value="prev" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span class="text-xs font-semibold text-slate-700">Ya, tetapi bukan dalam 3 bulan lepas</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brandYellow-500 hover:bg-brandYellow-600 text-brandDark font-black text-sm py-4 rounded-xl shadow-lg transition-all">
+                                Hantar & Kira Keputusan ASSIST v3.1
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
-            <!-- E. BORANG DYNAMIC: WHOOLEY -->
-            <div id="form-whooley" class="max-w-4xl mx-auto hidden space-y-6">
-                <button onclick="backToDashboard()" class="text-xs font-bold text-slate-500 hover:text-brandDark flex items-center space-x-1 transition">
-                    <span>← Kembali ke Portal Utama</span>
-                </button>
-                <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-10 shadow-xl">
-                    <h3 class="text-2xl font-black text-brandDark border-b border-slate-100 pb-4">Saringan Kemurungan Ringkas (WHOOLEY)</h3>
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-bold my-4">Sila jawab dua soalan mudah ini dengan jujur berdasarkan keadaan diri sepanjang bulan yang lalu:</p>
-                    
-                    <form id="whooley-form-interactive" class="space-y-6">
-                        <div class="space-y-6" id="whooley-questions-container"></div>
-                        <button type="submit" class="w-full bg-brandYellow-500 hover:bg-brandYellow-600 text-brandDark font-black text-sm py-4 rounded-xl shadow-lg transition">
-                            Hantar & Kira Keputusan WHOOLEY
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- F. PAPARAN KEPUTUSAN SARINGAN (DIPAPARKAN DYNAMIC) -->
+            <!-- E. PAPARAN KEPUTUSAN SARINGAN (DIPAPARKAN DYNAMIC) -->
             <div id="results-display-section" class="max-w-4xl mx-auto mt-12 p-6 md:p-10 rounded-3xl border-2 border-brandDark bg-slate-50 hidden transition duration-300">
                 <div class="text-center space-y-6">
                     <h3 class="text-2xl font-black text-brandDark">Keputusan Analisis Saringan Digital</h3>
                     
-                    <!-- Skor Badge -->
-                    <div class="inline-flex items-center justify-center w-28 h-28 rounded-full bg-brandYellow-500 text-brandDark border-4 border-white shadow-lg">
-                        <span id="score-text" class="text-3xl font-black">0</span>
-                    </div>
-
-                    <div class="space-y-2">
-                        <h4 id="status-title" class="text-xl font-black text-brandDark">Tahap Kebimbangan</h4>
-                        <p id="clinical-interpretation" class="text-slate-600 text-xs md:text-sm max-w-2xl mx-auto leading-relaxed"></p>
-                    </div>
+                    <!-- Skor / Status Container -->
+                    <div id="results-content" class="space-y-6"></div>
 
                     <!-- Panel Sokongan Pasukan OSCA KKKP -->
                     <div id="osca-clinical-panel" class="mt-8 p-6 bg-white border border-slate-200 rounded-2xl text-left shadow-sm">
                         <div class="flex items-center space-x-3 mb-3">
-                            <span class="text-lg">🤝</span>
+                            <span class="text-lg">🏥</span>
                             <h5 class="text-xs font-black text-brandYellow-600 uppercase tracking-widest">Sokongan Profesional OSCA Kuala Perlis</h5>
                         </div>
                         <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                            Saringan ini adalah panduan penilaian awal sahaja [1, 2]. Kami sangat menggalakkan anda untuk berunding terus dengan pasukan klinikal multidisiplin kami di Klinik Kesihatan Kuala Perlis [4] untuk bantuan profesional murni dalam suasana yang sangat mesra dan sulit.
+                            Saringan ini adalah panduan penilaian awal sahaja. Kami sangat menggalakkan anda untuk berunding terus dengan pasukan klinikal multidisiplin kami di Klinik Kesihatan Kuala Perlis untuk bantuan profesional murni dalam suasana yang sangat mesra dan sulit.
                         </p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[11px] text-slate-500 border-t border-slate-100 pt-4">
                             <div>
                                 <strong class="text-brandDark">Sesi Kaunseling & Terapi Tingkah Laku:</strong><br>
                                 En. Mohamad Syafik Azri bin Mohd Zamri<br>
-                                (Pegawai Psikologi Kaunseling OSCA KKKP) [5]
+                                (Pegawai Psikologi Kaunseling OSCA KKKP)
                             </div>
                             <div>
                                 <strong class="text-brandDark">Konsultasi Medikal & Rawatan Ubatan:</strong><br>
                                 Dr. Nurshazwani binti Hishamuddin<br>
-                                (Pegawai Perubatan OSCA KKKP) [5]
+                                (Pegawai Perubatan OSCA KKKP)
                             </div>
                         </div>
                     </div>
@@ -245,10 +394,75 @@
 
     <script src="navigation.js"></script>
     <script>
-        // DATA SOALAN-SOALAN SARINGAN (DIFORMATKAN BERDASARKAN STANDARD KKM)
-        const gad7Questions = [
-            "Merasa gugup, cemas atau tegang?",
-            "Tidak mampu menghentikan atau mengawal kebimbangan?",
+        // =========================================================================
+        // SECTION 1: DATABASE & QUESTIONS
+        // =========================================================================
+        
+        // 1.1 DATA URICA (32 SOALAN LENGKAP DARI FAIL PDF)
+        const uricaFullQuestions = [
+            { id: 1, text: "Bagi saya, saya tidak mempunyai sebarang masalah yang memerlukan perubahan.", stage: "PC" },
+            { id: 2, text: "Saya rasa saya mungkin sudah bersedia untuk memperbaiki diri.", stage: "C" },
+            { id: 3, text: "Saya sedang berusaha melakukan sesuatu tentang masalah yang mengganggu saya.", stage: "A" },
+            { id: 4, text: "Mungkin ada faedahnya jika saya melakukan sesuatu terhadap masalah saya.", stage: "C" },
+            { id: 5, text: "Saya tidak menghadapi sebarang masalah. Saya tidak perlu berubah.", stage: "PC" },
+            { id: 6, text: "Saya bimbang saya mungkin akan tergelincir semula kepada masalah lama saya, jadi saya berada di sini untuk mendapatkan bantuan.", stage: "M" },
+            { id: 7, text: "Akhirnya saya sedang mengambil tindakan ke atas masalah saya.", stage: "A" },
+            { id: 8, text: "Saya terfikir untuk mengubah sesuatu tentang diri saya.", stage: "C" },
+            { id: 9, text: "Saya sudah berjaya mengatasi masalah saya, tetapi saya kurang yakin dapat mengekalkan usaha ini seorang diri.", stage: "M" },
+            { id: 10, text: "Kadang kala masalah saya ini menjadi sukar, tetapi saya terus berusaha untuk mengatasinya.", stage: "A" },
+            { id: 11, text: "Berusaha untuk berubah adalah membuang masa kerana masalah ini tiada kaitan dengan saya.", stage: "PC" },
+            { id: 12, text: "Saya berharap agar dapat memahami diri saya dengan lebih baik.", stage: "C" },
+            { id: 13, text: "Saya mungkin telah melakukan banyak kesilapan, tetapi tiada apa yang perlu saya ubah.", stage: "PC" },
+            { id: 14, text: "Saya sedang berusaha bersungguh-sungguh untuk berubah.", stage: "A" },
+            { id: 15, text: "Saya mempunyai masalah dan saya rasa saya perlu berusaha untuk mengatasinya.", stage: "C" },
+            { id: 16, text: "Saya tidak meneruskan perubahan yang telah saya lakukan serta harapkan, tetapi saya ingin mencegah diri saya daripada mengalami masalah yang sama.", stage: "M" },
+            { id: 17, text: "Walaupun saya tidak selalu berjaya membuat perubahan tetapi sekurang-kurangnya saya berusaha untuk mengatasi masalah saya.", stage: "A" },
+            { id: 18, text: "Saya fikir apabila saya telah berjaya menyelesaikan masalah saya akan bebas daripadanya, tetapi kadang kala saya masih lagi bergelut dengan masalah yang sama.", stage: "M" },
+            { id: 19, text: "Saya berharap agar saya mendapat banyak idea untuk menyelesaikan masalah saya.", stage: "C" },
+            { id: 20, text: "Saya sudah mula berusaha untuk menyelesaikan masalah saya, tetapi saya masih memerlukan bantuan.", stage: "A" },
+            { id: 21, text: "Mungkin seseorang atau sesuatu dapat membantu saya.", stage: "C" },
+            { id: 22, text: "Sekarang saya memerlukan sokongan supaya dapat mengekalkan perubahan yang telah saya lakukan.", stage: "M" },
+            { id: 23, text: "Saya mungkin sebahagian daripada penyebab masalah yang timbul, tetapi saya tidak rasa begitu.", stage: "PC" },
+            { id: 24, text: "Saya berharap agar seseorang bersedia untuk memberi nasihat yang berguna kepada saya.", stage: "C" },
+            { id: 25, text: "Sesiapa sahaja boleh bercakap mengenai perubahan, tetapi saya sedang berusaha untuk melakukannya.", stage: "A" },
+            { id: 26, text: "Berbincang mengenai cara untuk mengatasi masalah manusia ini membosankan. Mengapa manusia tidak melupakan sahaja masalah mereka?", stage: "PC" },
+            { id: 27, text: "Saya sedang berusaha untuk mencegah diri saya daripada terlibat dengan masalah lama saya.", stage: "M" },
+            { id: 28, text: "Saya merasa kecewa kerana saya mungkin sedang mengalami semula masalah yang saya fikir telah saya selesaikan.", stage: "M" },
+            { id: 29, text: "Saya tahu saya bermasalah, orang lain pun ada masalah juga. Jadi kenapa perlu membuang masa untuk memikirkannya.", stage: "PC" },
+            { id: 30, text: "Saya sedang berusaha bersungguh-sungguh untuk menyelesaikan masalah saya.", stage: "A" },
+            { id: 31, text: "Saya lebih rela menerima kesilapan-kesilapan saya daripada mencuba untuk mengubahnya.", stage: "PC" },
+            { id: 32, text: "Walaupun saya telah mencuba untuk saya menyelesaikan masalah saya, kadang kala masalah tersebut masih muncul dan mengganggu saya.", stage: "M" }
+        ];
+
+        // 1.2 DATA ASSIST V3.1 (10 BAHAN PENUH)
+        const assistSubstances = [
+            { id: "a", name: "Bahan berasaskan tembakau (rokok, mengunyah tembakau, cerut dsb.)", isTobacco: true },
+            { id: "b", name: "Minuman keras/arak (bir, wain, samsu, spirit dsb.)", isAlcohol: true },
+            { id: "c", name: "Kanabis (ganja, marijuana dsb.)" },
+            { id: "d", name: "Kokain (koka, 'crack' dsb.)" },
+            { id: "e", name: "Perangsang jenis amfetamin (ATS, ekstasi, 'speed', pil kuda, syabu dsb.)" },
+            { id: "f", name: "Inhalan/bahan yang dihidu (gam, petrol, pelarut cat/'thinner' dsb.)" },
+            { id: "g", name: "Ubat pelali atau pil tidur (Valium, Rohypnol, Roche dsb.)" },
+            { id: "h", name: "Halusinogen (ketamin, pil ubat batuk, Eramine-5, LSD dsb.)" },
+            { id: "i", name: "Opioid (heroin, morfin, kodein, candu dsb.)" },
+            { id: "j", name: "Lain-lain (contohnya DF118, Daun Ketum dsb.)" }
+        ];
+
+        // 1.3 SOALAN PHQ-9 (9 ITEM)
+        const phq9Questions = [
+            "Kurang minat atau keseronokan dalam melakukan perkara-perkara harian.",
+            "Merasa sedih, murung atau putus harapan.",
+            "Masalah untuk tidur, kerap terjaga, atau terlampau banyak tidur.",
+            "Merasa letih atau kurang bertenaga.",
+            "Kurang selera makan atau makan secara berlebihan.",
+            "Merasa diri gagal — atau mengecewakan diri sendiri atau keluarga.",
+            "Kurang tumpuan terhadap perkara-perkara harian (cth. membaca surat khabar atau menonton TV).",
+            "Bergerak atau bercakap dengan lambat sehingga disedari oleh orang lain, atau sebaliknya menjadi terlalu resah sehingga bergerak lebih daripada biasa.",
+            "Mempunyai fikiran bahawa lebih baik jika anda mati, atau ingin mencederakan diri sendiri dalam apa jua cara."
+        ];
+
+        // 1.4 BAKI SOALAN GAD-7 (ITEMS 3 TO 7)
+        const gad7RemainingQuestions = [
             "Terlampau bimbang tentang pelbagai perkara berbeza?",
             "Sukar untuk bertenang atau berehat?",
             "Terlalu resah sehingga sukar untuk duduk diam?",
@@ -256,103 +470,25 @@
             "Merasa takut seolah-olah sesuatu yang buruk akan berlaku?"
         ];
 
-        const uricaQuestions = [
-            { text: "Saya rasa saya tidak mempunyai sebarang masalah dengan tabiat/substans saya.", stage: "PC" },
-            { text: "Saya sedang berfikir sama ada saya perlu mengubah tabiat saya ini.", stage: "C" },
-            { text: "Saya telah mula mengambil langkah aktif untuk mengatasi tabiat saya ini.", stage: "A" },
-            { text: "Saya berusaha keras untuk mengelakkan diri daripada jatuh semula (relaps) ke tabiat lama.", stage: "M" },
-            { text: "Sia-sia sahaja untuk saya cuba mengubah tabiat ini kerana ia tidak akan berjaya.", stage: "PC" },
-            { text: "Saya tahu saya mempunyai masalah, dan saya benar-benar mahu berusaha menyelesaikannya.", stage: "C" },
-            { text: "Saya sedang melaksanakan pelan perubahan yang telah saya rancang.", stage: "A" },
-            { text: "Saya memerlukan sokongan berterusan untuk mengekalkan kehidupan yang bebas daripada ketagihan.", stage: "M" }
-        ];
-
-        const assistQuestions = [
-            {
-                text: "Dalam tempoh 3 bulan yang lalu, berapa kerapkah anda menggunakan bahan tersebut (rokok/vape, alkohol, atau substans)?",
-                options: [
-                    { text: "Tidak pernah", val: 0 },
-                    { text: "1-2 kali sebulan", val: 2 },
-                    { text: "Mingguan", val: 4 },
-                    { text: "Setiap hari atau hampir setiap hari", val: 6 }
-                ]
-            },
-            {
-                text: "Berapa kerapkah anda mempunyai keinginan yang kuat (craving) untuk menggunakan bahan tersebut?",
-                options: [
-                    { text: "Tidak pernah", val: 0 },
-                    { text: "1-2 kali sebulan", val: 3 },
-                    { text: "Mingguan", val: 5 },
-                    { text: "Setiap hari atau hampir setiap hari", val: 6 }
-                ]
-            },
-            {
-                text: "Berapa kerapkah penggunaan bahan ini menyebabkan masalah kesihatan, sosial, kewangan, atau undang-undang?",
-                options: [
-                    { text: "Tidak pernah", val: 0 },
-                    { text: "1-2 kali sebulan", val: 4 },
-                    { text: "Mingguan", val: 6 },
-                    { text: "Setiap hari atau hampir setiap hari", val: 7 }
-                ]
-            },
-            {
-                text: "Berapa kerapkah anda gagal melakukan tanggungjawab biasa (kerja, keluarga, pelajaran) disebabkan bahan?",
-                options: [
-                    { text: "Tidak pernah", val: 0 },
-                    { text: "1-2 kali sebulan", val: 5 },
-                    { text: "Mingguan", val: 6 },
-                    { text: "Setiap hari atau hampir setiap hari", val: 7 }
-                ]
-            },
-            {
-                text: "Pernahkah ahli keluarga, rakan, atau orang lain menyuarakan kebimbangan tentang penggunaan bahan anda?",
-                options: [
-                    { text: "Tidak pernah", val: 0 },
-                    { text: "Ya, tetapi bukan dalam tempoh 3 bulan lalu", val: 3 },
-                    { text: "Ya, dalam tempoh 3 bulan yang lalu", val: 6 }
-                ]
-            }
-        ];
-
-        const whooleyQuestions = [
-            "Sepanjang bulan yang lalu, pernahkah anda merasa terganggu oleh perasaan sedih, murung, atau putus harapan?",
-            "Sepanjang bulan yang lalu, pernahkah anda merasa terganggu oleh kurang minat atau keseronokan dalam melakukan perkara biasa?"
-        ];
-
-        // SUNTIKAN SOALAN SECARA DINAMIK
+        // =========================================================================
+        // SECTION 2: INIT & RENDERING
+        // =========================================================================
         document.addEventListener("DOMContentLoaded", () => {
-            
-            // 1. Render GAD-7
-            const gadContainer = document.getElementById('gad7-questions-container');
-            gad7Questions.forEach((q, idx) => {
-                gadContainer.innerHTML += `
-                <div class="space-y-3 border-b border-slate-100 pb-6">
-                    <span class="text-xs font-bold text-brandYellow-600">Soalan ${idx + 1}</span>
-                    <h4 class="text-sm md:text-base font-extrabold text-brandDark">${q}</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mt-3">
-                        ${[
-                            { text: "Sama sekali tidak", val: 0 },
-                            { text: "Beberapa hari", val: 1 },
-                            { text: "Lebih separuh hari", val: 2 },
-                            { text: "Hampir setiap hari", val: 3 }
-                        ].map(opt => `
-                            <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
-                                <input type="radio" name="gad_q${idx}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
-                                <span class="text-xs font-semibold text-slate-700">${opt.text}</span>
-                            </label>
-                        `).join('')}
-                    </div>
-                </div>`;
-            });
+            renderUricaQuestions();
+            renderAssistS1();
+        });
 
-            // 2. Render URICA
-            const uricaContainer = document.getElementById('urica-questions-container');
-            uricaQuestions.forEach((q, idx) => {
-                uricaContainer.innerHTML += `
+        // 2.1 RENDER SOALAN URICA
+        function renderUricaQuestions() {
+            const container = document.getElementById("urica-questions-placeholder");
+            if (!container) return;
+
+            uricaFullQuestions.forEach((q, idx) => {
+                container.innerHTML += `
                 <div class="space-y-3 border-b border-slate-100 pb-6">
-                    <span class="text-xs font-bold text-brandYellow-600">Soalan ${idx + 1}</span>
+                    <span class="text-xs font-bold text-brandYellow-600">Soalan ${q.id}</span>
                     <h4 class="text-sm md:text-base font-extrabold text-brandDark">${q.text}</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-2 mt-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 mt-3">
                         ${[
                             { text: "Sangat Tidak Setuju", val: 1 },
                             { text: "Tidak Setuju", val: 2 },
@@ -360,217 +496,700 @@
                             { text: "Setuju", val: 4 },
                             { text: "Sangat Setuju", val: 5 }
                         ].map(opt => `
-                            <label class="flex flex-col items-center justify-between p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 text-center transition">
-                                <input type="radio" name="urica_q${idx}" value="${opt.val}" data-stage="${q.stage}" required class="text-brandYellow-500 focus:ring-brandYellow-500 mb-2">
+                            <label class="flex items-center sm:flex-col sm:justify-between p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 text-left sm:text-center transition-all">
+                                <input type="radio" name="urica_q${idx}" value="${opt.val}" data-stage="${q.stage}" required class="text-brandYellow-500 focus:ring-brandYellow-500 mr-3 sm:mr-0 sm:mb-2">
                                 <span class="text-[10px] font-bold text-slate-700 leading-tight">${opt.text}</span>
                             </label>
                         `).join('')}
                     </div>
                 </div>`;
             });
+        }
 
-            // 3. Render ASSIST
-            const assistContainer = document.getElementById('assist-questions-container');
-            assistQuestions.forEach((q, idx) => {
-                assistContainer.innerHTML += `
-                <div class="space-y-3 border-b border-slate-100 pb-6">
-                    <span class="text-xs font-bold text-brandYellow-600">Soalan ${idx + 1}</span>
-                    <h4 class="text-sm md:text-base font-extrabold text-brandDark">${q.text}</h4>
-                    <div class="grid grid-cols-1 gap-2 mt-3">
-                        ${q.options.map(opt => `
-                            <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
-                                <input type="radio" name="assist_q${idx}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
-                                <span class="text-xs font-semibold text-slate-700">${opt.text}</span>
-                            </label>
-                        `).join('')}
-                    </div>
-                </div>`;
-            });
+        // 2.2 RENDER SOALAN 1 ASSIST
+        function renderAssistS1() {
+            const container = document.getElementById("assist-s1-placeholder");
+            if (!container) return;
 
-            // 4. Render WHOOLEY
-            const whooleyContainer = document.getElementById('whooley-questions-container');
-            whooleyQuestions.forEach((q, idx) => {
-                whooleyContainer.innerHTML += `
-                <div class="space-y-3 border-b border-slate-100 pb-6">
-                    <span class="text-xs font-bold text-brandYellow-600">Soalan ${idx + 1}</span>
-                    <h4 class="text-sm md:text-base font-extrabold text-brandDark">${q}</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
-                        <label class="flex items-center space-x-3 p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
-                            <input type="radio" name="whooley_q${idx}" value="1" required class="text-brandYellow-500 focus:ring-brandYellow-500">
-                            <span class="text-sm font-bold text-brandDark">Ya</span>
+            assistSubstances.forEach(sub => {
+                container.innerHTML += `
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition duration-150">
+                    <span class="text-[11px] font-black text-brandYellow-600 uppercase tracking-widest">Substans ${sub.id.toUpperCase()}</span>
+                    <p class="text-xs font-bold text-slate-900 mt-1">${sub.name}</p>
+                    <div class="grid grid-cols-2 gap-2 mt-4">
+                        <label class="flex items-center justify-center space-x-2 p-2 bg-white border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
+                            <input type="radio" name="assist_s1_${sub.id}" value="no" required checked class="text-brandDark focus:ring-brandDark">
+                            <span class="text-xs font-extrabold text-slate-700">Tidak</span>
                         </label>
-                        <label class="flex items-center space-x-3 p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
-                            <input type="radio" name="whooley_q${idx}" value="0" required class="text-brandYellow-500 focus:ring-brandYellow-500">
-                            <span class="text-sm font-bold text-brandDark">Tidak</span>
+                        <label class="flex items-center justify-center space-x-2 p-2 bg-white border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-50 transition">
+                            <input type="radio" name="assist_s1_${sub.id}" value="yes" class="text-brandYellow-500 focus:ring-brandYellow-500">
+                            <span class="text-xs font-extrabold text-brandDark">Ya</span>
                         </label>
                     </div>
                 </div>`;
             });
-        });
+        }
 
-        // LOGIK PENUKARAN SKRIN (SCREEN SWITCHER)
+        // =========================================================================
+        // SECTION 3: NAVIGATION CONTROL
+        // =========================================================================
         function showScreeningForm(type) {
             document.getElementById('saringan-dashboard').classList.add('hidden');
             document.getElementById('results-display-section').classList.add('hidden');
             
-            document.getElementById('form-gad7').classList.add('hidden');
+            document.getElementById('form-mental').classList.add('hidden');
             document.getElementById('form-urica').classList.add('hidden');
             document.getElementById('form-assist').classList.add('hidden');
-            document.getElementById('form-whooley').classList.add('hidden');
 
             document.getElementById(`form-${type}`).classList.remove('hidden');
+            
+            // Sekiranya bertukar ke form Mental, pastikan dinamik diclearkan semula
+            if (type === 'mental') {
+                resetMentalHealthForm();
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function backToDashboard() {
             document.getElementById('saringan-dashboard').classList.remove('hidden');
             document.getElementById('results-display-section').classList.add('hidden');
-            document.getElementById('form-gad7').classList.add('hidden');
+            document.getElementById('form-mental').classList.add('hidden');
             document.getElementById('form-urica').classList.add('hidden');
             document.getElementById('form-assist').classList.add('hidden');
-            document.getElementById('form-whooley').classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // KIRA KEPUTUSAN GAD-7
-        document.getElementById('gad7-form-interactive').addEventListener('submit', function(e) {
+        // =========================================================================
+        // SECTION 4: MENTAL HEALTH GRADED FLOW LOGIC
+        // =========================================================================
+        let whooleyPositive = false;
+        let gad2ScoreValue = 0;
+        let gad2Positive = false;
+
+        function resetMentalHealthForm() {
+            whooleyPositive = false;
+            gad2ScoreValue = 0;
+            gad2Positive = false;
+
+            // Clear radio-radio saringan awal
+            const checkedRadios = document.querySelectorAll('#mental-screening-form input[type="radio"]:checked');
+            checkedRadios.forEach(radio => radio.checked = false);
+
+            document.getElementById('phq9-section').classList.add('hidden');
+            document.getElementById('gad7-section').classList.add('hidden');
+            document.getElementById('btn-final-submit-container').classList.add('hidden');
+            document.getElementById('btn-initial-analysis-container').classList.remove('hidden');
+
+            document.getElementById('phq9-questions-container').innerHTML = '';
+            document.getElementById('gad7-questions-container').innerHTML = '';
+        }
+
+        function evaluateInitialMentalHealth() {
+            // Validasi soalan awal
+            const w_q1 = document.querySelector('input[name="whooley_q1"]:checked');
+            const w_q2 = document.querySelector('input[name="whooley_q2"]:checked');
+            const g_q1 = document.querySelector('input[name="gad2_q1"]:checked');
+            const g_q2 = document.querySelector('input[name="gad2_q2"]:checked');
+
+            if (!w_q1 || !w_q2 || !g_q1 || !g_q2) {
+                alert("Sila lengkapkan saringan Bahagian A (Whooley) dan Bahagian B (GAD-2) terlebih dahulu.");
+                return;
+            }
+
+            // Logik Saringan Awal
+            whooleyPositive = (w_q1.value === '1' || w_q2.value === '1');
+            gad2ScoreValue = parseInt(g_q1.value) + parseInt(g_q2.value);
+            gad2Positive = (gad2ScoreValue >= 3);
+
+            // Sembunyikan Butang Analisis Awal
+            document.getElementById('btn-initial-analysis-container').classList.add('hidden');
+
+            // Kasus 1: Kedua-duanya NEGATIF (Terus ke Keputusan Akhir)
+            if (!whooleyPositive && !gad2Positive) {
+                renderMentalHealthFinalResults(0, 0, false, false);
+                return;
+            }
+
+            // Kasus 2: Whooley POSITIF (Bina & Tunjuk PHQ-9)
+            if (whooleyPositive) {
+                renderPHQ9Questions();
+                document.getElementById('phq9-section').classList.remove('hidden');
+            }
+
+            // Kasus 3: GAD-2 POSITIF (Bina & Tunjuk GAD-7 baki)
+            if (gad2Positive) {
+                document.getElementById('initial-gad2-score-alert').textContent = gad2ScoreValue;
+                renderGAD7Questions();
+                document.getElementById('gad7-section').classList.remove('hidden');
+            }
+
+            // Tunjukkan butang hantar akhir
+            document.getElementById('btn-final-submit-container').classList.remove('hidden');
+            
+            // Scroll ke seksyen dinamik baharu
+            const targetSectionId = whooleyPositive ? 'phq9-section' : 'gad7-section';
+            document.getElementById(targetSectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderPHQ9Questions() {
+            const container = document.getElementById('phq9-questions-container');
+            container.innerHTML = ''; // clear
+
+            phq9Questions.forEach((q, idx) => {
+                container.innerHTML += `
+                <div class="space-y-3 border-b border-slate-100 pb-6">
+                    <span class="text-xs font-bold text-brandYellow-600">Soalan PHQ-${idx + 1}</span>
+                    <h5 class="text-sm font-extrabold text-brandDark">${q}</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mt-2">
+                        ${[
+                            { text: "Sama sekali tidak", val: 0 },
+                            { text: "Beberapa hari", val: 1 },
+                            { text: "Lebih separuh hari", val: 2 },
+                            { text: "Hampir setiap hari", val: 3 }
+                        ].map(opt => `
+                            <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-all">
+                                <input type="radio" name="phq9_q${idx}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                <span class="text-[11px] font-semibold text-slate-700">${opt.text}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>`;
+            });
+        }
+
+        function renderGAD7Questions() {
+            const container = document.getElementById('gad7-questions-container');
+            container.innerHTML = ''; // clear
+
+            gad7RemainingQuestions.forEach((q, idx) => {
+                // Di GAD-7 baki, soalan bermula dari indeks 3 (item ke-3 hingga ke-7)
+                container.innerHTML += `
+                <div class="space-y-3 border-b border-slate-100 pb-6">
+                    <span class="text-xs font-bold text-brandYellow-600">Soalan GAD-${idx + 3}</span>
+                    <h5 class="text-sm font-extrabold text-brandDark">${q}</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 mt-2">
+                        ${[
+                            { text: "Sama sekali tidak", val: 0 },
+                            { text: "Beberapa hari", val: 1 },
+                            { text: "Lebih separuh hari", val: 2 },
+                            { text: "Hampir setiap hari", val: 3 }
+                        ].map(opt => `
+                            <label class="flex items-center space-x-2 p-2.5 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-all">
+                                <input type="radio" name="gad7_q${idx}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                <span class="text-[11px] font-semibold text-slate-700">${opt.text}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>`;
+            });
+        }
+
+        // AKSI HANTAR BORANG KESIHAN MENTAL AKHIR
+        document.getElementById('mental-screening-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            let total = 0;
-            for (let i = 0; i < gad7Questions.length; i++) {
-                total += parseInt(document.querySelector(`input[name="gad_q${i}"]:checked`).value);
+
+            let phq9Total = 0;
+            let gad7Total = gad2ScoreValue; // Bermula dengan markah GAD-2 awal
+
+            // Kira PHQ-9 jika ia dipaparkan
+            if (whooleyPositive) {
+                for (let i = 0; i < phq9Questions.length; i++) {
+                    const ans = document.querySelector(`input[name="phq9_q${i}"]:checked`);
+                    if (ans) phq9Total += parseInt(ans.value);
+                }
             }
 
-            const title = document.getElementById('status-title');
-            const interp = document.getElementById('clinical-interpretation');
-            document.getElementById('score-text').textContent = total;
-
-            if (total <= 4) {
-                title.textContent = "Minimal Anxiety (Kebimbangan Ringan / Tahap Rendah)";
-                title.className = "text-xl font-black text-green-600";
-                interp.textContent = "Kondisi emosi dan kebimbangan anda berada dalam zon normal. Teruskan penjagaan emosi murni yang baik dan sentiasa luangkan masa bertenang bersama keluarga.";
-            } else if (total <= 9) {
-                title.textContent = "Mild Anxiety (Kebimbangan Sederhana Ringan)";
-                title.className = "text-xl font-black text-brandYellow-600";
-                interp.textContent = "Anda menunjukkan tanda-tanda kebimbangan ringan yang biasanya berpunca daripada stres luaran. Amalkan 'Kaedah 10B KKM' di dalam Tema 4 Intervensi kami untuk kembali tenang [6, 7].";
-            } else if (total <= 14) {
-                title.textContent = "Moderate Anxiety (Kebimbangan Sederhana)";
-                title.className = "text-xl font-black text-orange-500";
-                interp.textContent = "Tahap kebimbangan anda berada pada paras sederhana. Sesi psikoterapi berstruktur dan sokongan kaunseling berkelompok amat membantu anda dalam mengawal emosi ini [8].";
-            } else {
-                title.textContent = "Severe Anxiety (Kebimbangan Teruk / Klinikal)";
-                title.className = "text-xl font-black text-red-600";
-                interp.textContent = "Sila ambil perhatian. Anda mengalami tanda-tanda kebimbangan yang teramat tinggi. Kami amat menggalakkan anda untuk hadir terus ke Klinik Kesihatan Kuala Perlis [4] bagi memulakan pelan intervensi kesihatan mental berstruktur [1, 2].";
+            // Kira GAD-7 jika ia dipaparkan
+            if (gad2Positive) {
+                for (let i = 0; i < gad7RemainingQuestions.length; i++) {
+                    const ans = document.querySelector(`input[name="gad7_q${i}"]:checked`);
+                    if (ans) gad7Total += parseInt(ans.value);
+                }
             }
 
-            document.getElementById('results-display-section').classList.remove('hidden');
-            document.getElementById('results-display-section').scrollIntoView({ behavior: 'smooth' });
+            renderMentalHealthFinalResults(phq9Total, gad7Total, whooleyPositive, gad2Positive);
         });
 
-        // KIRA KEPUTUSAN URICA
+        function renderMentalHealthFinalResults(phq9Score, gad7Score, phqShown, gad7Shown) {
+            const resultsSection = document.getElementById('results-display-section');
+            const content = document.getElementById('results-content');
+            
+            let statusHTML = '';
+            
+            // 1. KEPUTUSAN DEPRESI (WHOOLEY & PHQ-9)
+            if (!phqShown) {
+                statusHTML += `
+                <div class="p-5 bg-green-50 border border-green-200 rounded-2xl text-left space-y-2">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-lg">✅</span>
+                        <h4 class="text-sm font-black text-green-800 uppercase tracking-wider">Status Depresi (Whooley): NEGATIF</h4>
+                    </div>
+                    <p class="text-xs text-green-700">Tahniah! Tiada simptom depresi atau kemurungan klinikal dikesan daripada saringan awal anda.</p>
+                </div>`;
+            } else {
+                let depType = '';
+                let depColor = '';
+                let depAdvice = '';
+                
+                if (phq9Score <= 4) {
+                    depType = "Minimal Depression (Tahap Sangat Rendah)";
+                    depColor = "text-green-600";
+                    depAdvice = "Kondisi depresi anda berada pada paras minimal/normal. Teruskan mengekalkan kesihatan emosi yang baik.";
+                } else if (phq9Score <= 9) {
+                    depType = "Mild Depression (Kemurungan Ringan)";
+                    depColor = "text-brandYellow-600";
+                    depAdvice = "Anda menunjukkan tanda-tanda kemurungan ringan. Amalkan hobi yang sihat, luangkan masa bersantai di Laman Oasis OSCA kami, dan dapatkan rehat yang mencukupi.";
+                } else if (phq9Score <= 14) {
+                    depType = "Moderate Depression (Kemurungan Sederhana)";
+                    depColor = "text-orange-500";
+                    depAdvice = "Skor menunjukkan tahap kemurungan yang sederhana. Sesi psikoterapi bertumpu sangat disyorkan bersama Pegawai Psikologi Kaunseling kami bagi membantu anda kembali ceria.";
+                } else if (phq9Score <= 19) {
+                    depType = "Moderately Severe Depression (Kemurungan Sederhana Teruk)";
+                    depColor = "text-red-500";
+                    depAdvice = "Anda berada pada fasa kemurungan sederhana berat. Sila hadir ke Klinik Kesihatan Kuala Perlis untuk bimbingan perubatan atau sokongan murni ubat antikemurungan awal.";
+                } else {
+                    depType = "Severe Depression (Kemurungan Teruk)";
+                    depColor = "text-red-700";
+                    depAdvice = "Sila ambil perhatian serius. Anda sedang mengalami tahap depresi yang sangat tinggi. Sokongan klinikal perubatan segera diperlukan di klinik kesihatan kami bagi menjamin keselamatan emosi anda.";
+                }
+
+                statusHTML += `
+                <div class="p-6 bg-white border border-slate-200 rounded-2xl text-left space-y-3">
+                    <span class="text-[10px] font-black bg-red-50 text-red-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Kesejahteraan Emosi</span>
+                    <h4 class="text-base font-black text-slate-900">Keputusan Saringan PHQ-9 (Skor: <span class="text-brandYellow-600">${phq9Score}</span>/27)</h4>
+                    <p class="text-sm font-black ${depColor}">${depType}</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">${depAdvice}</p>
+                </div>`;
+            }
+
+            // 2. KEPUTUSAN KEBIMBANGAN (GAD-2 & GAD-7)
+            if (!gad7Shown) {
+                statusHTML += `
+                <div class="p-5 bg-green-50 border border-green-200 rounded-2xl text-left space-y-2 mt-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-lg">✅</span>
+                        <h4 class="text-sm font-black text-green-800 uppercase tracking-wider">Status Kebimbangan (GAD-2): NEGATIF (Skor: ${gad2ScoreValue})</h4>
+                    </div>
+                    <p class="text-xs text-green-700">Tahap kebimbangan anda berada dalam keadaan yang sangat tenang dan seimbang.</p>
+                </div>`;
+            } else {
+                let anxType = '';
+                let anxColor = '';
+                let anxAdvice = '';
+                
+                if (gad7Score <= 4) {
+                    anxType = "Minimal Anxiety (Kebimbangan Sangat Rendah)";
+                    anxColor = "text-green-600";
+                    anxAdvice = "Kondisi emosi anda berada dalam zon normal. Tiada kebimbangan klinikal dikesan.";
+                } else if (gad7Score <= 9) {
+                    anxType = "Mild Anxiety (Kebimbangan Ringan)";
+                    anxColor = "text-brandYellow-600";
+                    anxAdvice = "Anda mengalami kebimbangan ringan yang normal dalam urusan stres harian. Lakukan senaman pernafasan ringkas atau dengarkan bimbingan siri meditasi.";
+                } else if (gad7Score <= 14) {
+                    anxType = "Moderate Anxiety (Kebimbangan Sederhana)";
+                    anxColor = "text-orange-500";
+                    anxAdvice = "Anda dinilai mempunyai tahap kebimbangan sederhana. Dapatkan sesi konsultasi murni bersama kaunselor kami di Klinik Kesihatan Kuala Perlis untuk melatih kemahiran asertif dan relaksasi.";
+                } else {
+                    anxType = "Severe Anxiety (Kebimbangan Teruk / Klinikal)";
+                    anxColor = "text-red-600";
+                    anxAdvice = "Simptom kebimbangan anda berada pada fasa klinikal yang berat. Sila temui Dr. Nurshazwani atau En. Mohamad Syafik Azri bagi merangka pelan intervensi rawatan terapeutik berstruktur.";
+                }
+
+                statusHTML += `
+                <div class="p-6 bg-white border border-slate-200 rounded-2xl text-left space-y-3 mt-4">
+                    <span class="text-[10px] font-black bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Pengurusan Stres</span>
+                    <h4 class="text-base font-black text-slate-900">Keputusan Saringan GAD-7 (Skor: <span class="text-brandYellow-600">${gad7Score}</span>/21)</h4>
+                    <p class="text-sm font-black ${anxColor}">${anxType}</p>
+                    <p class="text-xs text-slate-500 leading-relaxed">${anxAdvice}</p>
+                </div>`;
+            }
+
+            // Gabung kandungan & paparkan
+            content.innerHTML = statusHTML;
+            
+            document.getElementById('form-mental').classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+
+        // =========================================================================
+        // SECTION 5: URICA 32-QUESTION LAKSANAKAN PENGIRAAN
+        // =========================================================================
         document.getElementById('urica-form-interactive').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             let sums = { PC: 0, C: 0, A: 0, M: 0 };
             let counts = { PC: 0, C: 0, A: 0, M: 0 };
 
-            for (let i = 0; i < uricaQuestions.length; i++) {
+            for (let i = 0; i < uricaFullQuestions.length; i++) {
                 const checkedOpt = document.querySelector(`input[name="urica_q${i}"]:checked`);
-                const val = parseInt(checkedOpt.value);
-                const stage = checkedOpt.getAttribute('data-stage');
-                
-                sums[stage] += val;
-                counts[stage] += 1;
+                if (checkedOpt) {
+                    const val = parseInt(checkedOpt.value);
+                    const stage = checkedOpt.getAttribute('data-stage');
+                    sums[stage] += val;
+                    counts[stage] += 1;
+                }
             }
 
-            // Purata fasa perubahan
-            const pc_avg = sums.PC / counts.PC;
-            const c_avg = sums.C / counts.C;
-            const a_avg = sums.A / counts.A;
-            const m_avg = sums.M / counts.M;
+            // Kira Purata bagi setiap Kategori (PC, C, A, M dibahagi 8 mengikut draf KKM)
+            const pc_avg = sums.PC / 8;
+            const c_avg = sums.C / 8;
+            const a_avg = sums.A / 8;
+            const m_avg = sums.M / 8;
 
             // Skor Kesediaan URICA Formula: (C + A + M) - PC
             const readinessScore = ((c_avg + a_avg + m_avg) - pc_avg).toFixed(2);
 
-            const title = document.getElementById('status-title');
-            const interp = document.getElementById('clinical-interpretation');
-            document.getElementById('score-text').textContent = readinessScore;
+            let stageTitle = '';
+            let stageColor = '';
+            let stageInterp = '';
 
             if (readinessScore < 8.0) {
-                title.textContent = "Fasa Pra-Renungan (Precontemplation)";
-                title.className = "text-xl font-black text-red-600";
-                interp.textContent = "Skor menunjukkan anda belum menyedari sepenuhnya keperluan untuk membuat perubahan tingkah laku ketagihan anda pada fasa ini [3, 9]. Pasukan OSCA kami sedia memberikan sokongan awal secara membina dorongan motivasi diri [3, 10].";
+                stageTitle = "Fasa Pra-Renungan (Precontemplation) - Skor &le; 8.0";
+                stageColor = "text-red-600";
+                stageInterp = "Skor menunjukkan anda belum menyedari sepenuhnya keperluan untuk membuat perubahan tingkah laku ketagihan anda pada fasa ini. Anda mungkin menganggap rawatan adalah membuang masa. Pasukan OSCA kami sedia memberikan bimbingan awal mesra bagi membina kesedaran dan mencetus motivasi kendiri secara lembut.";
             } else if (readinessScore <= 11.0) {
-                title.textContent = "Fasa Renungan (Contemplation)";
-                title.className = "text-xl font-black text-brandYellow-600";
-                interp.textContent = "Anda sedang menimbang baik dan buruk tabiat ketagihan ini melalui 'Decision Matrix' (Tema 1 Aktiviti 4) [3, 9]. Ini adalah masa terbaik untuk berbincang dengan Pegawai Psikologi Kaunseling kami [5].";
+                stageTitle = "Fasa Renungan (Contemplation) - Skor 8.0 – 11.0";
+                stageColor = "text-brandYellow-600";
+                stageInterp = "Anda menunjukkan fasa menimbang baik dan buruk tabiat anda. Anda sedar tentang masalah ini, tetapi masih mempunyai dilema untuk melakukan perubahan penuh. Aktiviti 'Decision Matrix' (Tema 1 Aktiviti 4) di bawah bimbingan En. Mohamad Syafik Azri amat sesuai untuk membantu membimbing komitmen pemulihan anda.";
             } else if (readinessScore <= 14.0) {
-                title.textContent = "Fasa Tindakan (Action)";
-                title.className = "text-xl font-black text-green-600";
-                interp.textContent = "Luar biasa! Anda berada dalam fasa bertindak aktif memulakan pemulihan fizikal, mental, dan sosial anda [10]. Kami sedia mengiringi langkah aktif anda ini dengan sokongan ubat-ubatan dan terapi kognitif [8, 10].";
+                stageTitle = "Fasa Persediaan / Tindakan (Preparation / Action) - Skor 11.0 – 14.0";
+                stageColor = "text-green-600";
+                stageInterp = "Luar biasa! Anda berada pada fasa bersedia dan komited melakukan langkah aktif menukar tabiat ketagihan lama kepada gaya hidup murni yang sihat. Pasukan klinikal sehenti kami bersedia mendakap tindakan anda dengan pakej rawatan ubatan (MAT), terapi cara kerja, dan asertif pencegahan relaps.";
             } else {
-                title.textContent = "Fasa Penyelenggaraan (Maintenance)";
-                title.className = "text-xl font-black text-blue-600";
-                interp.textContent = "Tahniah! Anda berada dalam fasa mengekalkan tabiat hidup sihat yang bebas dan sentiasa bersiap sedia merangka 'Pelan Elak Jatuh Semula' (Tema 1 Aktiviti 7) bagi mengelak relaps [3, 9]. Teruskan usaha murni anda!";
+                stageTitle = "Fasa Penyelenggaraan (Maintenance) - Skor &ge; 14.0";
+                stageColor = "text-blue-600";
+                stageInterp = "Kondisi hebat! Anda berada dalam fasa mengekalkan pencapaian tingkah laku sihat yang bebas dan sentiasa peka mengawal risiko. Sila fokuskan usaha anda bersama kami untuk melengkapkan 'Pelan Elak Jatuh Semula' (Tema 1 Aktiviti 7) bagi menghalang kecenderungan jatuh semula (relaps).";
             }
 
-            document.getElementById('results-display-section').classList.remove('hidden');
-            document.getElementById('results-display-section').scrollIntoView({ behavior: 'smooth' });
+            const resultsSection = document.getElementById('results-display-section');
+            const content = document.getElementById('results-content');
+
+            content.innerHTML = `
+            <div class="p-6 bg-white border border-slate-200 rounded-3xl text-left space-y-4">
+                <span class="text-[10px] font-black bg-brandYellow-50 text-brandYellow-800 px-2.5 py-1 rounded-full uppercase tracking-wider">Analisis URICA</span>
+                <h4 class="text-lg font-black text-slate-900">Skor Kesediaan Perubahan Anda: <span class="text-brandYellow-600">${readinessScore}</span></h4>
+                <p class="text-sm font-black ${stageColor}">${stageTitle}</p>
+                <p class="text-xs text-slate-500 leading-relaxed">${stageInterp}</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 pt-4 text-[10px] text-slate-400 font-semibold border-t">
+                    <div>Purata PC (Precontemplation): ${pc_avg.toFixed(2)}</div>
+                    <div>Purata C (Contemplation): ${c_avg.toFixed(2)}</div>
+                    <div>Purata A (Action): ${a_avg.toFixed(2)}</div>
+                    <div>Purata M (Maintenance): ${m_avg.toFixed(2)}</div>
+                </div>
+            </div>`;
+
+            document.getElementById('form-urica').classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
         });
 
-        // KIRA KEPUTUSAN ASSIST
-        document.getElementById('assist-form-interactive').addEventListener('submit', function(e) {
+
+        // =========================================================================
+        // SECTION 6: ASSIST v3.1 LOGIK DINAMIK DUA FASA
+        // =========================================================================
+        let checkedSubstances = [];
+
+        function nextAssistFasa() {
+            // Mengumpul bahan yang ditandakan "Ya" di Soalan 1
+            checkedSubstances = [];
+            assistSubstances.forEach(sub => {
+                const checkedValue = document.querySelector(`input[name="assist_s1_${sub.id}"]:checked`);
+                if (checkedValue && checkedValue.value === 'yes') {
+                    checkedSubstances.push(sub);
+                }
+            });
+
+            // Sekiranya tiada sebarang bahan ditanda "Ya", klien dinilai risiko terendah (0)
+            if (checkedSubstances.length === 0) {
+                renderAssistFinalResultsZero();
+                return;
+            }
+
+            // Sembunyikan S1, Bina soalan lanjut untuk S2 - S7, dan Paparkan Fasa 2
+            document.getElementById('assist-fasa1').classList.add('hidden');
+            buildAssistFasa2Questions();
+            document.getElementById('assist-fasa2').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToAssistFasa1() {
+            document.getElementById('assist-fasa2').classList.add('hidden');
+            document.getElementById('assist-fasa1').classList.remove('hidden');
+        }
+
+        function buildAssistFasa2Questions() {
+            const container = document.getElementById('assist-dynamic-questions');
+            container.innerHTML = ''; // clear
+
+            checkedSubstances.forEach(sub => {
+                // Bina kad soalan untuk setiap bahan yang dipilih
+                container.innerHTML += `
+                <div class="p-6 bg-slate-50/50 border border-slate-200 rounded-2xl space-y-6">
+                    <div class="border-b border-slate-100 pb-3 flex justify-between items-center">
+                        <h4 class="text-base font-black text-slate-900">${sub.name}</h4>
+                        <span class="text-[10px] font-black bg-brandYellow-500 text-brandDark px-2 py-0.5 rounded-full uppercase">Penilaian Kekerapan</span>
+                    </div>
+
+                    <!-- SOALAN 2 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase">Soalan 2</span>
+                        <p class="text-xs font-bold text-brandDark">Dalam 3 bulan kebelakangan ini, berapa kerapkah anda mengambil bahan tersebut?</p>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
+                            ${[
+                                { text: "Tidak Pernah", val: 0 },
+                                { text: "1-2 Kali", val: 2 },
+                                { text: "Bulanan", val: 3 },
+                                { text: "Mingguan", val: 4 },
+                                { text: "Harian / Hampir Hari", val: 6 }
+                            ].map(opt => `
+                                <label class="flex items-center space-x-2 p-2 bg-white border border-slate-150 rounded-lg cursor-pointer hover:bg-slate-50 transition-all text-xs">
+                                    <input type="radio" name="assist_q2_${sub.id}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                    <span>${opt.text} (${opt.val})</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- SOALAN 3 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase">Soalan 3</span>
+                        <p class="text-xs font-bold text-brandDark">Dalam 3 bulan kebelakangan ini, berapa kerapkah anda mempunyai keinginan yang kuat (craving) untuk mengambil?</p>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
+                            ${[
+                                { text: "Tidak Pernah", val: 0 },
+                                { text: "1-2 Kali", val: 3 },
+                                { text: "Bulanan", val: 4 },
+                                { text: "Mingguan", val: 5 },
+                                { text: "Harian / Hampir Hari", val: 6 }
+                            ].map(opt => `
+                                <label class="flex items-center space-x-2 p-2 bg-white border border-slate-150 rounded-lg cursor-pointer hover:bg-slate-50 transition-all text-xs">
+                                    <input type="radio" name="assist_q3_${sub.id}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                    <span>${opt.text} (${opt.val})</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- SOALAN 4 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase">Soalan 4</span>
+                        <p class="text-xs font-bold text-brandDark">Dalam 3 bulan kebelakangan ini, berapa kerapkah ia membawa kepada masalah kesihatan, sosial, undang-undang atau kewangan?</p>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
+                            ${[
+                                { text: "Tidak Pernah", val: 0 },
+                                { text: "1-2 Kali", val: 4 },
+                                { text: "Bulanan", val: 5 },
+                                { text: "Mingguan", val: 6 },
+                                { text: "Harian / Hampir Hari", val: 7 }
+                            ].map(opt => `
+                                <label class="flex items-center space-x-2 p-2 bg-white border border-slate-150 rounded-lg cursor-pointer hover:bg-slate-50 transition-all text-xs">
+                                    <input type="radio" name="assist_q4_${sub.id}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                    <span>${opt.text} (${opt.val})</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- SOALAN 5 (TIDAK DIKODKAN UNTUK TEMBAKAU - DISEMBUNYIKAN SECARA DINAMIK) -->
+                    ${sub.isTobacco ? `
+                        <div class="p-3 bg-slate-100 rounded-lg border text-[11px] text-slate-400 font-medium italic">
+                            *Nota Panduan KKM: Soalan 5 (Kegagalan menjalankan tanggungjawab harian) tidak dikodkan bagi bahan tembakau/rokok. Ia akan dilangkau dalam kiraan skor akhir.
+                        </div>
+                    ` : `
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-bold text-slate-400 block uppercase">Soalan 5</span>
+                            <p class="text-xs font-bold text-brandDark">Dalam 3 bulan kebelakangan ini, berapa kerapkah anda gagal melakukan tanggungjawab biasa (kerja, sekolah, dsb.)?</p>
+                            <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
+                                ${[
+                                    { text: "Tidak Pernah", val: 0 },
+                                    { text: "1-2 Kali", val: 5 },
+                                    { text: "Bulanan", val: 6 },
+                                    { text: "Mingguan", val: 7 },
+                                    { text: "Harian / Hampir Hari", val: 8 }
+                                ].map(opt => `
+                                    <label class="flex items-center space-x-2 p-2 bg-white border border-slate-150 rounded-lg cursor-pointer hover:bg-slate-50 transition-all text-xs">
+                                        <input type="radio" name="assist_q5_${sub.id}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                        <span>${opt.text} (${opt.val})</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `}
+
+                    <!-- SOALAN 6 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase">Soalan 6</span>
+                        <p class="text-xs font-bold text-brandDark">Pernahkah rakan, saudara-mara atau orang lain mengambil kisah tentang masalah penggunaan anda?</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            ${[
+                                { text: "Tidak pernah", val: 0 },
+                                { text: "Ya, tetapi bukan dalam 3 bulan lepas", val: 3 },
+                                { text: "Ya, dalam 3 bulan kebelakangan ini", val: 6 }
+                            ].map(opt => `
+                                <label class="flex items-center space-x-2 p-2 bg-white border border-slate-150 rounded-lg cursor-pointer hover:bg-slate-50 transition-all text-xs">
+                                    <input type="radio" name="assist_q6_${sub.id}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                    <span>${opt.text} (${opt.val})</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- SOALAN 7 -->
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-slate-400 block uppercase">Soalan 7</span>
+                        <p class="text-xs font-bold text-brandDark">Pernahkah anda gagal dalam cubaan untuk mengurangkan pengambilan bahan tersebut?</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            ${[
+                                { text: "Tidak pernah", val: 0 },
+                                { text: "Ya, tetapi bukan dalam 3 bulan lepas", val: 3 },
+                                { text: "Ya, dalam 3 bulan kebelakangan ini", val: 6 }
+                            ].map(opt => `
+                                <label class="flex items-center space-x-2 p-2 bg-white border border-slate-150 rounded-lg cursor-pointer hover:bg-slate-50 transition-all text-xs">
+                                    <input type="radio" name="assist_q7_${sub.id}" value="${opt.val}" required class="text-brandYellow-500 focus:ring-brandYellow-500">
+                                    <span>${opt.text} (${opt.val})</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>`;
+            });
+        }
+
+        // AKSI JIKA SEUMUR HIDUP MEMANG TIDAK PERNAH AMBIL APA-APA (SKOR S1 SEMUA TIDAK)
+        function renderAssistFinalResultsZero() {
+            const resultsSection = document.getElementById('results-display-section');
+            const content = document.getElementById('results-content');
+
+            content.innerHTML = `
+            <div class="p-6 bg-green-50 border border-green-200 rounded-3xl text-left space-y-3">
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg">✅</span>
+                    <h4 class="text-sm font-black text-green-800 uppercase tracking-wider">Hasil Saringan ASSIST: RISIKO MINIMAL</h4>
+                </div>
+                <p class="text-xs text-green-700">Tahniah! Anda melaporkan tidak pernah menyalahgunakan sebarang jenis bahan, tembakau atau minuman keras seumur hidup anda. Tiada sebarang tindakan intervensi klinikal diperlukan. Teruskan gaya hidup bebas ketagihan yang cemerlang!</p>
+            </div>`;
+
+            document.getElementById('form-assist').classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // PENGIRAAN AKHIR SKOR ASSIST V3.1
+        document.getElementById('assist-form-interactive-final').addEventListener('submit', function(e) {
             e.preventDefault();
-            let total = 0;
-            for (let i = 0; i < assistQuestions.length; i++) {
-                total += parseInt(document.querySelector(`input[name="assist_q${i}"]:checked`).value);
+
+            const resultsSection = document.getElementById('results-display-section');
+            const content = document.getElementById('results-content');
+            let resultHTML = '<div class="space-y-6 text-left">';
+
+            // 1. KIRA DAN ANALISIS BAGI SETIAP BAHAN TERPILIH
+            checkedSubstances.forEach(sub => {
+                let score = 0;
+                
+                const q2 = parseInt(document.querySelector(`input[name="assist_q2_${sub.id}"]:checked`).value);
+                const q3 = parseInt(document.querySelector(`input[name="assist_q3_${sub.id}"]:checked`).value);
+                const q4 = parseInt(document.querySelector(`input[name="assist_q4_${sub.id}"]:checked`).value);
+                const q6 = parseInt(document.querySelector(`input[name="assist_q6_${sub.id}"]:checked`).value);
+                const q7 = parseInt(document.querySelector(`input[name="assist_q7_${sub.id}"]:checked`).value);
+
+                score += (q2 + q3 + q4 + q6 + q7);
+
+                if (!sub.isTobacco) {
+                    const q5 = parseInt(document.querySelector(`input[name="assist_q5_${sub.id}"]:checked`).value);
+                    score += q5;
+                }
+
+                // Pengelasan Risiko Mengikut standard KKM (Ambang Berbeza)
+                let riskType = '';
+                let riskColor = '';
+                let riskText = '';
+
+                if (sub.isTobacco) {
+                    // Tembakau
+                    if (score <= 3) {
+                        riskType = "Risiko Rendah (Tidak Perlu Intervensi)";
+                        riskColor = "text-green-600";
+                        riskText = "Penggunaan anda adalah minimal atau tiada risiko. Sila kekalkan gaya hidup sihat ini.";
+                    } else if (score <= 26) {
+                        riskType = "Risiko Sederhana (Perlu Intervensi Ringkas / Brief Intervention)";
+                        riskColor = "text-brandYellow-600";
+                        riskText = "Tabiat penggunaan anda mula menunjukkan kesan kemudaratan kesihatan atau kelakuan. Sila temui terapis klinikal kami di Klinik Kesihatan Kuala Perlis untuk bimbingan pencegahan ketagihan nikotin di bawah Tema 1.";
+                    } else {
+                        riskType = "Risiko Tinggi (Perlu Rawatan Intensif / Rujukan Pakar)";
+                        riskColor = "text-red-600";
+                        riskText = "Tahap penggunaan yang teruk dan berisiko ketagihan tinggi. Rujukan ubat khusus (Nicotine Replacement Therapy/kaunseling intensif) di klinik adalah sangat diperlukan segera.";
+                    }
+                } else if (sub.isAlcohol) {
+                    // Alkohol / Arak
+                    if (score <= 10) {
+                        riskType = "Risiko Rendah (Tidak Perlu Intervensi)";
+                        riskColor = "text-green-600";
+                        riskText = "Tabiat anda dikategorikan berisiko sangat rendah. Tiada intervensi klinikal diperlukan.";
+                    } else if (score <= 26) {
+                        riskType = "Risiko Sederhana (Perlu Intervensi Ringkas / Brief Intervention)";
+                        riskColor = "text-brandYellow-600";
+                        riskText = "Terdapat indikasi kemudaratan sosial atau fizikal sederhana. Amat digalakkan merujuk Garis Panduan Pencegahan Alkohol (2013) serta berunding dengan pegawai pemulihan kami.";
+                    } else {
+                        riskType = "Risiko Tinggi (Perlu Rawatan Intensif / Rujukan Pakar)";
+                        riskColor = "text-red-600";
+                        riskText = "Menunjukkan tanda ketagihan arak klinikal yang teruk. Khidmat rawatan klinikal intensif dan program sokongan detoksifikasi adalah amat digalakkan bagi menyokong pemulihan fizikal anda.";
+                    }
+                } else {
+                    // Substans Lain (c hingga j)
+                    if (score <= 3) {
+                        riskType = "Risiko Rendah (Tidak Perlu Intervensi)";
+                        riskColor = "text-green-600";
+                        riskText = "Tiada risiko ketagihan aktif dikesan bagi bahan ini.";
+                    } else if (score <= 26) {
+                        riskType = "Risiko Sederhana (Perlu Intervensi Ringkas / Brief Intervention)";
+                        riskColor = "text-brandYellow-600";
+                        riskText = "Tanda bahaya penggunaan sederhana aktif dikesan. Sangat disyorkan untuk berbincang secara sulit dan mesra bersama pegawai psikologi bagi mematahkan tabiat buruk ini sebelum ia membesar.";
+                    } else {
+                        riskType = "Risiko Tinggi (Perlu Rawatan Intensif / Rujukan Pakar)";
+                        riskColor = "text-red-600";
+                        riskText = "Tahap ketergantungan bahan yang amat tinggi. Rujukan segera di bawah seliaan pakar perubatan kami bagi memulakan terapi ubat selamat (MAT / detoksifikasi safely) adalah amat penting.";
+                    }
+                }
+
+                resultHTML += `
+                <div class="p-5 bg-white border border-slate-200 rounded-2xl space-y-2 shadow-sm">
+                    <span class="text-[10px] font-black bg-slate-100 text-slate-700 px-2 py-0.5 rounded uppercase">${sub.isTobacco ? 'Tembakau' : sub.isAlcohol ? 'Alkohol' : 'Substans Dadah'}</span>
+                    <h5 class="text-sm font-black text-slate-900">${sub.name}</h5>
+                    <p class="text-xs font-bold">Skor Keseriusan: <span class="text-brandYellow-600">${score}</span></p>
+                    <p class="text-xs font-black ${riskColor}">${riskType}</p>
+                    <p class="text-[11px] text-slate-500 leading-normal">${riskText}</p>
+                </div>`;
+            });
+
+            // 2. ANALISIS SOALAN 8: SUNTIKAN RIKO
+            const q8 = document.querySelector('input[name="assist_q8"]:checked').value;
+            if (q8 === '3m') {
+                resultHTML += `
+                <div class="p-5 bg-red-50 border-2 border-red-200 rounded-2xl space-y-2 mt-4">
+                    <h5 class="text-xs font-black text-red-800 uppercase tracking-wider">⚠️ AMARAN KLINIKAL: Risiko Amalan Suntikan Aktif</h5>
+                    <p class="text-[11px] text-red-700 leading-normal">
+                        Klien melaporkan telah melakukan amalan suntikan bahan dalam tempoh 3 bulan kebelakangan ini. Sila hubungi Unit OSCA segera untuk ujian saringan penyakit berjangkit (Infective Screening) bagi membendung penularan atau jangkitan penyakit (HIV, Hepatitis C, TB, STD) serta mulakan rawatan selamat (HAART / DAA).
+                    </p>
+                </div>`;
+            } else if (q8 === 'prev') {
+                resultHTML += `
+                <div class="p-5 bg-orange-50 border border-orange-200 rounded-2xl space-y-2 mt-4">
+                    <h5 class="text-xs font-black text-orange-800 uppercase tracking-wider">Notifikasi: Sejarah Amalan Suntikan</h5>
+                    <p class="text-[11px] text-orange-700 leading-normal">
+                        Pengguna mempunyai sejarah melakukan amalan suntikan bahan seumur hidup. Pemeriksaan awal status kesihatan fizikal dan saringan infective tetap digalakkan bagi memelihara kesejahteraan tubuh anda jangka panjang.
+                    </p>
+                </div>`;
             }
 
-            const title = document.getElementById('status-title');
-            const interp = document.getElementById('clinical-interpretation');
-            document.getElementById('score-text').textContent = total;
+            resultHTML += '</div>';
+            content.innerHTML = resultHTML;
 
-            if (total <= 3) {
-                title.textContent = "Risiko Penggunaan Rendah (Low Risk)";
-                title.className = "text-xl font-black text-green-600";
-                interp.textContent = "Tahap penggunaan bahan anda adalah dalam kategori risiko rendah yang selamat. Teruskan memelihara gaya hidup bebas daripada vape/rokok mahupun bahan larangan.";
-            } else if (total <= 26) {
-                title.textContent = "Risiko Penggunaan Sederhana (Moderate Risk)";
-                title.className = "text-xl font-black text-brandYellow-600";
-                interp.textContent = "Saringan menunjukkan tabiat penggunaan bahan anda mula mengundang implikasi fizikal, mental, atau sosial harian [3, 9]. Anda amat disyorkan untuk mendapatkan intervensi kaunseling ringkas (*Brief Intervention*) bersama pasukan perubatan kami [3].";
-            } else {
-                title.textContent = "Risiko Penggunaan Tinggi (High Risk / Ketagihan)";
-                title.className = "text-xl font-black text-red-600";
-                interp.textContent = "Sila ambil perhatian serius. Anda terdedah kepada risiko ketergantungan bahan kronik. Anda memerlukan khidmat klinikal sokongan ubat-ubatan, program detoksifikasi safely, atau Terapi Gantian Methadone di Klinik Kesihatan Kuala Perlis [1, 10].";
-            }
-
-            document.getElementById('results-display-section').classList.remove('hidden');
-            document.getElementById('results-display-section').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // KIRA KEPUTUSAN WHOOLEY
-        document.getElementById('whooley-form-interactive').addEventListener('submit', function(e) {
-            e.preventDefault();
-            let positiveCount = 0;
-            for (let i = 0; i < whooleyQuestions.length; i++) {
-                positiveCount += parseInt(document.querySelector(`input[name="whooley_q${i}"]:checked`).value);
-            }
-
-            const title = document.getElementById('status-title');
-            const interp = document.getElementById('clinical-interpretation');
-            document.getElementById('score-text').textContent = positiveCount > 0 ? "POSITIF" : "NEGATIF";
-
-            if (positiveCount > 0) {
-                title.textContent = "Saringan Positif (Risiko Simptom Kemurungan)";
-                title.className = "text-xl font-black text-red-600";
-                interp.textContent = "Saringan mengesan kehadiran simptom awal kesedihan mendalam atau kurang minat melakukan aktiviti harian sepanjang bulan lalu [1, 2]. Jangan risau, hadirkan diri ke klinik untuk penilaian lanjut (PHQ-9/MINI Psychosis) bersama Pegawai Psikologi Kaunseling kami [1, 2, 5].";
-            } else {
-                title.textContent = "Saringan Negatif (Tiada Risiko Dikesan)";
-                title.className = "text-xl font-black text-green-600";
-                interp.textContent = "Saringan menunjukkan tiada tanda kemurungan atau kesedihan berlarutan dikesan sepanjang bulan lalu. Kekalkan keceriaan rohani dan teruskan aktiviti sihat bersama rakan pemulihan!";
-            }
-
-            document.getElementById('results-display-section').classList.remove('hidden');
-            document.getElementById('results-display-section').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('form-assist').classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>

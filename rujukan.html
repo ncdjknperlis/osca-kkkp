@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pusat Sumber - OSCA Klinik Kesihatan Kuala Perlis</title>
+    <title>Pusat Rujukan - OSCA Klinik Kesihatan Kuala Perlis</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,225 +27,166 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-brandLight text-slate-800 flex flex-col min-h-screen">
 
     <!-- HEADER INJECTOR CONTAINER -->
     <div id="header-container"></div>
 
+    <!-- MAIN CONTENT -->
     <main class="flex-grow py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs uppercase font-bold tracking-widest text-brandYellow-600">Perpustakaan Digital</span>
-                <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-2">Pusat Rujukan & Garis Panduan [31]</h2>
-                <p class="text-slate-500 mt-2 text-sm">Akses lengkap dokumen, SOP klinikal rasmi KKM, media advokasi, dan visual saringan pemulihan ketagihan.</p>
+                <span class="text-xs uppercase font-extrabold tracking-widest text-brandYellow-600 bg-brandYellow-50 px-3 py-1 rounded-md">Pusat Sumber & Garis Panduan</span>
+                <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-3">Bahan Rujukan Klinikal & Komuniti</h2>
+                <p class="text-slate-500 mt-2 text-sm">Himpunan dokumen rujukan murni, polisi, modul latihan dan garis panduan rasmi Kementerian Kesihatan Malaysia (KKM) untuk kegunaan pengamal perubatan dan komuniti.</p>
             </div>
 
-            <!-- 1. SEKSYEN DOKUMEN & GARIS PANDUAN -->
-            <div class="mb-20">
-                <h3 class="text-xl font-black text-brandDark mb-6 border-l-4 border-brandYellow-500 pl-3">Garis Panduan & SOP Rasmi KKM [8, 31]</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <!-- Draf GP OSCA 2025 -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition shadow-sm">
-                        <div>
-                            <span class="text-[10px] font-bold text-brandYellow-600 uppercase tracking-widest block mb-2">Terbitan 2025</span>
-                            <h4 class="font-extrabold text-slate-950 text-sm leading-snug">Draf Garis Panduan Pelaksanaan Perkhidmatan OSCA [8]</h4>
-                            <p class="text-[11px] text-slate-500 mt-2">Membincangkan kawalan produk merokok, rujukan ketagihan nikotin, alkohol, dan substan bersepadu.</p>
+            <!-- GRID KAD RUJUKAN -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Draf GP OSCA 2025 -->
+                <div class="bg-white p-6 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-black bg-brandYellow-50 text-brandYellow-800 px-2.5 py-1 rounded-full uppercase tracking-wider">Perkhidmatan OSCA</span>
+                            <span class="text-xs font-bold text-slate-400">Draf 2025</span>
                         </div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Format: PDF</span>
-                            <a href="#" class="font-bold text-brandYellow-600 hover:text-brandDark transition">Muat Turun →</a>
-                        </div>
+                        <h3 class="text-lg font-black text-brandDark font-extrabold leading-snug">Draf Garis Panduan Pelaksanaan Perkhidmatan OSCA (2025)</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Rujukan kerja dalaman pembentangan KKM bertarikh 24 Mac 2025 yang menggariskan model bersepadu rawatan ketagihan nikotin, alkohol, dan substans.</p>
                     </div>
-
-                    <!-- SOP Methadone 2016 -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition shadow-sm">
-                        <div>
-                            <span class="text-[10px] font-bold text-brandYellow-600 uppercase tracking-widest block mb-2">Terbitan 2016</span>
-                            <h4 class="font-extrabold text-slate-950 text-sm leading-snug">Polisi & SOP Program Rawatan Methadone (Edisi Kedua)</h4>
-                            <p class="text-[11px] text-slate-500 mt-2">SOP klinikal kawalan kualiti dan perubatan terapi penggantian dadah oleh Bahagian Kawalan Penyakit KKM.</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Format: PDF</span>
-                            <a href="#" class="font-bold text-brandYellow-600 hover:text-brandDark transition">Muat Turun →</a>
-                        </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+                        <a href="flipbook.html?file=docs/draf-gp-osca-2025.pdf" target="_blank" class="bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            📖 Flipbook
+                        </a>
+                        <a href="docs/draf-gp-osca-2025.pdf" download class="border-2 border-slate-900 hover:bg-slate-50 text-brandDark font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            💾 Muat Turun
+                        </a>
                     </div>
-
-                    <!-- Pendispensan Farmasi Methadone -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition shadow-sm">
-                        <div>
-                            <span class="text-[10px] font-bold text-brandYellow-600 uppercase tracking-widest block mb-2">Garis Panduan Farmasi</span>
-                            <h4 class="font-extrabold text-slate-950 text-sm leading-snug">Garis Panduan Pendispensan Terapi Gantian Methadone</h4>
-                            <p class="text-[11px] text-slate-500 mt-2">Protokol kawalan bekalan, dos ubat, dan pengurusan sediaan daripada Bahagian Perkhidmatan Farmasi KKM.</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Format: PDF</span>
-                            <a href="#" class="font-bold text-brandYellow-600 hover:text-brandDark transition">Muat Turun →</a>
-                        </div>
-                    </div>
-
-                    <!-- Kaunseling Methadone -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition shadow-sm">
-                        <div>
-                            <span class="text-[10px] font-bold text-brandYellow-600 uppercase tracking-widest block mb-2">Garis Panduan Kaunseling</span>
-                            <h4 class="font-extrabold text-slate-950 text-sm leading-snug">Garis Panduan Kaunseling Terapi Gantian Methadone</h4>
-                            <p class="text-[11px] text-slate-500 mt-2">Buku rujukan bimbingan terapeutik kognitif sokongan untuk kepatuhan terapi gantian ubatan pesakit.</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Format: PDF</span>
-                            <a href="#" class="font-bold text-brandYellow-600 hover:text-brandDark transition">Muat Turun →</a>
-                        </div>
-                    </div>
-
-                    <!-- Alkohol 2013 -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition shadow-sm">
-                        <div>
-                            <span class="text-[10px] font-bold text-brandYellow-600 uppercase tracking-widest block mb-2">Terbitan 2013</span>
-                            <h4 class="font-extrabold text-slate-950 text-sm leading-snug">Saringan & Intervensi Pencegahan Kemudaratan Alkohol</h4>
-                            <p class="text-[11px] text-slate-500 mt-2">SOP pengurangan impak penyalahgunaan alkohol di peringkat komuniti di bawah kendalian Unit Alkohol & Substans KKM.</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Format: PDF</span>
-                            <a href="#" class="font-bold text-brandYellow-600 hover:text-brandDark transition">Muat Turun →</a>
-                        </div>
-                    </div>
-
-                    <!-- ATS & Inhalan 2013 -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition shadow-sm">
-                        <div>
-                            <span class="text-[10px] font-bold text-brandYellow-600 uppercase tracking-widest block mb-2">Siri ATS & Inhalan</span>
-                            <h4 class="font-extrabold text-slate-950 text-sm leading-snug">Modul Latihan Pengendalian Amphetamine Type Stimulant (ATS) & Inhalan</h4>
-                            <p class="text-[11px] text-slate-500 mt-2">Garis panduan komprehensif bagi diagnosis dan rawatan kesihatan primer penyalahgunaan inhalan/pil perangsang.</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Format: PDF</span>
-                            <a href="#" class="font-bold text-brandYellow-600 hover:text-brandDark transition">Muat Turun →</a>
-                        </div>
-                    </div>
-
-                    <!-- Behavioural Addiction Guidelines -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 flex flex-col justify-between hover:border-brandYellow-500 transition shadow-sm">
-                        <div>
-                            <span class="text-[10px] font-bold text-brandYellow-600 uppercase tracking-widest block mb-2">Ketagihan Tingkah Laku</span>
-                            <h4 class="font-extrabold text-slate-950 text-sm leading-snug">Management Guidelines of Behavioural Addiction</h4>
-                            <p class="text-[11px] text-slate-500 mt-2">Modul kawalan saringan dan rawatan klinikal intervensi untuk kes gajet, skrin, video game, dan perjudian.</p>
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Format: PDF</span>
-                            <a href="#" class="font-bold text-brandYellow-600 hover:text-brandDark transition">Muat Turun →</a>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
-            <!-- 2. DIAGRAM INFOGRAFIK INTERAKTIF -->
-            <div class="mb-20">
-                <h3 class="text-xl font-black text-brandDark mb-6 border-l-4 border-brandYellow-500 pl-3">Rajah Konseptual & Model Rujukan</h3>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    
-                    <!-- Diagram 1: Pendekatan Bio-Psycho-Social-Spiritual -->
-                    <div class="bg-bgSecondary p-8 rounded-2xl border border-slate-200">
-                        <h4 class="font-extrabold text-slate-950 text-base mb-4">Model Roda Pendekatan "Bio-Psycho-Social-Spiritual" [2]</h4>
-                        <div class="space-y-4">
-                            <div class="p-4 bg-white rounded-lg border border-slate-100">
-                                <span class="font-bold text-xs text-blue-600 uppercase block">1. Biologikal</span>
-                                <p class="text-[11px] text-slate-500 mt-1">Intervensi medikal menggunakan ubat, terapi gantian substans dadah, saringan kesihatan fizikal & penyakit berjangkit [2, 4].</p>
-                            </div>
-                            <div class="p-4 bg-white rounded-lg border border-slate-100">
-                                <span class="font-bold text-xs text-brandYellow-600 uppercase block">2. Psikologikal</span>
-                                <p class="text-[11px] text-slate-500 mt-1">Sesi kaunseling individu, intervensi komorbiditi dual psikiatrik, membina kawalan minda, serta asertif menyangkal relaps [3, 4, 9].</p>
-                            </div>
-                            <div class="p-4 bg-white rounded-lg border border-slate-100">
-                                <span class="font-bold text-xs text-orange-600 uppercase block">3. Sosial</span>
-                                <p class="text-[11px] text-slate-500 mt-1">Kempen kemandirian vokasional (Supported Employment), sokongan waris/pasangan, membina komunikasi sihat keluarga [3, 10].</p>
-                            </div>
-                            <div class="p-4 bg-white rounded-lg border border-slate-100">
-                                <span class="font-bold text-xs text-purple-600 uppercase block">4. Spiritual</span>
-                                <p class="text-[11px] text-slate-500 mt-1">Membina kekuatan dalaman rohaniah, membimbing sahsiah diri murni menerusi pengisian keagamaan bersepadu [3, 10].</p>
-                            </div>
+                <!-- Card 2: SOP Methadone 2016 -->
+                <div class="bg-white p-6 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-black bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Rawatan Substans</span>
+                            <span class="text-xs font-bold text-slate-400">PDF SOP</span>
                         </div>
+                        <h3 class="text-lg font-black text-brandDark font-extrabold leading-snug">Polisi & SOP Program Rawatan Methadone KKM (2016)</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">SOP klinikal rasmi bagi kriteria kelayakan kemasukan/pemberhentian pesakit, kawalan ubat, serta tatacara pembekalan dos rawatan Methadone.</p>
                     </div>
-
-                    <!-- Diagram 2: Aliran Rujukan Sumber Klien -->
-                    <div class="bg-bgSecondary p-8 rounded-2xl border border-slate-200">
-                        <h4 class="font-extrabold text-slate-950 text-base mb-4">Carta Alir Sumber Rujukan Kemasukan Klien</h4>
-                        <p class="text-xs text-slate-500 mb-6">Sumber rujukan utama di mana pesakit atau klien boleh dirujuk masuk ke dalam program OSCA:</p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-3 bg-white rounded-lg border border-slate-100 text-center">
-                                <span class="text-xl">🏥</span>
-                                <p class="text-[11px] font-bold text-slate-900 mt-1">1. Klinik Kesihatan</p>
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-slate-100 text-center">
-                                <span class="text-xl">🩺</span>
-                                <p class="text-[11px] font-bold text-slate-900 mt-1">2. Klinik Swasta</p>
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-slate-100 text-center">
-                                <span class="text-xl">🏢</span>
-                                <p class="text-[11px] font-bold text-slate-900 mt-1">3. Hospital</p>
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-slate-100 text-center">
-                                <span class="text-xl">📝</span>
-                                <p class="text-[11px] font-bold text-slate-900 mt-1">4. Saringan Kesihatan (eg BSSK)</p>
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-slate-100 text-center col-span-2">
-                                <span class="text-xl">🏛️</span>
-                                <p class="text-[11px] font-bold text-slate-900 mt-1">5. Agensi Kerajaan (AADK, PUSPEN, Penjara, JKM)</p>
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-slate-100 text-center">
-                                <span class="text-xl">🤝</span>
-                                <p class="text-[11px] font-bold text-slate-900 mt-1">6. PPP / NGO</p>
-                            </div>
-                            <div class="p-3 bg-white rounded-lg border border-slate-100 text-center">
-                                <span class="text-xl">👮</span>
-                                <p class="text-[11px] font-bold text-slate-900 mt-1">7. PDRM</p>
-                            </div>
-                        </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+                        <a href="flipbook.html?file=docs/sop-methadone-2016.pdf" target="_blank" class="bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            📖 Flipbook
+                        </a>
+                        <a href="docs/sop-methadone-2016.pdf" download class="border-2 border-slate-900 hover:bg-slate-50 text-brandDark font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            💾 Muat Turun
+                        </a>
                     </div>
-
                 </div>
-            </div>
 
-            <!-- 3. PAUTAN MEDIA ADVOKASI DIGITAL -->
-            <div>
-                <h3 class="text-xl font-black text-brandDark mb-6 border-l-4 border-brandYellow-500 pl-3">Advokasi Digital & Media [16, 17]</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    
-                    <!-- Radio FM -->
-                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 hover:border-brandYellow-500 transition duration-300">
-                        <div class="w-10 h-10 rounded-full bg-brandYellow-50 text-brandYellow-600 flex items-center justify-center text-lg mb-4">🎙️</div>
-                        <h4 class="text-base font-extrabold text-slate-950">Medik Radio Perlis FM [16, 17]</h4>
-                        <p class="text-xs text-slate-500 mt-2">Tajuk ceramah: *"Merungkai Belenggu Ketagihan"*. Perkongsian audio pendedahan kesedaran perubatan pemulihan di pelbagai stesen radio.</p>
-                        <div class="mt-4 pt-4 border-t border-slate-100 text-[10px] font-bold text-slate-400">
-                            PENCERAMAH: DR. NORHAFIZA (PAKAR KESIHATAN KELUARGA) [16, 17]
+                <!-- Card 3: GP Pendispensan Methadone 2017 -->
+                <div class="bg-white p-6 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-black bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Ubat-Ubatan</span>
+                            <span class="text-xs font-bold text-slate-400">Garis Panduan</span>
                         </div>
+                        <h3 class="text-lg font-black text-brandDark font-extrabold leading-snug">GP Pendispensan Rawatan Terapi Gantian Methadone (2017)</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Garis panduan rasmi Bahagian Farmasi KKM khusus untuk persediaan, keselamatan stor, pelabelan, dan perekodan ubat.</p>
                     </div>
-
-                    <!-- FB Live Dr. Nurshazwani -->
-                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 hover:border-brandYellow-500 transition duration-300">
-                        <div class="w-10 h-10 rounded-full bg-brandYellow-50 text-brandYellow-600 flex items-center justify-center text-lg mb-4">📺</div>
-                        <h4 class="text-base font-extrabold text-slate-950">FB Live: Kupasan Khas OSCA [16, 17]</h4>
-                        <p class="text-xs text-slate-500 mt-2">Penerangan secara interaktif mengenai kaedah pendaftaran klien, saringan ringkas, serta kemudahan rawatan bersepadu di klinik.</p>
-                        <div class="mt-4 pt-4 border-t border-slate-100 text-[10px] font-bold text-slate-400">
-                            PENCERAMAH: DR. NURSHAZWANI (PEGAWAI PERUBATAN) [16, 17]
-                        </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+                        <a href="flipbook.html?file=docs/gp-pendispensan-methadone-2017.pdf" target="_blank" class="bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            📖 Flipbook
+                        </a>
+                        <a href="docs/gp-pendispensan-methadone-2017.pdf" download class="border-2 border-slate-900 hover:bg-slate-50 text-brandDark font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            💾 Muat Turun
+                        </a>
                     </div>
-
-                    <!-- FB Live Gajet -->
-                    <div class="bg-white p-6 rounded-2xl border-2 border-slate-100 hover:border-brandYellow-500 transition duration-300">
-                        <div class="w-10 h-10 rounded-full bg-brandYellow-50 text-brandYellow-600 flex items-center justify-center text-lg mb-4">📱</div>
-                        <h4 class="text-base font-extrabold text-slate-950">FB Live: Ketagihan Gajet [16, 17]</h4>
-                        <p class="text-xs text-slate-500 mt-2">Bimbingan khas mengupas risiko, impak emosi, serta tips praktikal keibubapaan bagi mengatasi ketagihan skrin digital anak-anak.</p>
-                        <div class="mt-4 pt-4 border-t border-slate-100 text-[10px] font-bold text-slate-400">
-                            PENYELIA: PEGAWAI PSIKOLOGI KAUNSELING [16, 17]
-                        </div>
-                    </div>
-
                 </div>
-            </div>
 
+                <!-- Card 4: GP Kaunseling Methadone -->
+                <div class="bg-white p-6 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-black bg-purple-50 text-purple-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Psikososial</span>
+                            <span class="text-xs font-bold text-slate-400">Panduan Farmasi</span>
+                        </div>
+                        <h3 class="text-lg font-black text-brandDark font-extrabold leading-snug">Garis Panduan Kaunseling Terapi Gantian Methadone</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Panduan kaunseling kepatuhan ubat, dos tertinggal/termuntah, pengurusan kesan sampingan, dan interaksi ubat secara holistik.</p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+                        <a href="flipbook.html?file=docs/gp-kaunseling-methadone.pdf" target="_blank" class="bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            📖 Flipbook
+                        </a>
+                        <a href="docs/gp-kaunseling-methadone.pdf" download class="border-2 border-slate-900 hover:bg-slate-50 text-brandDark font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            💾 Muat Turun
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5: GP Saringan Alkohol 2013 -->
+                <div class="bg-white p-6 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-black bg-orange-50 text-orange-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Pencegahan Komuniti</span>
+                            <span class="text-xs font-bold text-slate-400">Buku Saringan</span>
+                        </div>
+                        <h3 class="text-lg font-black text-brandDark font-extrabold leading-snug">Garis Panduan Saringan & Intervensi Alkohol di Komuniti (2013)</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Modul dan kaedah intervensi awal pengurangan kemudaratan alkohol berasaskan penilaian AUDIT-C dan AUDIT-10 di peringkat kesihatan primer.</p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+                        <a href="flipbook.html?file=docs/gp-alkohol-komuniti-2013.pdf" target="_blank" class="bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            📖 Flipbook
+                        </a>
+                        <a href="docs/gp-alkohol-komuniti-2013.pdf" download class="border-2 border-slate-900 hover:bg-slate-50 text-brandDark font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            💾 Muat Turun
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6: Modul Latihan ATS 2013 -->
+                <div class="bg-white p-6 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-black bg-green-50 text-green-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Modul Latihan</span>
+                            <span class="text-xs font-bold text-slate-400">Modul KKM</span>
+                        </div>
+                        <h3 class="text-lg font-black text-brandDark font-extrabold leading-snug">Modul Latihan Pengendalian Penyalahgunaan ATS (2013)</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Modul latihan untuk mendiagnosis, mengurus, serta merawat kes penyalahgunaan dadah jenis perangsang (syabu/pil kuda) dan inhalan.</p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+                        <a href="flipbook.html?file=docs/modul-latihan-ats-2013.pdf" target="_blank" class="bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            📖 Flipbook
+                        </a>
+                        <a href="docs/modul-latihan-ats-2013.pdf" download class="border-2 border-slate-900 hover:bg-slate-50 text-brandDark font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            💾 Muat Turun
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 7: Behavioural Addiction 2024 -->
+                <div class="bg-white p-6 rounded-3xl border-2 border-slate-200 hover:border-brandYellow-500 hover:shadow-xl transition duration-300 flex flex-col justify-between lg:col-span-1">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-black bg-red-50 text-red-700 px-2.5 py-1 rounded-full uppercase tracking-wider">Ketagihan Tingkah Laku</span>
+                            <span class="text-xs font-bold text-slate-400">Terbaharu 2024</span>
+                        </div>
+                        <h3 class="text-lg font-black text-brandDark font-extrabold leading-snug">Management Guidelines of Behavioural Addiction for MOH (2024)</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Garis panduan pengurusan klinikal komprehensif terbaharu KKM khusus untuk merawat ketagihan bukan substans (internet, gajet, judi, video game).</p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+                        <a href="flipbook.html?file=docs/behavioural-addiction-guidelines-2024.pdf" target="_blank" class="bg-brandDark hover:bg-slate-800 text-white font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            📖 Flipbook
+                        </a>
+                        <a href="docs/behavioural-addiction-guidelines-2024.pdf" download class="border-2 border-slate-900 hover:bg-slate-50 text-brandDark font-bold text-xs py-3 px-4 rounded-xl transition text-center uppercase tracking-wider">
+                            💾 Muat Turun
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 
