@@ -14,7 +14,7 @@
                         brandYellow: {
                             50: '#fffbeb',
                             100: '#fef3c7',
-                            500: '#ffb800',
+                            500: '#ffb800', /* Kuning Emas Premium */
                             600: '#d97706',
                             800: '#92400e',
                         },
@@ -27,143 +27,227 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-brandLight text-slate-800 flex flex-col min-h-screen">
 
     <!-- HEADER INJECTOR CONTAINER -->
     <div id="header-container"></div>
 
-    <main class="flex-grow py-12 md:py-20">
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow py-12 md:py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- SECTION HEADER -->
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs uppercase font-bold tracking-widest text-brandYellow-600">Barisan Pengurusan</span>
-                <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-2">Carta Organisasi OSCA KKKP</h2>
-                <p class="text-slate-500 mt-2 text-sm">Pasukan profesional kesihatan pelbagai disiplin komited pemulihan fizikal, mental & sosial [13, 14].</p>
+                <span class="text-xs uppercase font-extrabold tracking-widest text-brandYellow-600 bg-brandYellow-50 px-3 py-1 rounded-md">Pentadbiran & Kakitangan Klinik</span>
+                <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-3">Carta Organisasi OSCA</h2>
+                <p class="text-slate-500 mt-2 text-sm">Pasukan klinikal multidisiplin yang komited dalam memberikan rawatan, sokongan, dan bimbingan pemulihan ketagihan yang holistik.</p>
+                <p class="text-slate-500 mt-2 text-sm">Diselia di bawah <a href="https://ncdjknperlis.github.io" target="_blank">Kawalan Penyakit Tidak Berjangkit (NCD)</a>, Jabatan Kesihatan Negeri Perlis (JKNPs).</p>
             </div>
 
-            <!-- Hierarchical Tree Layout -->
-            <div class="space-y-12">
+            <!-- ORGANIZATIONAL CHART FLOW (VERTICAL VERTICAL HIERARCHY) -->
+            <div class="space-y-12 relative">
                 
-                <!-- Level 1: Penaung & Pengurusan Daerah -->
-                <div class="flex justify-center">
-                    <div class="w-full max-w-sm bg-white rounded-2xl border-2 border-brandYellow-500 p-6 text-center shadow-lg relative">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brandDark text-white text-[10px] uppercase font-bold tracking-widest px-4 py-1 rounded-full whitespace-nowrap">
-                            Penaung & Pengurusan Daerah
+                <!-- BACKGROUND CONNECTOR LINES FOR DESKTOP -->
+                <div class="hidden lg:block absolute left-1/2 top-10 bottom-10 w-0.5 bg-slate-200 -translate-x-1/2 z-0"></div>
+
+                <!-- LEVEL 1: PKD -->
+                <div class="flex justify-center relative z-10">
+                    <div class="w-full max-w-sm bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] uppercase font-black tracking-widest bg-slate-900 text-white px-3 py-1 rounded-full whitespace-nowrap">Penaung Pentadbiran</span>
+                        <div class="flex flex-col items-center space-y-3 mt-2">
+                            <!-- Image Container with Smart Fallback -->
+                            <div class="w-20 h-20 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                <svg class="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                <img src="images/organisasi/PKD.png" alt="Dr. Khaironisak binti Harun" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-brandDark">Dr. Khaironisak binti Harun</h3>
+                                <p class="text-xs font-bold text-slate-400 mt-0.5">Pegawai Kesihatan Daerah Kangar (PKD)</p>
+                            </div>
                         </div>
-                        <h4 class="text-base font-black text-brandDark mt-2">Dr. Khaironisak binti Harun</h4>
-                        <p class="text-xs text-slate-500 mt-1">Pegawai Kesihatan Daerah [13]</p>
-                        <p class="text-[10px] text-brandYellow-600 font-bold mt-2 uppercase tracking-wide">Pejabat Kesihatan Daerah Kangar [1]</p>
                     </div>
                 </div>
 
-                <!-- Connective Line -->
-                <div class="flex justify-center -my-12">
-                    <div class="w-0.5 h-16 bg-slate-300"></div>
-                </div>
-
-                <!-- Level 2: Penyelia Klinikal -->
-                <div class="flex justify-center">
-                    <div class="w-full max-w-sm bg-white rounded-2xl border-2 border-brandDark p-6 text-center shadow-lg relative">
-                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brandYellow-500 text-brandDark text-[10px] uppercase font-black tracking-widest px-4 py-1 rounded-full whitespace-nowrap">
-                            Penyelia Klinikal OSCA
+                <!-- LEVEL 2: FMS -->
+                <div class="flex justify-center relative z-10">
+                    <div class="w-full max-w-sm bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] uppercase font-black tracking-widest bg-brandYellow-500 text-brandDark px-3 py-1 rounded-full whitespace-nowrap">Ketua Penyelaras Klinikal</span>
+                        <div class="flex flex-col items-center space-y-3 mt-2">
+                            <div class="w-20 h-20 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                <svg class="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                <img src="img/staff-fms.webp" alt="Dr. Norhafiza binti Abd Rahim" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-brandDark">Dr. Norhafiza binti Abd Rahim</h3>
+                                <p class="text-xs font-bold text-slate-400 mt-0.5">Pakar Kesihatan Keluarga (FMS)</p>
+                            </div>
                         </div>
-                        <h4 class="text-base font-black text-brandDark mt-2">Dr. Norhafiza binti Abd Rahim</h4>
-                        <p class="text-xs text-slate-500 mt-1">Pakar Kesihatan Keluarga [13]</p>
-                        <p class="text-[10px] text-slate-500 font-semibold mt-2 uppercase tracking-wide">Klinik Kesihatan Kuala Perlis [14]</p>
                     </div>
                 </div>
 
-                <!-- Connective Line -->
-                <div class="flex justify-center -my-12">
-                    <div class="w-0.5 h-16 bg-slate-300"></div>
-                </div>
-
-                <!-- Level 3: Pelaksana Sektor Klinikal & Sokongan -->
-                <div class="bg-bgSecondary p-8 rounded-3xl border border-slate-200 shadow-sm">
-                    <div class="text-center mb-8 border-b border-slate-200 pb-4">
-                        <h3 class="text-sm uppercase font-bold tracking-wider text-slate-400">Pasukan Intervensi & Sokongan Multidisiplin [13]</h3>
+                <!-- LEVEL 3: KUMPULAN PEGAWAI (PENGURUSAN & PROFESIONAL) -->
+                <div class="space-y-6 relative z-10">
+                    <div class="text-center max-w-md mx-auto">
+                        <span class="text-xs uppercase font-black tracking-widest text-purple-700 bg-purple-50 border border-purple-100 px-4 py-1.5 rounded-full shadow-sm">Kumpulan Pengurusan & Profesional</span>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         
-                        <!-- Pegawai Perubatan -->
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 text-center flex flex-col justify-between hover:border-brandYellow-500 transition">
-                            <div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Medikal</span>
-                                <h5 class="text-sm font-black text-brandDark">Dr. Nurshazwani binti Hishamuddin</h5>
+                        <!-- Pegawai 1: MO -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">Medikal</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="img/staff-mo.webp" alt="Dr. Nurshazwani binti Hishamuddin" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">Dr. Nurshazwani binti Hishamuddin</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Pegawai Perubatan (MO)</p>
+                                </div>
                             </div>
-                            <p class="text-[11px] text-slate-500 mt-2">Pegawai Perubatan</p>
                         </div>
 
-                        <!-- Pegawai Farmasi -->
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 text-center flex flex-col justify-between hover:border-brandYellow-500 transition">
-                            <div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Farmakoterapi</span>
-                                <h5 class="text-sm font-black text-brandDark">Cik Jursima binti Che Lah</h5>
+                        <!-- Pegawai 2: Farmasi -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">Farmakoterapi</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="img/staff-farmasi.webp" alt="Cik Jursima binti Che Lah" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">Cik Jursima binti Che Lah</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Pegawai Farmasi (RPh)</p>
+                                </div>
                             </div>
-                            <p class="text-[11px] text-slate-500 mt-2">Pegawai Farmasi</p>
                         </div>
 
-                        <!-- Pegawai Psikologi -->
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 text-center flex flex-col justify-between hover:border-brandYellow-500 transition">
-                            <div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Psikoterapi</span>
-                                <h5 class="text-sm font-black text-brandDark">En. Mohamad Syafik Azri bin Mohd Zamri</h5>
+                        <!-- Pegawai 3: Psikologi -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">Psikologi</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="images/organisasi/syafik.jpeg" alt="En. Mohamad Syafik Azri bin Mohd Zamri" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">En. Mohamad Syafik Azri bin Mohd Zamri</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider leading-none">Pegawai Psikologi (Kaunseling)</p>
+                                </div>
                             </div>
-                            <p class="text-[11px] text-slate-500 mt-2">Pegawai Psikologi Kaunseling</p>
                         </div>
 
-                        <!-- Pegawai Kerja Sosial -->
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 text-center flex flex-col justify-between hover:border-brandYellow-500 transition">
-                            <div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Sokongan Sosial</span>
-                                <h5 class="text-sm font-black text-brandDark">Cik Zamira binti Razali</h5>
+                        <!-- Pegawai 4: Kerja Sosial -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">Psikososial</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="img/staff-kerja-sosial.webp" alt="Cik Zamira binti Razali" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">Cik Zamira binti Razali</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Pegawai Kerja Sosial (MSW)</p>
+                                </div>
                             </div>
-                            <p class="text-[11px] text-slate-500 mt-2">Pegawai Kerja Sosial Perubatan</p>
-                        </div>
-
-                        <!-- Jurupulih Cara Kerja -->
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 text-center flex flex-col justify-between hover:border-brandYellow-500 transition">
-                            <div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Rehabilitasi</span>
-                                <h5 class="text-sm font-black text-brandDark">Pn. Salihah binti Mohamad Saad</h5>
-                            </div>
-                            <p class="text-[11px] text-slate-500 mt-2">Jurupulih Perubatan Cara Kerja</p>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- Level 4: Staf Pelaksana Operasi Sokongan -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                    <!-- PPP -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-slate-100 flex items-center space-x-4 hover:border-brandYellow-500 transition">
-                        <div class="w-10 h-10 rounded-full bg-brandYellow-50 text-brandYellow-700 flex items-center justify-center font-bold text-xs">PPP</div>
-                        <div>
-                            <h5 class="text-sm font-black text-brandDark">En. Muhd Ariff bin Abu Bakar</h5>
-                            <p class="text-[11px] text-slate-500">Penolong Pegawai Perubatan [13]</p>
-                        </div>
+                <!-- LEVEL 4: KUMPULAN PELAKSANA (SOKONGAN & OPERASI) -->
+                <div class="space-y-6 relative z-10">
+                    <div class="text-center max-w-md mx-auto">
+                        <span class="text-xs uppercase font-black tracking-widest text-amber-700 bg-amber-50 border border-amber-100 px-4 py-1.5 rounded-full shadow-sm">Kumpulan Sokongan & Operasi</span>
                     </div>
 
-                    <!-- JK -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-slate-100 flex items-center space-x-4 hover:border-brandYellow-500 transition">
-                        <div class="w-10 h-10 rounded-full bg-brandYellow-50 text-brandYellow-700 flex items-center justify-center font-bold text-xs">JK</div>
-                        <div>
-                            <h5 class="text-sm font-black text-brandDark">Pn. Rosida binti Abd Jamil</h5>
-                            <p class="text-[11px] text-slate-500">Jururawat Kesihatan [13]</p>
-                        </div>
-                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                    <!-- PPK -->
-                    <div class="bg-white p-5 rounded-2xl border-2 border-slate-100 flex items-center space-x-4 hover:border-brandYellow-500 transition">
-                        <div class="w-10 h-10 rounded-full bg-brandYellow-50 text-brandYellow-700 flex items-center justify-center font-bold text-xs">PPK</div>
-                        <div>
-                            <h5 class="text-sm font-black text-brandDark">En. Ku Azli bin Ku Ishak</h5>
-                            <p class="text-[11px] text-slate-500">Pembantu Perawatan Kesihatan [14]</p>
+                        <!-- Pelaksana 1: OT -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Rehabilitasi</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="img/staff-cara-kerja.webp" alt="Pn. Salihah binti Mohamad Saad" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">Pn. Salihah binti Mohamad Saad</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Terapis Cara Kerja (OT)</p>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Pelaksana 2: PPP -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Klinikal</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="img/staff-ppp.webp" alt="En. Muhd Ariff bin Abu Bakar" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">En. Muhd Ariff bin Abu Bakar</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Penolong Pegawai Perubatan (PPP)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pelaksana 3: JK -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Klinikal</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="img/staff-jururawat.webp" alt="Pn. Rosida binti Abd Jamil" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">Pn. Rosida binti Abd Jamil</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Jururawat Kesihatan (JK)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pelaksana 4: PPK -->
+                        <div class="bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-sm text-center relative hover:border-brandYellow-500 transition duration-300">
+                            <span class="absolute -top-3 left-6 text-[8px] uppercase font-black tracking-widest bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Sokongan</span>
+                            <div class="flex flex-col items-center space-y-3 mt-2">
+                                <div class="w-16 h-16 rounded-2xl bg-slate-100 border border-slate-200 overflow-hidden relative flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                    <img src="img/staff-ppk.webp" alt="En. Ku Azli bin Ku Ishak" class="absolute inset-0 w-full h-full object-cover hidden" onload="this.classList.remove('hidden')">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-black text-brandDark leading-snug">En. Ku Azli bin Ku Ishak</h4>
+                                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Pembantu Perawatan (PPK)</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
             </div>
         </div>
     </main>

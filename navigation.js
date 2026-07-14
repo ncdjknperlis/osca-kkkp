@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                 <div class="space-y-4">
-                    <span class="text-lg font-bold text-white block">OSCA KK Kuala Perlis</span>
+                    <img src="images/logo/logo-osca-kkkp-white.png" class="md:max-w-[130px]">
                     <p class="text-xs text-slate-500 leading-relaxed mx-auto md:mx-0 max-w-sm">
                         Pusat rawatan dan intervensi ketagihan berintegrasi di bawah Unit Kawalan Penyakit Tidak Berjangkit (NCD) Pejabat Kesihatan Daerah Kangar dan JKN Perlis.
                     </p>

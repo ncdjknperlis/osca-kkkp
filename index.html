@@ -132,36 +132,112 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Card 1 -->
-                    <div class="p-6 bg-white rounded-xl border border-slate-200 space-y-4 hover:border-brandYellow-500 hover:shadow-md transition duration-200">
-                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">B</div>
-                        <h3 class="text-lg font-bold text-brandDark">Biologikal</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Rawatan klinikal komprehensif berasaskan ubat-ubatan (pharmacotherapy) untuk menyokong kestabilan biokimia tubuh pesakit [7].
-                        </p>
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:border-brandYellow-500 hover:shadow-md transition duration-300">
+                        <!-- 1. BAHAGIAN GAMBAR (MENGGUNAKAN OBJECT-COVER SUPAYA GAMBAR TIDAK PENYET) -->
+                        <div class="relative h-48 w-full bg-slate-100">
+                            <img 
+                                src="images/card/card-biologikal.webp" 
+                                alt="Aktiviti Hiking Gunung Medan" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                            >
+                            <!-- PINTAR: Gambar Placeholder Sementara (Muncul jika gambar fizikal di atas belum ada) -->
+                            <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400 p-4 text-center">
+                                <span class="text-3xl mb-2">📸</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Letakkan fail 'img/aktiviti-hiking.webp'</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. BAHAGIAN KANDUNGAN TEKS -->
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-brandDark">
+                                Biologikal
+                            </h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Rawatan klinikal komprehensif berasaskan ubat-ubatan (pharmacotherapy) untuk menyokong kestabilan biokimia tubuh pesakit.
+                            </p>
+                        </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="p-6 bg-white rounded-xl border border-slate-200 space-y-4 hover:border-brandYellow-500 hover:shadow-md transition duration-200">
-                        <div class="w-12 h-12 bg-amber-50 text-brandYellow-600 rounded-lg flex items-center justify-center font-bold text-xl">P</div>
-                        <h3 class="text-lg font-bold text-brandDark">Psikologikal</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Sesi kaunseling sokongan, psikoterapi, dan terapi tingkah laku yang membina kesedaran perubahan pesakit secara positif [7, 8].
-                        </p>
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:border-brandYellow-500 hover:shadow-md transition duration-300">
+                        <!-- 1. BAHAGIAN GAMBAR (MENGGUNAKAN OBJECT-COVER SUPAYA GAMBAR TIDAK PENYET) -->
+                        <div class="relative h-48 w-full bg-slate-100">
+                            <img 
+                                src="images/card/card-psikologikal.webp" 
+                                alt="Aktiviti Hiking Gunung Medan" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                            >
+                            <!-- PINTAR: Gambar Placeholder Sementara (Muncul jika gambar fizikal di atas belum ada) -->
+                            <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400 p-4 text-center">
+                                <span class="text-3xl mb-2">📸</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Letakkan fail 'img/aktiviti-hiking.webp'</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. BAHAGIAN KANDUNGAN TEKS -->
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-brandDark">
+                                Psikologikal
+                            </h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Sesi kaunseling sokongan, psikoterapi, dan terapi tingkah laku yang membina kesedaran perubahan pesakit secara positif.
+                            </p>
+                        </div>
                     </div>
                     <!-- Card 3 -->
-                    <div class="p-6 bg-white rounded-xl border border-slate-200 space-y-4 hover:border-brandYellow-500 hover:shadow-md transition duration-200">
-                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center font-bold text-xl">S</div>
-                        <h3 class="text-lg font-bold text-brandDark">Sosial</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Sokongan membina jaringan sosial yang sihat, bimbingan kerjaya, asimilasi komuniti, dan peranan aktif keluarga [7-9].
-                        </p>
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:border-brandYellow-500 hover:shadow-md transition duration-300">
+                        <!-- 1. BAHAGIAN GAMBAR (MENGGUNAKAN OBJECT-COVER SUPAYA GAMBAR TIDAK PENYET) -->
+                        <div class="relative h-48 w-full bg-slate-100">
+                            <img 
+                                src="images/card/card-sosial.webp" 
+                                alt="Aktiviti Hiking Gunung Medan" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                            >
+                            <!-- PINTAR: Gambar Placeholder Sementara (Muncul jika gambar fizikal di atas belum ada) -->
+                            <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400 p-4 text-center">
+                                <span class="text-3xl mb-2">📸</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Letakkan fail 'img/aktiviti-hiking.webp'</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. BAHAGIAN KANDUNGAN TEKS -->
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-brandDark">
+                                Sosial
+                            </h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Sokongan membina jaringan sosial yang sihat, bimbingan kerjaya, asimilasi komuniti, dan peranan aktif keluarga.
+                            </p>
+                        </div>
                     </div>
                     <!-- Card 4 -->
-                    <div class="p-6 bg-white rounded-xl border border-slate-200 space-y-4 hover:border-brandYellow-500 hover:shadow-md transition duration-200">
-                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center font-bold text-xl">Sp</div>
-                        <h3 class="text-lg font-bold text-brandDark">Spiritual</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed">
-                            Penerapan nilai keagamaan dan pengisian rohani murni mingguan untuk mencegah risiko gelincir semula (relapse) [4, 7, 8].
-                        </p>
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:border-brandYellow-500 hover:shadow-md transition duration-300">
+                        <!-- 1. BAHAGIAN GAMBAR (MENGGUNAKAN OBJECT-COVER SUPAYA GAMBAR TIDAK PENYET) -->
+                        <div class="relative h-48 w-full bg-slate-100">
+                            <img 
+                                src="images/card/card-spiritual.webp" 
+                                alt="Aktiviti Hiking Gunung Medan" 
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                            >
+                            <!-- PINTAR: Gambar Placeholder Sementara (Muncul jika gambar fizikal di atas belum ada) -->
+                            <div class="hidden absolute inset-0 flex flex-col items-center justify-center bg-slate-100 text-slate-400 p-4 text-center">
+                                <span class="text-3xl mb-2">📸</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider">Letakkan fail 'img/aktiviti-hiking.webp'</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. BAHAGIAN KANDUNGAN TEKS -->
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-brandDark">
+                                Spiritual
+                            </h3>
+                            <p class="text-xs text-slate-500 leading-relaxed">
+                                Penerapan nilai keagamaan dan pengisian rohani murni mingguan untuk mencegah risiko gelincir semula (<i>relapse</i>).
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
