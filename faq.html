@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Pusat Sehenti Rawatan Ketagihan OSCA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#1E293B',
+                        brandYellow: {
+                            50: '#FEFCE8',
+                            100: '#FEF9C3',
+                            200: '#FEF08A',
+                            300: '#FDE047',
+                            400: '#FACC15',
+                            500: '#EAB308',
+                            600: '#CA8A04',
+                            700: '#A16207',
+                            800: '#854D0E',
+                            900: '#713F12'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50/80 min-h-screen text-slate-800 flex flex-col">
+
+    <!-- Header Container (navigation.js will inject dynamic header here) -->
+    <div id="header-container"></div>
+
+    <!-- MAIN BODY -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase font-extrabold tracking-widest text-brandYellow-600 bg-brandYellow-50 px-3 py-1 rounded-md">Pusat Sumber</span>
+                <h2 class="text-3xl md:text-4xl font-black text-brandDark mt-3">Soalan Lazim (<i>Frequently Asked Question</i> (FAQ)</h2>
+                <p class="text-slate-500 mt-2 text-sm">Himpunan <span class="font-extrabold text-brandDark">80 Soalan Lazim</span> yang diekstrak sepenuhnya daripada dokumen dasar, garis panduan saringan, dan prosedur operasi piawai (SOP) rawatan ketagihan rasmi Kementerian Kesihatan Malaysia.</p>
+            </div>
+        </div>
+
+        <!-- SEARCH AND SEARCH BAR -->
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm space-y-6 mb-8">
+            <div class="relative">
+                <span class="absolute inset-y-0 left-4 flex items-center text-slate-400 text-lg">🔍</span>
+                <input 
+                    type="text" 
+                    id="faq-search" 
+                    placeholder="Taip kata kunci carian di sini (contoh: 'methadone', 'syabu', 'judi')..." 
+                    class="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-xs md:text-sm focus:outline-none focus:border-brandYellow-500 focus:bg-white transition duration-200"
+                    oninput="filterFaq()"
+                >
+            </div>
+
+            <!-- CATEGORY FILTER BUTTONS (SCROLLABLE ON MOBILE) -->
+            <div class="space-y-2">
+                <span class="text-[10px] text-slate-400 font-black uppercase tracking-widest block">Tapis Mengikut Kategori:</span>
+                <div class="flex flex-wrap gap-2">
+                    <button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-brandYellow-500 bg-brandYellow-500 text-slate-900 transition-all duration-200" onclick="filterCategory('all', this)">
+                        Semua FAQ
+                    </button>
+                    <button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-slate-300 transition-all duration-200" onclick="filterCategory('am', this)">
+                        Am & Pengenalan
+                    </button>
+                    <button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-slate-300 transition-all duration-200" onclick="filterCategory('methadone', this)">
+                        Rawatan Methadone
+                    </button>
+                    <button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-slate-300 transition-all duration-200" onclick="filterCategory('ats', this)">
+                        Dadah Perangsang (ATS)
+                    </button>
+                    <button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-slate-300 transition-all duration-200" onclick="filterCategory('alkohol', this)">
+                        Pencegahan Alkohol
+                    </button>
+                    <button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-slate-300 transition-all duration-200" onclick="filterCategory('tingkahlaku', this)">
+                        Ketagihan Tingkah Laku
+                    </button>
+                    <button class="cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-slate-300 transition-all duration-200" onclick="filterCategory('saringan', this)">
+                        Saringan & Kesihatan
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCORDIONS LIST CONTAINER -->
+        <div id="faq-list-container" class="space-y-3">
+
+            <!-- Accordion Item 1 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-01</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah definisi perkhidmatan OSCA mengikut KKM?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Satu pusat sehenti (One Stop Centre for Addiction) yang menyatukan pelbagai disiplin penjagaan kesihatan primer bagi menyediakan saringan, diagnosis, rawatan, rujukan, dan intervensi yang holistik untuk ketagihan substans (alkohol, dadah opiat, dadah perangsang, nikotin) serta ketagihan bukan substans/tingkah laku.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 2 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-02</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Siapakah agensi peneraju program OSCA di peringkat daerah dan negeri Perlis?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Program OSCA diterajui secara rasmi oleh Unit Kawalan Penyakit Tidak Berjangkit (NCD) Jabatan Kesihatan Negeri Perlis (JKNPs) serta diletakkan di bawah pentadbiran khusus Unit NCD Pejabat Kesihatan Daerah (PKD) Kangar.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 3 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-03</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah objektif utama penubuhan OSCA di Klinik Kesihatan Kuala Perlis?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Menyediakan perkhidmatan rawatan dan intervensi yang komprehensif, holistik, dan bersepadu bagi merawat semua jenis penyalahgunaan dan ketagihan substan serta ketagihan tingkah laku yang lain bagi meningkatkan kualiti hidup pesakit.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 4 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-04</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah maksud pendekatan 'Bio-Psycho-Social-Spiritual' di dalam OSCA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Ia merangkumi empat paksi pemulihan: rawatan dengan ubatan untuk ketagihan fizikal (Bio), sesi kaunseling sokongan emosi (Psycho), bantuan sokongan pemulihan kerjaya dan penyepaduan masyarakat (Social), serta bimbingan nilai murni/kerohanian mingguan (Spiritual).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 5 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-05</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Dari manakah punca rujukan pesakit boleh diterima oleh klinik OSCA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Sumber rujukan merangkumi Klinik Kesihatan lain, Klinik Swasta, Hospital, hasil Saringan Kesihatan Awam (seperti BSSK), Agensi Kerajaan (AADK, PUSPEN, Penjara, JKM), Penolong Pegawai Perubatan (PPP), NGO (seperti Cahaya Harapan), serta Polis DiRaja Malaysia (PDRM).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 6 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-06</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah dua pakej perkhidmatan utama yang ditawarkan di klinik OSCA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Pakej Perkhidmatan Bagi Ketagihan Substans (dadah opiat, ATS/syabu, alkohol, rokok) dan Pakej Perkhidmatan Bagi Ketagihan Bukan Substans/Tingkah Laku (judi, game, internet, pornografi).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 7 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-07</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Adakah ahli keluarga atau pasangan pesakit dilibatkan di dalam proses pemulihan OSCA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Ya, terdapat modul khas 'Kaunseling Pasangan & Keluarga' yang bertujuan mendidik keluarga tentang konsep ketagihan, cara menyokong proses kepulihan, mengenali tanda amaran relaps, dan memperbaiki komunikasi keluarga.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 8 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-08</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah program psikososial yang sering dijalankan untuk klien OSCA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Program keagamaan (Sinari Ramadhan bersama NGO), rekreasi kecergasan (Hiking Gunung Medan bersama Panel Penasihat), program pemerkasaan patriotisme (Bebaskah Aku), serta program persediaan pengurusan kewangan diri dan bimbingan kerjaya.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 9 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-09</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Berapakah tempoh fasa rawatan awal (induksi) di bawah draf rujukan OSCA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Intervensi awal berstruktur dijalankan secara intensif di mana Topik 1 & 2 pemulihan (Penilaian Kendiri dan Memahami Motivasi) diberikan secara wajib dalam tempoh 2 bulan pertama penglibatan klien.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 10 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="am">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-10</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Adakah perkhidmatan saringan di pusat OSCA memerlukan temu janji luar sahaja?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Saringan boleh dijalankan secara walk-in semasa waktu operasi harian, datang melalui rujukan agensi bertulis, atau pengguna boleh menempah slot temu janji terlebih dahulu secara rasmi menggunakan aplikasi MySejahtera.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Am & Pengenalan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 11 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-11</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kriteria kelayakan utama untuk pesakit menyertai Program Rawatan Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Mempunyai penagihan utama dadah jenis opiat dengan pengesahan kebergantungan klinikal, hadir secara sukarela tanpa paksaan, berumur 18 tahun ke atas (bawah 18 memerlukan konsultasi pakar dan persetujuan bertulis waris), serta bersedia mematuhi segala kontrak peraturan rawatan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 12 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-12</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kriteria pengecualian (tidak layak) menerima terapi Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Klien dengan penagihan utama bukan opiat, tempoh penagihan opiat kurang dari 1 tahun (kecuali atas nasihat pakar), mengalami kegagalan hepatik (hati) yang teruk, mempunyai hipersensitiviti kepada methadone, asma akut, alcoholism akut, ulcerative colitis, atau penyakit mental tidak terkawal.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 13 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-13</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Adakah rawatan Methadone di fasiliti KKM dikenakan bayaran?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Tidak. Rawatan Terapi Gantian Methadone di fasiliti Kerajaan KKM disediakan secara percuma kepada semua warganegara Malaysia sahaja.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 14 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-14</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah yang dimaksudkan dengan pendispensan secara DOT?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Direct Observed Therapy (DOT) bermaksud ubat methadone wajib ditelan sepenuhnya oleh pesakit di hadapan petugas kesihatan (doktor, pegawai farmasi atau penolong pegawai farmasi) bagi memastikan kepatuhan dos serta keselamatan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 15 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-15</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah tatacara bancuhan dan pencairan dos harian Methadone di klinik dijalankan?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Bancuhan ubat dilakukan mengikut sukatan dos yang tepat. Bagi dos ubat kurang atau sama dengan 25 mg ia dicairkan dengan air minuman sehingga 30 ml, manakala bagi dos melebihi 25 mg ia dicairkan sehingga 50 ml atau lebih sebelum diberikan kepada pesakit.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 16 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-16</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kriteria mutlak yang membolehkan klinik memberhentikan pesakit dari rawatan Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Pesakit berkelakuan agresif, mengeluarkan kata-kata kesat atau ugutan fizikal kepada petugas, terlibat dalam aktiviti pengedaran/salah guna dadah di kawasan fasiliti, atau dikesan melakukan penyelewengan dos bawa balik (DBB) methadone.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 17 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-17</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Adakah keputusan urin dikesan positif dadah lain boleh menyebabkan pesakit diberhentikan rawatan Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Tidak. Mengikut SOP rasmi KKM, ujian urin yang dikesan positif dadah BUKAN merupakan kriteria untuk memberhentikan atau menangguhkan rawatan methadone pesakit.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 18 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-18</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah objektif klinikal pemberian ubat gantian Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Mengekalkan pesakit dalam program rawatan dengan cara mengurangkan tanda dan gejala tarikan (gian/withdrawal), menstabilkan fizikal, mengelakkan overdos dadah jalanan, serta mengurangkan jangkitan penyakit bawaan darah akibat jarum suntikan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 19 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-19</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah itu Dos Bawa Balik (DBB) atau Take-Away Dose?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Pembekalan ubat methadone dalam botol dos harian berasingan yang dilabel lengkap untuk diminum di rumah bagi menyokong pesakit yang stabil meneruskan kehidupan harian yang produktif (seperti bekerja atau belajar) tanpa perlu hadir ke klinik setiap hari.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 20 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-20</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah syarat ketat untuk melayakkan pesakit menerima DBB?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Klien mestilah berada dalam keadaan stabil, tiada intoksikasi, pemantauan urin bebas dadah, patuh peraturan rawatan, tidak terlibat jenayah/pengedaran dadah, menandatangani Kontrak Perjanjian Persetujuan DBB, serta memberi jaminan ubat disimpan di tempat yang selamat.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 21 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-21</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Berapakah had tempoh maksimum pembekalan DBB?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Bagi DBB Jangka Pendek (pesakit belum stabil sepenuhnya tetapi mempunyai keperluan): maksimum 3 hari. Bagi DBB Jangka Panjang (pesakit stabil): maksimum 6 hari. Pembekalan melebihi 6 hari hanya dibenarkan jika ada alasan munasabah (e.g. umrah, bekerja di laut dalam) secara berperingkat.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 22 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-22</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Adakah dos ubat DBB perlu dicairkan seperti dos harian di klinik?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Ya, ubat DBB wajib dicairkan mengikut unit dos bagi mengelakkan risiko overdos dan mengurangkan risiko penyalahgunaan (seperti suntikan intravena). Pengecualian pencairan hanya diberikan jika ubat dibekalkan untuk tempoh melebihi 6 hari.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 23 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-23</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah cara penyimpanan DBB yang selamat di rumah?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Disimpan pada suhu bilik, di dalam kabinet/laci yang berkunci tinggi, dijauhi dari kanak-kanak, DILARANG disimpan di dalam peti sejuk atau dicampur bersama makanan/minuman, dilarang membuang label botol, dan dilarang memindahkan ubat ke bekas lain.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 24 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-24</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah jadual pengurangan dos ubat dijalankan bagi rawatan Detoksifikasi Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Pengurangan dos dilakukan secara perlahan-lahan atas nasihat pakar: disarankan menurunkan dos sebanyak 10 mg seminggu sehingga mencapai aras 40 mg sehari, dan seterusnya dikurangkan sebanyak 5 mg seminggu. Perubahan dos hanya dibuat sekali seminggu.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 25 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-25</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah tanda kemuncak kesan tarikan fizikal semasa proses pemberhentian Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Tanda dan gejala tarikan fizikal lazimnya mula kelihatan apabila dos ubat berada di bawah 20 mg sehari, dengan tanda puncak (paling teruk) berlaku di antara 2 hingga 3 hari selepas ubat dihentikan sepenuhnya.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 26 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-26</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah tindakan farmasi terhadap botol kosong bekas penyimpanan Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Botol kosong stok methadone wajib dibilas dengan teliti terlebih dahulu sebelum dilupuskan bagi mengelakkan penyalahgunaan sisa ubat, dan label maklumat ubat pada botol mestilah dirosakkan/dikoyak sepenuhnya sebelum dibuang.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 27 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-27</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Berapakah tempoh sah laku bagi sekeping Slip Preskripsi ubat Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Tempoh sah laku preskripsi methadone rasmi KKM adalah selama 3 bulan sahaja. Preskripsi mestilah diperbaharui oleh pengamal perubatan terlatih setiap kali tarikh rawatan susulan pesakit tiba.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 28 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-28</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Berapakah tempoh maksimum penyimpanan stok sirap Methadone di klinik?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Penyimpanan stok fizikal sirap methadone di dalam peti simpanan berkunci fasiliti rawatan tidak boleh melebihi tempoh 1 bulan, manakala di peringkat Stor Integrasi Pusat boleh disimpan sehingga 3 bulan mengikut kapasiti keselamatan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 29 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-29</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah yang dimaksudkan dengan ubat 'Split-Dose' Methadone?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Ubat methadone yang dibahagikan kepada dos berasingan (dos pagi - OM dan dos malam - ON) disebabkan oleh kesan interaksi ubatan lain (seperti ubat ARV HIV atau ubat anti-TB) yang mempercepatkan metabolisma badan pesakit. Ia hanya boleh dimulakan oleh Pakar Perubatan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 30 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="methadone">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-30</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah cara pengurusan pesakit Methadone yang ingin berpindah klinik?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Pegawai Perubatan klinik asal mestilah berhubung dengan klinik baharu untuk memaklumkan rujukan, menyediakan surat rujukan rasmi beserta salinan preskripsi terkini, dan menghantar salinan rekod kesihatan penuh klien dalam tempoh seminggu.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Rawatan Methadone</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 31 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-31</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah maksud dadah kumpulan Amphetamine-Type Stimulants (ATS)?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Kumpulan dadah jenis sintetik perangsang sistem saraf pusat yang merangsang aktiviti otak, denyutan jantung, dan metabolisma secara mendadak. Kumpulan ini termasuklah syabu (methamphetamine), pil kuda (amphetamine), dan ecstasy (MDMA).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 32 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-32</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah nama-nama gelaran atau istilah jalanan bagi dadah jenis Methamphetamine?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Methamphetamine berbentuk kristal kaca tawas dikenali dengan nama Syabu, Ice, Crystal, Batu, atau Kaca, manakala jenis tablet (pil) dikenali sebagai Pil Kuda, Speed, atau Yaba.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 33 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-33</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah risiko fizikal utama akibat penyalahgunaan dadah Syabu/ATS jangka panjang?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Kerosakan salur darah otak (menyebabkan strok), serangan jantung, malnutrisi/penurunan berat badan yang teruk, kerosakan gigi yang serius (meth mouth), dehidrasi teruk, kerosakan hati, dan kegagalan fungsi buah pinggang.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 34 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-34</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah risiko psikologi utama akibat kebergantungan dadah ATS?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Keresahan melampau (agitation), tingkah laku agresif/ganas, insomnia tegar, paranoia, delusi syak wasangka, halusinasi pendengaran/penglihatan (psikosis syabu), kemurungan teruk, dan kewujudan idea atau cubaan bunuh diri.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 35 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-35</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Mengapakah dadah ATS boleh menyebabkan kesan kebergantungan yang sangat tinggi?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Kerana molekul ATS bertindak sebagai pendorong kuat yang merangsang pengeluaran neurotransmitter dopamine secara berlebihan di dalam mesocorticolimbic system (Nucleus Accumbens dan prefrontal cortex) yang mencipta memori keseronokan (euphoria) melampau.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 36 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-36</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah itu saringan 'ASSIST' yang digunakan dalam pengendalian kes ATS?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Alcohol, Smoking and Substance Involvement Screening Test (ASSIST v3.1) adalah alat saringan standard WHO yang mengukur kekerapan, keinginan (gian), kegagalan fungsi sosial, dan risiko kesihatan akibat penggunaan bahan sepanjang hayat dan 3 bulan terakhir.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 37 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-37</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah penentuan kategori risiko dan intervensi berdasarkan skor ASSIST?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Skor 0-3: Risiko Rendah (diberikan pendidikan kesihatan). Skor 4-26: Risiko Sederhana (diberikan intervensi ringkas FRAMES dan Model Matrix). Skor 27+: Risiko Tinggi (rujukan segera kepada pakar perubatan rawatan penagihan KKM dan pusat pemulihan).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 38 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-38</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah tindakan khas jika pesakit dikesan menggunakan dadah secara suntikan?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Mengikut garis panduan, jika pesakit menggunakan sebarang bahan substans secara suntikan (walaupun skor ASSIST berada pada zon sederhana), mereka mestilah dirujuk terus ke pusat-pusat pemulihan untuk program rawatan rapi jangkitan virus bawaan darah.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 39 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-39</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah yang dimaksudkan dengan pendekatan 'FRAMES' di dalam intervensi ringkas?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        FRAMES merangkumi 6 komponen maklum balas: Feedback (maklum balas risiko), Responsibility (tanggungjawab klien), Advice (nasihat jelas), Menu (pilihan strategi ubah tabiat), Empathy (sikap empati), dan Self-efficacy (sokong keyakinan diri).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 40 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="ats">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-40</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah 'Model Matrix' membantu kepulihan pesakit dadah ATS?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Ia menggunakan pendekatan terapi tingkah laku kognitif (CBT) berstruktur selama beberapa sesi (seperti sesi kemahiran kepulihan awalan, sesi pencegahan relaps, dan kelompok sokongan sosial) untuk mengubah tingkah laku penagihan secara berperingkat.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Dadah Perangsang (ATS)</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 41 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-41</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah saringan utama yang digunakan untuk menilai risiko kemudaratan alkohol?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Menggunakan borang soalselidik AUDIT-C (Alcohol Use Disorder Identification Test-Consumption) yang mengandungi 3 soalan utama mengenai kekerapan minum, kuantiti minuman, dan kekerapan minum sehingga mabuk dalam tempoh 12 bulan lalu.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 42 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-42</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah pengkelasan zon risiko berdasarkan skor saringan AUDIT-C?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Skor 0-2: Risiko Rendah (Zon Rendah). Skor 3-4: Risiko Sederhana (Zon Risiko). Skor 5-12: Risiko Tinggi (Zon Tinggi).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 43 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-43</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah intervensi awal yang diberikan kepada klien mengikut skor AUDIT-C?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        AUDIT-C 0-2 diberikan Pendidikan Kesihatan murni. AUDIT-C 3-4 diberikan Nasihat Kesihatan interaktif dan dirujuk ke Kumpulan Sokongan Komuniti. AUDIT-C 5 ke atas wajib menjalani saringan penuh AUDIT-10.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 44 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-44</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah tindakan susulan dibuat berdasarkan keputusan saringan penuh AUDIT-10?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Klien dengan skor AUDIT-10 di bawah 15 (< 15) diberikan nasihat kesihatan dan rujukan KSK. Klien dengan skor AUDIT-10 bernilai 15 dan ke atas (>= 15) wajib dirujuk ke klinik kesihatan/hospital untuk rawatan klinikal.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 45 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-45</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah itu 'Satu Minuman Alkohol Piawai' (Standard Drink) mengikut standard Malaysia?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Satu minuman alkohol piawai merujuk kepada kandungan tepat 10g alkohol/etanol tulen di dalam minuman tersebut (contoh: 1 tin bir 320 ml beralkohol 5%, 1 gelas wain 140 ml beralkohol 12%, atau 1 gelas todi 150 ml beralkohol 8.5%).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 46 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-46</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kesan jangka panjang pengambilan alkohol berlebihan kepada kesihatan fizikal?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Menyebabkan kerosakan organ hati ( fatty liver, hepatitis, sirosis), serangan strok, tekanan darah tinggi, kerosakan jantung (aritmia), gastritis kronik, luka dalam perut, kanser (mulut, esofagus, hepar), serta kerosakan sistem saraf harian.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 47 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-47</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kriteria untuk melayakkan pesakit alkohol menjalani Detoksifikasi di rumah (Kriteria A)?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Klien mempunyai usia muda dan fizikal yang sihat, tahap motivasi tinggi untuk berhenti, mendapat sokongan keluarga yang baik, tiada sejarah sawan atau kesan tarikan teruk, tiada jangkitan dadah lain, serta tiada komplikasi penyakit mental atau risiko bunuh diri.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 48 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-48</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kriteria pengecualian yang mewajibkan rawatan Detoksifikasi Alkohol dilakukan di hospital (Kriteria B)?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Klien berada dalam keadaan keliru/halusinasi, mengalami muntah/cirit-birit teruk, kekurangan zat kronik, berisiko tinggi bunuh diri, mempunyai penyakit psikiatri/akut fizikal yang lain, mengalami sawan tarikan (epilepsi), atau mempunyai persekitaran rumah yang tidak menyokong.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 49 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="alkohol">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-50</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah faedah produktiviti kerjaya apabila klien mengamalkan kehidupan bebas alkohol?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Tubuh badan menjadi cergas semasa bangun tidur, mengurangkan masalah lewat hadir ke tempat kerja, meningkatkan daya tumpuan (fokus) semasa bertugas, serta meningkatkan produktiviti dan prestasi kerjaya harian.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Pencegahan Alkohol</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 50 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-51</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah definisi ketagihan tingkah laku (behavioural addiction) mengikut takrifan sains perubatan?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Satu bentuk tingkah laku berulang yang dilakukan secara kompulsif sehingga mendatangkan kemudaratan, kesengsaraan, dan gangguan fungsi sosial/pekerjaan yang ketara, di mana individu gagal menahan dorongan tersebut walaupun menyedari kesan buruknya.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 51 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-52</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah tiga kategori utama ketagihan bukan substans yang diklasifikasikan oleh KKM?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        1) Gambling Disorder (Ketagihan Judi). 2) Microprocessor-Based Disorders (Ketagihan Gajet, Internet, Media Sosial, dan Gaming). 3) Problematic Sexual Behaviour (Ketagihan Seks/Pornografi).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 52 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-53</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah tanda-tanda klinikal seseorang menghidapi ketagihan judi (Gambling Disorder)?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Bertaruh dengan jumlah wang yang semakin meningkat untuk keseronokan, berasa gelisah/marah apabila cuba berhenti, melakukan cubaan berhenti yang berulang kali gagal, sentiasa berfikir tentang judi (preoccupied), dan berbohong untuk menyembunyikan tabiat judi.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 53 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-54</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah dua soalan saringan ringkas di dalam 'Lie-Bet Questionnaire' untuk judi?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        1) Adakah anda pernah rasa perlu bertaruh dengan jumlah wang yang semakin banyak? 2) Adakah anda terpaksa berbohong kepada orang penting dalam hidup anda mengenai jumlah wang dan masa yang anda gunakan untuk berjudi?
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 54 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-55</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kriteria penilaian untuk mengesahkan masalah ketagihan video game (Gaming Disorder)?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Mengalami gangguan kawalan diri terhadap permainan video, meletakkan keutamaan permainan video melebihi aktiviti harian dan minat yang lain, serta meneruskan permainan video walaupun menghadapi kesan negatif (menjejaskan pelajaran/kerja) selama sekurang-kurangnya 12 bulan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 55 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-56</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah nama borang saringan rasmi untuk ketagihan gajet/gaming yang disahkan di Malaysia?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Internet Gaming Disorder Scale-Short-Form (IGDS9-SF) versi Bahasa Melayu Malaysia (T'ng & Pau, 2020) yang mengandungi 9 soalan saringan (skor positif pada 5 atau lebih kriteria menandakan positif ketagihan).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 56 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-57</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah ciri personaliti yang didapati mempunyai risiko tinggi terhadap ketagihan gajet/gaming?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Individu dengan tahap neurotisisme yang tinggi, tahap kesedaran (conscientiousness) yang rendah, serta tahap ekstraversi yang rendah.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 57 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-58</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kesan negatif ketagihan gaming terhadap pelajar sekolah?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Menyebabkan kemerosotan prestasi akademik, pengurusan emosi tidak stabil, gangguan tidur/insomnia tegar, serta risiko komorbiditi kesihatan mental seperti ADHD, keresahan, dan kemurungan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 58 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-59</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah kaedah pencegahan dan pengurangan kemudaratan bagi ketagihan gaming?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Attention Switching (pengalihan tumpuan kepada aktiviti berfaedah), penanganan faktor pencetus (triggers), pendidikan rasionaliti, pemantauan ketat ibu bapa, serta Resource Restriction (mengehadkan wang/peranti/akses harian).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 59 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-60</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah tanda saringan positif bagi ketagihan internet menggunakan alat ujian IAT?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Menggunakan Internet Addiction Test (IAT) yang mengandungi 8 soalan. Sekiranya klien menjawab 'Ya' kepada 5 atau lebih soalan, mereka disahkan mengalami kebergantungan internet.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 60 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-61</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah ubat-ubatan (farmakoterapi) yang berkesan untuk ketagihan internet/gaming?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Tiada ubat khusus yang diluluskan secara tunggal, namun kajian klinikal menunjukkan ubat Bupropion adalah lebih berkesan berbanding Escitalopram dalam mengurangkan keinginan tegar permainan video/internet.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 61 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-62</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah maksud Problematic Sexual Behaviour (PSB) mengikut manual hospital KKM?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Keadaan fantasi dan tingkah laku seksual yang berulang dan keterlaluan sehingga menyebabkan penderitaan (distress) yang ketara, digunakan secara tidak sihat untuk menangani stres atau emosi negatif, tidak boleh dikawal secara sukarela, serta membawa risiko kemudaratan sosial/perundangan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 62 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-63</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah faktor risiko yang menyumbang kepada pembentukan masalah PSB?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Pengalaman trauma masa kecil (penderaan seksual/fizikal), pendedahan awal terhadap bahan lucah, masalah kawalan impuls, pengaruh rakan sebaya, serta faktor genetik keluarga yang mempunyai sejarah ketagihan.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 63 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-64</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah alat saringan standard yang digunakan di hospital KKM untuk mengesan masalah PSB?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Hypersexual Disorder Screening Inventory (HDSI - 7 soalan, skor 20+ menandakan positif) dan Sexual Addiction Screening Test-Revised (SAST-R - 45 soalan, skor teras 20 soalan pertama melebihi 6 menandakan positif).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 64 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-65</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah ujian makmal asas (baseline) yang perlu dijalankan sebelum rawatan PSB dimulakan?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Ujian darah lengkap (FBC), ujian fungsi hati (LFT), profil renal, profil lipid, bacaan gula darah, elektrokardiogram (ECG), saringan penyakit jangkitan kelamin (STI), serta MRI/CT-Scan otak jika terdapat sejarah kecederaan kepala.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 65 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-66</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah pilihan ubat-ubatan yang digunakan untuk mengawal gejala PSB tahap teruk?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Ubat anti-kemurungan kumpulan SSRI (seperti Fluoxetine 40-60mg/hari atau Sertraline 200mg/hari), ubat anti-craving Naltrexone (100-200mg/hari), serta ubat antiandrogen/GnRH agonist (Cyproterone acetate - CPA 50-200mg/hari) untuk kes risiko tinggi kesalahan seks.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 66 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-67</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah terapi tingkah laku kognitif (CBT) dijalankan untuk pesakit PSB?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Dijalankan menerusi 7 sesi berstruktur: 1) Kenal pasti masalah & penetapan matlamat, 2) Analisis faedah-kerugian (Decisional Matrix), 3) Bimbingan motivasi, 4) Program perubahan tingkah laku berasaskan konsep 3As (Accessibility, Availability, Anonymity), 5) Pengurusan masa, 6) Aktivasi sensori fizikal, dan 7) Terapi kognitif mencabar kepercayaan seks.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 67 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-68</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah itu konsep 3As di dalam pemulihan ketagihan internet / pornografi?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Concept 3As merujuk kepada: Accessibility (kemudahan akses peranti), Availability (capaian internet/gajet), dan Anonymity (sifat tanpa nama/kerahsiaan melayari talian). Rawatan memfokuskan kepada menyekat, mengehadkan, dan mengawal tiga paksi ini.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 68 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-69</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah teknik 'Sensory Activation' membantu kepulihan pesakit ketagihan bukan substans?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Melatih klien melakukan aktiviti fizikal sihat yang merangsang dan memuaskan enam deria utama manusia (penglihatan, rasa, sentuhan, bau, pendengaran, dan keseimbangan tubuh) bagi menggantikan rangsangan palsu daripada gajet/pornografi.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 69 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="tingkahlaku">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-70</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Adakah Hospital Tuanku Fauziah (HTF) Kangar mempunyai Pakar Psikiatri Ketagihan residen?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Setiap Pakar Psikiatri Am di HTF Kangar mempunyai keupayaan merawat kes ketagihan tingkah laku. Walau bagaimanapun, kes yang sangat mencabar atau kompleks boleh dirujuk untuk konsultasi pakar khusus di pusat psikiatri ketagihan KKM yang terpilih.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Ketagihan Tingkah Laku</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 70 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-71</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Mengapakah saringan URICA sangat penting sebelum rawatan ketagihan dijalankan?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Kerana saringan University of Rhode Island Change Assessment (32 soalan) membantu mengukur tahap kesediaan minda klien untuk berubah, membolehkan kaunselor menyesuaikan teknik bimbingan mengikut fasa kesediaan mereka.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 71 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-72</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah 4 fasa kesediaan berubah yang diukur oleh borang URICA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        1) Pra-renungan (Precontemplation - skor <= 8), 2) Renungan (Contemplation - skor 8-11), 3) Persediaan/Tindakan (Preparation/Action - skor 11-14), dan 4) Penyelenggaraan (Maintenance - skor >= 14).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 72 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-73</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah aspek kualiti hidup yang diukur menerusi borang saringan WHOQOL-BREEF?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Mengukur kepuasan klien terhadap 4 domain utama: kesihatan fizikal (tenaga, tidur, sakit), kesihatan psikologi (emosi, rupa paras, makna hidup), hubungan sosial, serta keselamatan dan kesihatan persekitaran harian.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 73 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-74</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah pengkelasan peratusan kesihatan kualiti hidup WHOQOL-BREEF dikira?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Jumlah skor keseluruhan (skor maksima 75) ditukarkan kepada peratusan kesejahteraan harian: >= 80% (Kualiti Hidup Cemerlang), 60%-79% (Kualiti Hidup Sederhana), dan di bawah 60% (Kualiti Hidup Rendah/Sengsara).
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 74 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-75</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah itu saringan 'Opiate Treatment Index (OTI)' di dalam saringan kemasukan OSCA?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Satu bentuk penilaian klinikal multi-dimensi untuk mengukur corak penggunaan dadah opiat, status kesihatan fizikal, tahap penglibatan jenayah/sosial, serta mengukur amalan risiko suntikan jarum dan tingkah laku seksual berisiko.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 75 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-76</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah soalan-soalan risiko suntikan jarum yang terkandung di dalam seksyen 2 borang OTI?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Mengukur kekerapan menyuntik dadah sebulan lalu, kekerapan menggunakan jarum bekas orang lain, bilangan orang yang berkongsi jarum sebelum klien, serta kekerapan orang lain menggunakan jarum selepas digunakan oleh klien.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 76 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-77</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah tindakan jika pesakit memperoleh skor risiko suntikan OTI yang tinggi?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Skor risiko suntikan >= 12 dikategorikan sebagai risiko kritikal/sangat tinggi. Pesakit mestilah dirujuk segera untuk ujian makmal jangkitan kuman (HIV, Hepatitis B/C) dan diberikan intervensi bimbingan pengurangan kemudaratan tegar.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 77 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-78</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah 2 soalan saringan awal depresi di bawah saringan 'Whooley'?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        1) Sepanjang bulan lalu, adakah anda sering terganggu oleh perasaan sedih, murung, atau tiada harapan? 2) Sepanjang bulan lalu, adakah anda sering terganggu oleh kurang minat atau keseronokan dalam melakukan aktiviti harian?
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 78 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-79</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Apakah 2 soalan saringan awal keresahan di bawah saringan 'GAD-2'?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        1) Sepanjang 2 minggu lalu, berapa kerapkah anda terganggu oleh perasaan bimbang, cemas, atau gelisah? 2) Sepanjang 2 minggu lalu, berapa kerapkah anda merasa tidak mampu mengawal atau menghentikan kebimbangan anda?
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Accordion Item 79 -->
+            <div class="faq-item bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden transition-all duration-300 hover:border-brandYellow-500 hover:shadow-md" data-category="saringan">
+                <button class="w-full text-left px-5 py-5 flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                    <div class="flex items-center space-x-3 pr-4">
+                        <span class="text-[10px] font-black px-2 py-1 bg-slate-100 text-slate-500 rounded-md tracking-wider flex-shrink-0">FAQ-80</span>
+                        <h3 class="text-xs md:text-sm font-bold text-brandDark leading-snug">Bagaimanakah saringan minda sihat dwi-peringkat KKM dijalankan di portal saringan digital?</h3>
+                    </div>
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 transition-transform duration-300 transform fold-icon">
+                        <span class="text-sm font-extrabold">+</span>
+                    </div>
+                </button>
+                <div class="faq-answer hidden px-5 pb-5 border-t border-slate-100 bg-slate-50/50">
+                    <p class="text-xs md:text-sm text-slate-600 leading-relaxed pt-4">
+                        Klien hanya perlu menjawab 4 soalan awal (2 Whooley & 2 GAD-2). Sekiranya saringan Whooley bernilai positif, borang kemurungan penuh PHQ-9 dipaparkan secara dinamik. Sekiranya GAD-2 dikesan positif (skor >= 3), baki soalan keresahan GAD-7 dipaparkan untuk pengiraan penuh.
+                    </p>
+                    <div class="mt-3 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                        <span>Sektor Rujukan KKM</span>
+                        <span class="bg-brandYellow-50 text-brandYellow-700 px-2 py-0.5 rounded-full border border-brandYellow-100">Saringan & Kesihatan</span>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+
+        <!-- NO FAQ STATE -->
+        <div id="no-faq-state" class="hidden text-center py-16 bg-white border border-slate-200 rounded-3xl space-y-4">
+            <span class="text-4xl">🔍</span>
+            <h3 class="text-lg font-bold text-brandDark">Tiada keputusan ditemui</h3>
+            <p class="text-xs text-slate-500 max-w-sm mx-auto">
+                Kami tidak menemui sebarang soalan yang sepadan dengan carian anda. Cuba taip kata kunci yang lain seperti 'urin' atau 'urin'.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- FLOATING BACK TO TOP BUTTON -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 p-4 bg-brandDark hover:bg-slate-800 text-white rounded-full shadow-2xl transition duration-300 transform scale-0 hover:scale-110 z-50 focus:outline-none" onclick="scrollToTop()">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Footer Container (navigation.js will inject dynamic footer here) -->
+    <div id="footer-container"></div>
+
+    <!-- SCRIPT FOR NAVIGATION.JS LINKING -->
+    <script src="navigation.js"></script>
+
+    <!-- PORTAL JAVASCRIPT LOGIC -->
+    <script>
+        let currentCategory = 'all';
+
+        // ACCORDION SLIDE & ACCORDION STATE
+        function toggleFaq(button) {
+            const item = button.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.fold-icon');
+            
+            const isOpen = !answer.classList.contains('hidden');
+            
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.fold-icon').forEach(el => {
+                el.style.transform = 'rotate(0deg)';
+                el.querySelector('span').textContent = '+';
+            });
+            
+            // Toggle clicked
+            if (!isOpen) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(45deg)';
+                icon.querySelector('span').textContent = '×';
+            }
+        }
+
+        // CATEGORY FILTER
+        function filterCategory(category, button) {
+            currentCategory = category;
+            
+            // Highlight button
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-600 hover:border-slate-300 transition-all duration-200";
+            });
+            button.className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold border border-brandYellow-500 bg-brandYellow-500 text-slate-900 transition-all duration-200";
+            
+            filterFaq();
+        }
+
+        // COMBINED LIVE FILTER (SEARCH + CATEGORY)
+        function filterFaq() {
+            const searchInput = document.getElementById('faq-search').value.toLowerCase().trim();
+            const items = document.querySelectorAll('.faq-item');
+            let visibleCount = 0;
+            
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                const questionText = item.querySelector('h3').textContent.toLowerCase();
+                const answerText = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                const searchMatch = questionText.includes(searchInput) || answerText.includes(searchInput);
+                const categoryMatch = (currentCategory === 'all' || itemCategory === currentCategory);
+                
+                if (searchMatch && categoryMatch) {
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            // Toggle No State View
+            const noState = document.getElementById('no-faq-state');
+            if (visibleCount === 0) {
+                noState.classList.remove('hidden');
+            } else {
+                noState.classList.add('hidden');
+            }
+        }
+
+        // BACK TO TOP SCROLL DETECTION
+        window.addEventListener('scroll', () => {
+            const btt = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                btt.classList.remove('scale-0');
+                btt.classList.add('scale-100');
+            } else {
+                btt.classList.remove('scale-100');
+                btt.classList.add('scale-0');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

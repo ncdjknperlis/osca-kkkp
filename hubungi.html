@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - OSCA Klinik Kesihatan Kuala Perlis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            500: '#ffb800', /* Kuning Emas Premium */
+                            600: '#d97706',
+                            800: '#92400e',
+                        },
+                        brandDark: '#0f172a',
+                        brandLight: '#ffffff',
+                        bgSecondary: '#f8fafc'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-bgSecondary text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER INJECTOR CONTAINER -->
+    <div id="header-container"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Hero Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-block text-[10px] uppercase font-black tracking-widest text-brandYellow-600 bg-brandYellow-50 border border-brandYellow-200/60 px-3 py-1.5 rounded-md mb-3">
+                    Pusat Perhubungan Khas
+                </span>
+                <h1 class="text-4xl font-black text-brandDark tracking-tight leading-none">
+                    Hubungi Pasukan Kami
+                </h1>
+                <p class="text-slate-500 mt-4 text-sm md:text-base leading-relaxed">
+                    Kami di OSCA Klinik Kesihatan Kuala Perlis sentiasa bersedia untuk mendengar, membimbing, dan membantu perjalanan pemulihan anda secara sulit, selamat, dan profesional.
+                </p>
+            </div>
+
+            <!-- Bento-Grid Layout: Info & Map (Tanpa Borang) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- SISI KIRI: KAD MAKLUMAT HUBUNGAN (5 Lajur) -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <!-- Kad 1: Alamat Fizikal -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition duration-200 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 h-full w-1.5 bg-brandYellow-500"></div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brandYellow-50 flex items-center justify-center text-xl flex-shrink-0">
+                                📍
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-xs uppercase font-extrabold text-brandYellow-600 tracking-wider">Alamat Fizikal</h3>
+                                <p class="text-slate-800 font-bold text-sm leading-relaxed">
+                                    Klinik Kesihatan Kuala Perlis
+                                </p>
+                                <p class="text-slate-500 text-xs leading-relaxed">
+                                    Jalan KK Kuala Perlis,<br>
+                                    02000 Kuala Perlis,<br>
+                                    Perlis Indera Kayangan.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2">
+                                    <a href="https://maps.google.com/?q=Klinik+Kesihatan+Kuala+Perlis" target="_blank" class="inline-flex items-center space-x-1.5 text-[10px] font-bold text-brandYellow-600 bg-brandYellow-50 hover:bg-brandYellow-100 px-3 py-2 rounded-lg transition">
+                                        <span>Buka Google Maps</span>
+                                        <span>➔</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kad 2: Talian Hubungan -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition duration-200 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 h-full w-1.5 bg-blue-500"></div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-xl flex-shrink-0">
+                                📞
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-xs uppercase font-extrabold text-blue-600 tracking-wider">Talian Hubungan</h3>
+                                <p class="text-slate-800 font-bold text-sm">
+                                    No. Telefon Pejabat:
+                                </p>
+                                <a href="tel:+6049855003" class="block text-slate-600 hover:text-blue-600 font-black text-lg transition tracking-wide">
+                                    +604-985 5003
+                                </a>
+                                <p class="text-slate-500 text-xs leading-relaxed pt-1">
+                                    Sila hubungi nombor di atas pada waktu pejabat untuk sebarang pertanyaan rasmi atau urusan rujukan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kad 3: Waktu Operasi Perkhidmatan -->
+                    <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition duration-200 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 h-full w-1.5 bg-emerald-500"></div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-xl flex-shrink-0">
+                                🕒
+                            </div>
+                            <div class="space-y-3 w-full">
+                                <h3 class="text-xs uppercase font-extrabold text-emerald-600 tracking-wider">Waktu Operasi OSCA</h3>
+                                <div class="space-y-2 text-xs">
+                                    <div class="flex justify-between items-center border-b border-slate-100 pb-2">
+                                        <span class="text-slate-500 font-semibold">Isnin - Jumaat</span>
+                                        <span class="text-slate-800 font-extrabold">8:00 AM - 5:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between items-center border-b border-slate-100 pb-2">
+                                        <span class="text-slate-500 font-semibold">Rehat Tengahari</span>
+                                        <span class="text-slate-800 font-extrabold">1:00 PM - 2:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-rose-600 font-bold">
+                                        <span>Sabtu, Ahad & Cuti Am</span>
+                                        <span>Tutup</span>
+                                    </div>
+                                </div>
+                                <p class="text-[10px] text-slate-400 italic leading-relaxed pt-1">
+                                    *Perkhidmatan rawatan gantian dan kaunseling berjadual adalah tertakluk kepada janji temu pesakit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SISI KANAN: LIVE GOOGLE MAPS (7 Lajur) -->
+                <div class="lg:col-span-7 h-full">
+                    
+                    <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition duration-200 h-full flex flex-col justify-between">
+                        
+                        <!-- Header Map -->
+                        <div class="p-2 mb-4">
+                            <h3 class="text-base font-extrabold text-brandDark">Peta Lokasi Klinik Kesihatan Kuala Perlis</h3>
+                            <p class="text-slate-500 text-xs mt-1">Gunakan peta satelit interaktif di bawah untuk mendapatkan panduan arah pemanduan yang tepat.</p>
+                        </div>
+                        
+                        <!-- Map Frame Wrapper with Responsive Aspect Ratio -->
+                        <div class="relative w-full h-[400px] md:h-[480px] rounded-xl overflow-hidden border border-slate-100">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d589.3965387507659!2d100.13412212427123!3d6.397675138966068!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304c9b867ea3ef33%3A0x2be341ea37237b14!2sKlinik%20Kesihatan%20Kuala%20Perlis!5e0!3m2!1sms!2smy!4v1784175285005!5m2!1sms!2smy"
+                                class="absolute top-0 left-0 w-full h-full border-0" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+
+                        <!-- Footer Map Info -->
+                        <div class="mt-4 p-3 bg-slate-50 rounded-xl flex items-center space-x-3 text-xs text-slate-500">
+                            <span class="text-base">🚗</span>
+                            <span>Klinik Kesihatan Kuala Perlis terletak berdekatan dengan kawasan Jeti Kuala Perlis, memudahkan akses bagi penduduk tempatan dan luar kawasan.</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER INJECTOR CONTAINER -->
+    <div id="footer-container"></div>
+
+    <script src="navigation.js"></script>
+</body>
+</html>
